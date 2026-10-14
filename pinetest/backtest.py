@@ -2,6 +2,8 @@
 
 - Signals are computed on the close of bar i; market orders fill at the open of bar i+1.
 - Stop entry orders placed on bar i fill on bar i+1 at the level, or at the open if it gaps past.
+- Extra stop-exit levels (e.g. the price of the opposite EMA cross) tighten the SL; with
+  `reverse`, hitting one flips the position at that price.
 - Stop/limit exits become active on the bar after the entry fill (as in the Pine scripts,
   which only place strategy.exit once strategy.position_size > 0).
 - When stop and limit could both trigger inside one bar, the intrabar path follows
@@ -71,6 +73,16 @@ class Signals:
     # Stop entry orders placed on bar i's close for bar i+1 (price level, NaN = no order).
     long_stop: pd.Series | None = None
     short_stop: pd.Series | None = None
+    # Side-specific market exits (flags) and extra stop-exit levels (NaN = none). An exit level
+    # only ever tightens the SL/breakeven stop; when it is the one hit, the reason is "cross".
+    long_exit: pd.Series | None = None
+    short_exit: pd.Series | None = None
+    long_exit_stop: pd.Series | None = None
+    short_exit_stop: pd.Series | None = None
+    # When an exit level is hit, open the opposite position at the same price.
+    reverse: bool = False
+    # Close at the open once a position has been held this many bars.
+    max_bars: int | None = None
     meta: dict = field(default_factory=dict)
 
 
@@ -94,6 +106,10 @@ def run(df: pd.DataFrame, signals: Signals, initial_capital: float = 10_000.0,
     exit_ = _flags(signals.exit, len(c))
     long_stop = _levels(signals.long_stop, len(c))
     short_stop = _levels(signals.short_stop, len(c))
+    long_exit = _flags(signals.long_exit, len(c))
+    short_exit = _flags(signals.short_exit, len(c))
+    long_exit_stop = _levels(signals.long_exit_stop, len(c))
+    short_exit_stop = _levels(signals.short_exit_stop, len(c))
     comm = commission_pct / 100
 
     cash = initial_capital
@@ -122,8 +138,10 @@ def run(df: pd.DataFrame, signals: Signals, initial_capital: float = 10_000.0,
     for i in range(len(c)):
         if i > 0:
             # Market orders from the previous bar's signals fill at this bar's open.
-            if side and exit_[i - 1]:
+            if side and (exit_[i - 1] or (long_exit if side > 0 else short_exit)[i - 1]):
                 close_position(i, o[i], "signal")
+            elif side and signals.max_bars and i - entry_bar >= signals.max_bars:
+                close_position(i, o[i], "time")
             elif not side and long_entry[i - 1]:
                 open_position(i, o[i], 1)
             elif not side and short_entry[i - 1]:
@@ -135,10 +153,14 @@ def run(df: pd.DataFrame, signals: Signals, initial_capital: float = 10_000.0,
                 open_position(i, min(o[i], short_stop[i - 1]), -1)
 
         if side and i > entry_bar:
+            exit_level = (long_exit_stop if side > 0 else short_exit_stop)[i - 1]
             hit = _protective_fill(side, o[i], h[i], l[i], entry_price, signals.stop_pct,
-                                   signals.limit_pct, be_active)
+                                   signals.limit_pct, be_active, exit_level)
             if hit:
+                was = side
                 close_position(i, *hit)
+                if signals.reverse and hit[1] == "cross":
+                    open_position(i, hit[0], -was)
 
         # Breakeven is armed on the bar's close, so the moved stop applies from the next bar
         # (the Pine script re-places strategy.exit once per bar).
@@ -155,18 +177,24 @@ def run(df: pd.DataFrame, signals: Signals, initial_capital: float = 10_000.0,
     return Result(trades, pd.Series(equity, index=df.index), initial_capital)
 
 
-def _protective_fill(side, o, h, l, entry_price, stop_pct, limit_pct, be_active=False):
+def _protective_fill(side, o, h, l, entry_price, stop_pct, limit_pct, be_active=False,
+                     exit_level=np.nan):
+    stops = []
     if be_active:
-        stop = entry_price
-    else:
-        stop = entry_price * (1 - side * stop_pct / 100) if stop_pct else None
+        stops.append((entry_price, "be"))
+    elif stop_pct:
+        stops.append((entry_price * (1 - side * stop_pct / 100), "stop"))
+    if not np.isnan(exit_level):
+        stops.append((exit_level, "cross"))
+    # The tightest stop wins: the highest one for a long, the lowest one for a short.
+    stop, reason = max(stops, key=lambda st: side * st[0]) if stops else (None, "stop")
     limit = entry_price * (1 + side * limit_pct / 100) if limit_pct else None
     if side < 0:
         # Mirror prices so that "favourable" is always up; mirror the fill back at the end.
         o, h, l = -o, -l, -h
         stop = -stop if stop is not None else None
         limit = -limit if limit is not None else None
-    hit = _long_fill(o, h, l, stop, limit, "be" if be_active else "stop")
+    hit = _long_fill(o, h, l, stop, limit, reason)
     if hit and side < 0:
         hit = (-hit[0], hit[1])
     return hit

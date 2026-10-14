@@ -1,0 +1,103 @@
+//@version=6
+// EMA laboratorij: biraš način ulaza i dodatnog izlaza. Iste opcije ima pinetest.strategies.ema_lab.
+//
+// Ulaz:
+//   Potvrđeni presjek  - market nalog na otvaranju nakon potvrđenog presjeka
+//   Rani               - stop nalog na točnoj cijeni pri kojoj bi se EMA-e presjekle na sljedećoj svijeći
+//   Predviđeni         - ulaz kad linearna ekstrapolacija razmaka EMA-i kaže da presjek dolazi za <= N svijeća
+//   Fade lažnog        - cijena je dotaknula cijenu presjeka, ali svijeća je zatvorila bez presjeka -> suprotno
+// Dodatni izlaz (uz SL/TP/BE):
+//   Rani               - stop na cijeni suprotnog presjeka (izlaz prije potvrde)
+//   Predviđeni         - izlaz kad je suprotni presjek predviđen za <= N svijeća
+//   Okretanje          - kao Rani, ali na toj cijeni odmah otvara suprotnu poziciju
+strategy("EMA Lab", overlay = true, initial_capital = 10000,
+     default_qty_type = strategy.percent_of_equity, default_qty_value = 100,
+     commission_type = strategy.commission.percent, commission_value = 0.1)
+
+fastLen     = input.int(9, "Brza EMA", minval = 1)
+slowLen     = input.int(21, "Spora EMA", minval = 2)
+slPct       = input.float(3, "Početni stop-loss % (0 = isključen)", minval = 0) / 100
+tpPct       = input.float(9, "Take-profit % (0 = isključen)", minval = 0) / 100
+beTrig      = input.float(3, "Breakeven nakon % (0 = isključen)", minval = 0) / 100
+entryMode   = input.string("Potvrđeni presjek", "Ulaz", options = ["Potvrđeni presjek", "Rani", "Predviđeni", "Fade lažnog"])
+exitMode    = input.string("Samo SL/TP/BE", "Dodatni izlaz", options = ["Samo SL/TP/BE", "Rani", "Predviđeni", "Okretanje"])
+predictBars = input.int(2, "Predviđanje: presjek za najviše N svijeća", minval = 1)
+maxBars     = input.int(0, "Vremenski izlaz nakon N svijeća (0 = isključen)", minval = 0)
+
+// Svi izračuni s povijesti su na globalnoj razini, da se računaju na svakoj svijeći.
+fast       = ta.ema(close, fastLen)
+slow       = ta.ema(close, slowLen)
+crossUp    = ta.crossover(fast, slow)
+crossDown  = ta.crossunder(fast, slow)
+aFast      = 2.0 / (fastLen + 1)
+aSlow      = 2.0 / (slowLen + 1)
+crossPrice = ((1 - aSlow) * slow - (1 - aFast) * fast) / (aFast - aSlow)
+spread     = fast - slow
+prevSpread = spread[1]
+prevLevel  = crossPrice[1]
+vel        = spread - prevSpread
+barsToCross = vel != 0 and math.sign(vel) != math.sign(spread) ? -spread / vel : na
+predUp     = spread < 0 and barsToCross <= predictBars
+predDown   = spread > 0 and barsToCross <= predictBars
+predUpEvt  = predUp and not predUp[1]
+predDnEvt  = predDown and not predDown[1]
+failedUp   = prevSpread < 0 and high >= prevLevel and spread < 0
+failedDown = prevSpread > 0 and low <= prevLevel and spread > 0
+
+longSig  = entryMode == "Potvrđeni presjek" ? crossUp : entryMode == "Predviđeni" ? predUpEvt : entryMode == "Fade lažnog" ? failedDown : false
+shortSig = entryMode == "Potvrđeni presjek" ? crossDown : entryMode == "Predviđeni" ? predDnEvt : entryMode == "Fade lažnog" ? failedUp : false
+
+var bool beActive = false
+
+if strategy.position_size == 0
+    beActive := false
+    if entryMode != "Rani"
+        // Ukloni zaostale naloge za okretanje kad je pozicija zatvorena na SL/TP.
+        strategy.cancel("Long")
+        strategy.cancel("Short")
+    if entryMode == "Rani"
+        if spread < 0
+            strategy.cancel("Short")
+            strategy.entry("Long", strategy.long, stop = crossPrice)
+        else if spread > 0
+            strategy.cancel("Long")
+            strategy.entry("Short", strategy.short, stop = crossPrice)
+    else if longSig
+        strategy.entry("Long", strategy.long)
+    else if shortSig
+        strategy.entry("Short", strategy.short)
+
+if strategy.position_size != 0
+    dir      = math.sign(strategy.position_size)
+    entry    = strategy.position_avg_price
+    entryBar = strategy.opentrades.entry_bar_index(strategy.opentrades - 1)
+    if beTrig > 0 and (dir > 0 ? high >= entry * (1 + beTrig) : low <= entry * (1 - beTrig))
+        beActive := true
+
+    float stopLvl = beActive ? entry : slPct > 0 ? entry * (1 - dir * slPct) : na
+    if (exitMode == "Rani" or exitMode == "Okretanje") and dir * spread > 0
+        stopLvl := na(stopLvl) ? crossPrice : dir > 0 ? math.max(stopLvl, crossPrice) : math.min(stopLvl, crossPrice)
+    float limitLvl = tpPct > 0 ? entry * (1 + dir * tpPct) : na
+
+    // Okretanje samo kad je cijena presjeka najbliži stop; suprotni stop nalog zatvara i otvara suprotnu poziciju.
+    flip = exitMode == "Okretanje" and dir * spread > 0 and stopLvl == crossPrice
+    if flip
+        strategy.entry(dir > 0 ? "Short" : "Long", dir > 0 ? strategy.short : strategy.long, stop = crossPrice)
+    else
+        strategy.cancel(dir > 0 ? "Short" : "Long")
+    float exitStop = flip ? na : stopLvl
+    if not na(exitStop) or not na(limitLvl)
+        strategy.exit("Izlaz", stop = exitStop, limit = limitLvl)
+    else
+        strategy.cancel("Izlaz")
+
+    if exitMode == "Rani" and dir * spread < 0
+        strategy.close_all()
+    if exitMode == "Predviđeni" and (dir > 0 ? predDown or spread < 0 : predUp or spread > 0)
+        strategy.close_all()
+    if maxBars > 0 and bar_index - entryBar >= maxBars - 1
+        strategy.close_all()
+
+plot(fast, "Brza EMA", color.teal)
+plot(slow, "Spora EMA", color.orange)
+plot(crossPrice, "Cijena presjeka (sljedeća svijeća)", color.new(color.fuchsia, 40), style = plot.style_stepline)

@@ -5,7 +5,8 @@ from pathlib import Path
 
 import pytest
 
-from pinetest.strategies import ema_anticipate, ema_breakeven, ema_cross, rsi_reversion
+from pinetest.strategies import (ENTRY_MODES, EXIT_MODES, ema_anticipate, ema_breakeven,
+                                 ema_cross, ema_lab, rsi_reversion)
 
 PINE = Path(__file__).parent.parent / "pine"
 
@@ -18,7 +19,29 @@ CASES = [
      "volMult": "vol_mult", "cvdLen": "cvd_len"}),
     ("ema_anticipate.pine", ema_anticipate, {"fastLen": "fast_len", "slowLen": "slow_len",
      "slPct": "sl_pct", "tpPct": "tp_pct", "beTrig": "be_pct"}),
+    ("ema_lab.pine", ema_lab, {"fastLen": "fast_len", "slowLen": "slow_len", "slPct": "sl_pct",
+     "tpPct": "tp_pct", "beTrig": "be_pct", "predictBars": "predict_bars", "maxBars": "max_bars"}),
 ]
+
+PINE_ENTRY = {"confirmed": "Potvrđeni presjek", "anticipate": "Rani", "predict": "Predviđeni",
+              "fade": "Fade lažnog"}
+PINE_EXIT = {"none": "Samo SL/TP/BE", "anticipate": "Rani", "predict": "Predviđeni",
+             "reverse": "Okretanje"}
+
+
+@pytest.mark.parametrize("pine_name,modes,labels,py_name", [
+    ("entryMode", ENTRY_MODES, PINE_ENTRY, "entry_mode"),
+    ("exitMode", EXIT_MODES, PINE_EXIT, "exit_mode"),
+])
+def test_lab_mode_options_match(pine_name, modes, labels, py_name):
+    src = (PINE / "ema_lab.pine").read_text()
+    m = re.search(rf'^{pine_name}\s*=\s*input\.string\("([^"]+)".*options = \[([^\]]+)\]', src, re.M)
+    assert m, pine_name
+    options = re.findall(r'"([^"]+)"', m.group(2))
+    assert options == [labels[mode] for mode in modes]
+    assert m.group(1) == labels[inspect.signature(ema_lab).parameters[py_name].default]
+    for label in options:
+        assert src.count(f'"{label}"') >= 2, f"option {label!r} is never used"
 
 
 @pytest.mark.parametrize("fname,func,mapping", CASES)

@@ -1,4 +1,5 @@
 """Signal generators mirroring pine/*.pine. Keep defaults in sync with the Pine inputs."""
+import numpy as np
 import pandas as pd
 
 from .backtest import Signals
@@ -61,5 +62,64 @@ def ema_anticipate(df: pd.DataFrame, fast_len: int = 9, slow_len: int = 21, sl_p
                    be_pct=be_pct, meta={"fast": fast, "slow": slow, "level": level})
 
 
+ENTRY_MODES = ("confirmed", "anticipate", "predict", "fade")
+EXIT_MODES = ("none", "anticipate", "predict", "reverse")
+
+
+def ema_lab(df: pd.DataFrame, fast_len: int = 9, slow_len: int = 21, sl_pct: float = 3,
+            tp_pct: float = 9, be_pct: float = 3, entry_mode: str = "confirmed",
+            exit_mode: str = "none", predict_bars: int = 2, max_bars: int = 0) -> Signals:
+    """EMA cross experiments; mirrors pine/ema_lab.pine. A value of 0 disables SL/TP/BE/max_bars.
+
+    entry_mode:
+      confirmed   market entry on the open after a confirmed cross
+      anticipate  stop order at the exact price that would make the EMAs cross on the next bar
+      predict     market entry when a linear extrapolation of the EMA spread puts the cross
+                  within `predict_bars` bars (the first bar this becomes true)
+      fade        trade against a failed cross: price touched the cross price but the bar
+                  closed without crossing
+    exit_mode (on top of SL/TP/BE):
+      anticipate  stop at the price of the opposite cross; market exit if it already crossed
+      predict     market exit when the opposite cross is predicted within `predict_bars` bars
+      reverse     like anticipate, but flip into the opposite position at the cross price
+    """
+    if entry_mode not in ENTRY_MODES or exit_mode not in EXIT_MODES:
+        raise ValueError(f"unknown mode {entry_mode!r}/{exit_mode!r}")
+    fast = ema(df["close"], fast_len)
+    slow = ema(df["close"], slow_len)
+    level = ema_cross_price(fast, slow, fast_len, slow_len)
+    spread = fast - slow
+    vel = spread.diff()
+    bars_to_cross = (-spread / vel).where((vel != 0) & (np.sign(vel) != np.sign(spread)))
+    pred_up = (spread < 0) & (bars_to_cross <= predict_bars)
+    pred_down = (spread > 0) & (bars_to_cross <= predict_bars)
+    never = pd.Series(False, index=df.index)
+
+    sig = Signals(entry=never, exit=never, stop_pct=sl_pct or None, limit_pct=tp_pct or None,
+                  be_pct=be_pct or None, max_bars=max_bars or None,
+                  meta={"fast": fast, "slow": slow, "level": level})
+    if entry_mode == "confirmed":
+        sig.entry, sig.short = crossover(fast, slow), crossunder(fast, slow)
+    elif entry_mode == "anticipate":
+        sig.long_stop, sig.short_stop = level.where(spread < 0), level.where(spread > 0)
+    elif entry_mode == "predict":
+        sig.entry = pred_up & ~pred_up.shift(1, fill_value=False)
+        sig.short = pred_down & ~pred_down.shift(1, fill_value=False)
+    else:  # fade
+        prev_level, prev_spread = level.shift(1), spread.shift(1)
+        sig.short = (prev_spread < 0) & (df["high"] >= prev_level) & (spread < 0)
+        sig.entry = (prev_spread > 0) & (df["low"] <= prev_level) & (spread > 0)
+
+    if exit_mode in ("anticipate", "reverse"):
+        sig.long_exit_stop, sig.short_exit_stop = level.where(spread > 0), level.where(spread < 0)
+        sig.reverse = exit_mode == "reverse"
+    if exit_mode == "anticipate":
+        sig.long_exit, sig.short_exit = spread < 0, spread > 0
+    elif exit_mode == "predict":
+        sig.long_exit, sig.short_exit = pred_down | (spread < 0), pred_up | (spread > 0)
+    return sig
+
+
 STRATEGIES = {"ema_cross": ema_cross, "rsi_reversion": rsi_reversion,
-              "ema_breakeven": ema_breakeven, "ema_anticipate": ema_anticipate}
+              "ema_breakeven": ema_breakeven, "ema_anticipate": ema_anticipate,
+              "ema_lab": ema_lab}
