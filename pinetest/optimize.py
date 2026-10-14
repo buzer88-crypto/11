@@ -15,7 +15,8 @@ def _slice(signals: Signals, start: int, stop: int) -> Signals:
     def cut(s):
         return None if s is None else s.iloc[start:stop].reset_index(drop=True)
     return replace(signals, entry=cut(signals.entry), exit=cut(signals.exit),
-                   short=cut(signals.short))
+                   short=cut(signals.short), long_stop=cut(signals.long_stop),
+                   short_stop=cut(signals.short_stop))
 
 
 def backtest_range(df: pd.DataFrame, signals: Signals, start: int, stop: int, **kw):

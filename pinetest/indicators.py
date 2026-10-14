@@ -40,6 +40,15 @@ def rsi(src: pd.Series, length: int) -> pd.Series:
     return out
 
 
+def ema_cross_price(fast: pd.Series, slow: pd.Series, fast_len: int, slow_len: int) -> pd.Series:
+    """The close that would make ta.ema(close, fast_len) equal ta.ema(close, slow_len) on the
+    next bar, given this bar's EMA values. EMAs are linear in close, so this is exact."""
+    if fast_len == slow_len:
+        raise ValueError("EMA lengths must differ")
+    a_fast, a_slow = 2 / (fast_len + 1), 2 / (slow_len + 1)
+    return ((1 - a_slow) * slow - (1 - a_fast) * fast) / (a_fast - a_slow)
+
+
 def volume_delta(df: pd.DataFrame) -> pd.Series:
     """Per-bar volume delta from the candle alone: +volume on an up candle, -volume on a down one;
     a doji falls back to the change from the previous close. True CVD needs trade-level

@@ -1,0 +1,44 @@
+//@version=6
+// Ulaz prije potvrđenog EMA presjeka: EMA je linearna u closeu, pa se točno izračuna cijena
+// pri kojoj bi se brza i spora EMA presjekle na sljedećoj svijeći. Na tu cijenu se stavi stop
+// nalog. Ako cijena dotakne razinu pa se vrati, presjek se ne potvrdi (lažni ulaz).
+// Izlaz kao u EMA Breakeven: početni SL, TP, a nakon beTrig % SL ide na ulaznu cijenu.
+strategy("EMA Anticipate", overlay = true, initial_capital = 10000,
+     default_qty_type = strategy.percent_of_equity, default_qty_value = 100,
+     commission_type = strategy.commission.percent, commission_value = 0.1)
+
+fastLen = input.int(9, "Brza EMA", minval = 1)
+slowLen = input.int(21, "Spora EMA", minval = 2)
+slPct   = input.float(3, "Početni stop-loss %", minval = 0) / 100
+tpPct   = input.float(9, "Take-profit %", minval = 0) / 100
+beTrig  = input.float(3, "Breakeven nakon %", minval = 0) / 100
+
+fast = ta.ema(close, fastLen)
+slow = ta.ema(close, slowLen)
+aFast = 2.0 / (fastLen + 1)
+aSlow = 2.0 / (slowLen + 1)
+crossPrice = ((1 - aSlow) * slow - (1 - aFast) * fast) / (aFast - aSlow)
+
+var bool beActive = false
+if strategy.position_size == 0
+    beActive := false
+    if fast < slow
+        strategy.cancel("Short")
+        strategy.entry("Long", strategy.long, stop = crossPrice)
+    else if fast > slow
+        strategy.cancel("Long")
+        strategy.entry("Short", strategy.short, stop = crossPrice)
+
+entry = strategy.position_avg_price
+if strategy.position_size > 0
+    if beTrig > 0 and high >= entry * (1 + beTrig)
+        beActive := true
+    strategy.exit("Izlaz L", "Long", stop = beActive ? entry : entry * (1 - slPct), limit = entry * (1 + tpPct))
+if strategy.position_size < 0
+    if beTrig > 0 and low <= entry * (1 - beTrig)
+        beActive := true
+    strategy.exit("Izlaz S", "Short", stop = beActive ? entry : entry * (1 + slPct), limit = entry * (1 - tpPct))
+
+plot(fast, "Brza EMA", color.teal)
+plot(slow, "Spora EMA", color.orange)
+plot(crossPrice, "Cijena presjeka (sljedeća svijeća)", color.new(color.fuchsia, 40), style = plot.style_stepline)

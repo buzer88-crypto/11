@@ -8,6 +8,9 @@
     (signal samo ako je volumen > 1.5× prosjeka zadnjih 20 svijeća) i opcionalni CVD filtar
     (neto delta volumena zadnjih 20 svijeća u smjeru signala; delta se procjenjuje iz boje svijeće
     jer OHLCV nema bid/ask podatke). Oba su isključena po zadanom.
+  - `ema_anticipate.pine` – isti izlazi, ali ulazi prije potvrđenog presjeka: računa točnu cijenu
+    closea pri kojoj bi se EMA-e presjekle na sljedećoj svijeći i tamo stavlja stop nalog
+    (crta "Cijena presjeka" na grafu). Ako se cijena vrati, presjek se ne potvrdi (lažni ulaz).
 - `pinetest/` – Python replika istih strategija i backtester koji oponaša TradingView zadane postavke
   (signal na zatvaranju svijeće, izvršenje na otvaranju sljedeće, 100% kapitala, provizija 0.1%).
 

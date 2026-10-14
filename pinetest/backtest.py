@@ -1,6 +1,7 @@
 """A small long/short backtester that mimics TradingView's broker emulator defaults.
 
 - Signals are computed on the close of bar i; market orders fill at the open of bar i+1.
+- Stop entry orders placed on bar i fill on bar i+1 at the level, or at the open if it gaps past.
 - Stop/limit exits become active on the bar after the entry fill (as in the Pine scripts,
   which only place strategy.exit once strategy.position_size > 0).
 - When stop and limit could both trigger inside one bar, the intrabar path follows
@@ -67,7 +68,16 @@ class Signals:
     limit_pct: float | None = None
     short: pd.Series | None = None
     be_pct: float | None = None
+    # Stop entry orders placed on bar i's close for bar i+1 (price level, NaN = no order).
+    long_stop: pd.Series | None = None
+    short_stop: pd.Series | None = None
     meta: dict = field(default_factory=dict)
+
+
+def _levels(series: pd.Series | None, n: int) -> np.ndarray:
+    if series is None:
+        return np.full(n, np.nan)
+    return series.to_numpy(dtype=float)
 
 
 def _flags(series: pd.Series | None, n: int) -> np.ndarray:
@@ -82,6 +92,8 @@ def run(df: pd.DataFrame, signals: Signals, initial_capital: float = 10_000.0,
     long_entry = _flags(signals.entry, len(c))
     short_entry = _flags(signals.short, len(c))
     exit_ = _flags(signals.exit, len(c))
+    long_stop = _levels(signals.long_stop, len(c))
+    short_stop = _levels(signals.short_stop, len(c))
     comm = commission_pct / 100
 
     cash = initial_capital
@@ -116,6 +128,11 @@ def run(df: pd.DataFrame, signals: Signals, initial_capital: float = 10_000.0,
                 open_position(i, o[i], 1)
             elif not side and short_entry[i - 1]:
                 open_position(i, o[i], -1)
+            # Stop entries: a level the bar opens beyond fills at the open, otherwise at the level.
+            elif not side and h[i] >= long_stop[i - 1]:
+                open_position(i, max(o[i], long_stop[i - 1]), 1)
+            elif not side and l[i] <= short_stop[i - 1]:
+                open_position(i, min(o[i], short_stop[i - 1]), -1)
 
         if side and i > entry_bar:
             hit = _protective_fill(side, o[i], h[i], l[i], entry_price, signals.stop_pct,

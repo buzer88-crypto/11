@@ -2,7 +2,7 @@
 import pandas as pd
 
 from .backtest import Signals
-from .indicators import crossover, crossunder, ema, rsi, sma, volume_delta
+from .indicators import crossover, crossunder, ema, ema_cross_price, rsi, sma, volume_delta
 
 
 def ema_cross(df: pd.DataFrame, fast_len: int = 9, slow_len: int = 21) -> Signals:
@@ -47,5 +47,19 @@ def volume_ok(df: pd.DataFrame, length: int, mult: float) -> pd.Series:
     return df["volume"] > mult * sma(df["volume"], length)
 
 
+def ema_anticipate(df: pd.DataFrame, fast_len: int = 9, slow_len: int = 21, sl_pct: float = 3,
+                   tp_pct: float = 9, be_pct: float | None = 3) -> Signals:
+    """Like ema_breakeven, but enters intrabar with a stop order at the exact price where the
+    EMAs would cross, instead of waiting for the close and entering on the next open.
+    If price touches the level and then falls back, the cross never confirms (a false start)."""
+    fast = ema(df["close"], fast_len)
+    slow = ema(df["close"], slow_len)
+    level = ema_cross_price(fast, slow, fast_len, slow_len)
+    never = pd.Series(False, index=df.index)
+    return Signals(entry=never, exit=never, long_stop=level.where(fast < slow),
+                   short_stop=level.where(fast > slow), stop_pct=sl_pct, limit_pct=tp_pct,
+                   be_pct=be_pct, meta={"fast": fast, "slow": slow, "level": level})
+
+
 STRATEGIES = {"ema_cross": ema_cross, "rsi_reversion": rsi_reversion,
-              "ema_breakeven": ema_breakeven}
+              "ema_breakeven": ema_breakeven, "ema_anticipate": ema_anticipate}
