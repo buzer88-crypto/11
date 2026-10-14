@@ -437,6 +437,11 @@ def row_metrics(c, w, px):
     return row, res
 
 
+def fmt(v):
+    """Grid values come back as floats after the mixed-hypothesis DataFrame; print 14 not 14.0."""
+    return f"{v:g}" if isinstance(v, (float, np.floating)) else str(v)
+
+
 def summarize(d):
     return {
         "n": int(len(d)),
@@ -559,16 +564,16 @@ def main():
         summary[h] = summarize(d)
     for col in ("side", "k", "H", "thr", "top_n"):
         for v, d in df[df.hyp == "ts_mr"].groupby(col):
-            summary[f"ts_mr_{col}={v}"] = summarize(d)
+            summary[f"ts_mr_{col}={fmt(v)}"] = summarize(d)
     for col in ("side", "freq", "score", "L", "k"):
         for v, d in df[df.hyp == "xs_rev"].groupby(col):
-            summary[f"xs_rev_{col}={v}"] = summarize(d)
+            summary[f"xs_rev_{col}={fmt(v)}"] = summarize(d)
     for col in ("mode", "W", "entry"):
         for v, d in df[df.hyp == "pair"].groupby(col):
-            summary[f"pair_{col}={v}"] = summarize(d)
+            summary[f"pair_{col}={fmt(v)}"] = summarize(d)
     for col in ("k", "H", "thr", "top_n"):
         for v, d in df[df.hyp == "alt_btc"].groupby(col):
-            summary[f"alt_btc_{col}={v}"] = summarize(d)
+            summary[f"alt_btc_{col}={fmt(v)}"] = summarize(d)
 
     # TRAIN-only selection over the whole grid.
     best = df.loc[df.train_sharpe.idxmax()]
