@@ -34,3 +34,11 @@ zadani parametri u `.pine` datotekama isti kao u Python verziji.
 `pinetest.optimize` bira parametre samo na prvih 70% podataka i zatim ih mjeri na zadnjih 30%.
 Gledaj `test_pct`, ne `train_pct`: ako najbolji parametri na train dijelu nisu dobri i na testu
 (ili je korelacija train/test blizu 0), to je prenaučenost, a ne pravi edge.
+
+## Kripto istraživanje (Python)
+
+`research/README.md` je sažetak testiranja 6 obitelji kripto strategija (1367 varijanti) na dnevnim podacima Coin Metrics, provjere BTC trenda s tri neovisne recenzije i SMC obrazaca na EURUSD 1H.
+
+- `pinetest/crypto_data.py`: panel podataka (datum × token) i univerzum top N tokena iz podataka poznatih tog dana.
+- `pinetest/portfolio.py`: dnevni backtester portfelja (trgovanje dan nakon signala, troškovi prema prometu, short naknada) i placebo kontrole.
+- `pinetest/events.py`, `pinetest/smc.py`: simulator trejdova s vlastitim SL/TP i limit nalozima te mehaničke definicije SMC obrazaca.

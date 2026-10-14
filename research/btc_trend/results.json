@@ -37,10 +37,10 @@
    },
    "test": {
     "sharpe": 0.735,
-    "cagr_pct": 18.187,
+    "cagr_pct": 18.2,
     "total_pct": 108.502,
     "max_dd_pct": -39.972,
-    "exposure": 0.43
+    "exposure": 0.431
    },
    "pre": {
     "sharpe": 1.826,
@@ -73,7 +73,7 @@
    },
    "test": {
     "sharpe": 0.393,
-    "cagr_pct": 7.455,
+    "cagr_pct": 7.46,
     "total_pct": 37.185,
     "max_dd_pct": -35.863,
     "exposure": 0.31
@@ -88,10 +88,10 @@
   },
   "placebo_percentile_test": 88.2,
   "placebo_percentile_pre": 99.0,
-  "test_sharpe_cost30": 0.607,
+  "test_sharpe_cost30": 0.608,
   "test_sharpe_cost50": 0.48,
-  "test_sharpe_lag0": 0.885,
-  "test_sharpe_lag2": 0.735
+  "test_sharpe_lag0": 0.886,
+  "test_sharpe_lag2": 0.736
  },
  "benchmarks": {
   "btc": {
@@ -103,9 +103,9 @@
     "exposure": 1.0
    },
    "test": {
-    "sharpe": 0.479,
-    "cagr_pct": 12.081,
-    "total_pct": 65.124,
+    "sharpe": 0.48,
+    "cagr_pct": 12.115,
+    "total_pct": 65.289,
     "max_dd_pct": -66.867,
     "exposure": 1.0
    },
@@ -134,8 +134,8 @@
    },
    "test": {
     "sharpe": 0.166,
-    "cagr_pct": -11.881,
-    "total_pct": -42.661,
+    "cagr_pct": -11.868,
+    "total_pct": -42.604,
     "max_dd_pct": -74.095,
     "exposure": 1.0
    },
@@ -151,14 +151,14 @@
     "2023": 90.7,
     "2024": 46.2,
     "2025": -10.9,
-    "2026": -28.8
+    "2026": -28.7
    }
   }
  },
  "grid_btc": {
   "median_sharpe": {
    "train": 0.891,
-   "test": 0.629,
+   "test": 0.63,
    "pre": 1.644
   },
   "n_beat_bh_sharpe": {
@@ -200,7 +200,7 @@
     },
     "test": {
      "sharpe": 0.598,
-     "cagr_pct": 15.554,
+     "cagr_pct": 15.564,
      "total_pct": 88.833,
      "max_dd_pct": -52.257,
      "exposure": 0.511
@@ -223,10 +223,10 @@
     },
     "test": {
      "sharpe": 0.28,
-     "cagr_pct": 2.475,
+     "cagr_pct": 2.477,
      "total_pct": 11.35,
      "max_dd_pct": -52.173,
-     "exposure": 0.47
+     "exposure": 0.471
     },
     "pre": {
      "sharpe": 2.556,
@@ -252,10 +252,10 @@
     },
     "test": {
      "sharpe": 0.386,
-     "cagr_pct": 7.618,
+     "cagr_pct": 7.623,
      "total_pct": 38.105,
      "max_dd_pct": -47.664,
-     "exposure": 0.497
+     "exposure": 0.496
     },
     "pre": {
      "sharpe": 1.494,
@@ -275,7 +275,7 @@
     },
     "test": {
      "sharpe": 0.292,
-     "cagr_pct": 2.997,
+     "cagr_pct": 2.999,
      "total_pct": 13.866,
      "max_dd_pct": -56.285,
      "exposure": 0.471
@@ -304,10 +304,10 @@
     },
     "test": {
      "sharpe": 0.735,
-     "cagr_pct": 18.187,
+     "cagr_pct": 18.2,
      "total_pct": 108.502,
      "max_dd_pct": -39.972,
-     "exposure": 0.43
+     "exposure": 0.431
     },
     "pre": {
      "sharpe": 1.826,
@@ -327,7 +327,7 @@
     },
     "test": {
      "sharpe": 0.393,
-     "cagr_pct": 7.455,
+     "cagr_pct": 7.46,
      "total_pct": 37.185,
      "max_dd_pct": -35.863,
      "exposure": 0.31
@@ -356,7 +356,7 @@
     },
     "test": {
      "sharpe": 0.459,
-     "cagr_pct": 9.449,
+     "cagr_pct": 9.455,
      "total_pct": 48.736,
      "max_dd_pct": -41.296,
      "exposure": 0.422
@@ -379,7 +379,7 @@
     },
     "test": {
      "sharpe": 0.284,
-     "cagr_pct": 4.15,
+     "cagr_pct": 4.152,
      "total_pct": 19.576,
      "max_dd_pct": -34.23,
      "exposure": 0.314
@@ -407,11 +407,11 @@
      "exposure": 0.554
     },
     "test": {
-     "sharpe": 0.782,
-     "cagr_pct": 22.323,
-     "total_pct": 142.545,
+     "sharpe": 0.783,
+     "cagr_pct": 22.366,
+     "total_pct": 142.787,
      "max_dd_pct": -36.581,
-     "exposure": 0.507
+     "exposure": 0.506
     },
     "pre": {
      "sharpe": 1.572,
@@ -431,7 +431,7 @@
     },
     "test": {
      "sharpe": 0.089,
-     "cagr_pct": -5.348,
+     "cagr_pct": -5.351,
      "total_pct": -21.469,
      "max_dd_pct": -59.258,
      "exposure": 0.487
@@ -459,8 +459,8 @@
      "exposure": 0.547
     },
     "test": {
-     "sharpe": 0.454,
-     "cagr_pct": 10.092,
+     "sharpe": 0.455,
+     "cagr_pct": 10.098,
      "total_pct": 52.619,
      "max_dd_pct": -42.719,
      "exposure": 0.501
@@ -483,10 +483,10 @@
     },
     "test": {
      "sharpe": 0.191,
-     "cagr_pct": -1.343,
+     "cagr_pct": -1.344,
      "total_pct": -5.772,
      "max_dd_pct": -58.104,
-     "exposure": 0.477
+     "exposure": 0.478
     },
     "pre": {
      "sharpe": 2.609,
@@ -511,11 +511,11 @@
      "exposure": 0.341
     },
     "test": {
-     "sharpe": 0.848,
-     "cagr_pct": 21.563,
-     "total_pct": 135.991,
+     "sharpe": 0.849,
+     "cagr_pct": 21.606,
+     "total_pct": 136.227,
      "max_dd_pct": -30.365,
-     "exposure": 0.434
+     "exposure": 0.433
     },
     "pre": {
      "sharpe": 1.614,
@@ -534,8 +534,8 @@
      "exposure": 0.265
     },
     "test": {
-     "sharpe": 0.192,
-     "cagr_pct": 1.501,
+     "sharpe": 0.193,
+     "cagr_pct": 1.502,
      "total_pct": 6.772,
      "max_dd_pct": -38.459,
      "exposure": 0.323
@@ -564,7 +564,7 @@
     },
     "test": {
      "sharpe": 0.511,
-     "cagr_pct": 11.051,
+     "cagr_pct": 11.058,
      "total_pct": 58.553,
      "max_dd_pct": -36.39,
      "exposure": 0.43
@@ -587,7 +587,7 @@
     },
     "test": {
      "sharpe": 0.27,
-     "cagr_pct": 3.724,
+     "cagr_pct": 3.726,
      "total_pct": 17.442,
      "max_dd_pct": -38.113,
      "exposure": 0.316
@@ -615,11 +615,11 @@
      "exposure": 0.538
     },
     "test": {
-     "sharpe": 0.798,
-     "cagr_pct": 23.263,
+     "sharpe": 0.799,
+     "cagr_pct": 23.279,
      "total_pct": 150.85,
      "max_dd_pct": -27.567,
-     "exposure": 0.52
+     "exposure": 0.521
     },
     "pre": {
      "sharpe": 1.63,
@@ -639,7 +639,7 @@
     },
     "test": {
      "sharpe": 0.35,
-     "cagr_pct": 6.054,
+     "cagr_pct": 6.058,
      "total_pct": 29.495,
      "max_dd_pct": -44.327,
      "exposure": 0.459
@@ -668,7 +668,7 @@
     },
     "test": {
      "sharpe": 0.576,
-     "cagr_pct": 14.826,
+     "cagr_pct": 14.836,
      "total_pct": 83.662,
      "max_dd_pct": -38.107,
      "exposure": 0.54
@@ -691,10 +691,10 @@
     },
     "test": {
      "sharpe": 0.27,
-     "cagr_pct": 2.301,
+     "cagr_pct": 2.302,
      "total_pct": 10.52,
      "max_dd_pct": -52.849,
-     "exposure": 0.455
+     "exposure": 0.456
     },
     "pre": {
      "sharpe": 2.781,
@@ -720,7 +720,7 @@
     },
     "test": {
      "sharpe": 0.817,
-     "cagr_pct": 21.035,
+     "cagr_pct": 21.049,
      "total_pct": 131.513,
      "max_dd_pct": -25.693,
      "exposure": 0.452
@@ -743,7 +743,7 @@
     },
     "test": {
      "sharpe": 0.454,
-     "cagr_pct": 9.299,
+     "cagr_pct": 9.305,
      "total_pct": 47.842,
      "max_dd_pct": -29.852,
      "exposure": 0.312
@@ -772,10 +772,10 @@
     },
     "test": {
      "sharpe": 0.616,
-     "cagr_pct": 14.812,
+     "cagr_pct": 14.821,
      "total_pct": 83.557,
      "max_dd_pct": -33.485,
-     "exposure": 0.473
+     "exposure": 0.472
     },
     "pre": {
      "sharpe": 1.678,
@@ -795,7 +795,7 @@
     },
     "test": {
      "sharpe": 0.332,
-     "cagr_pct": 5.586,
+     "cagr_pct": 5.59,
      "total_pct": 27.0,
      "max_dd_pct": -33.407,
      "exposure": 0.311
@@ -824,7 +824,7 @@
     },
     "test": {
      "sharpe": 0.724,
-     "cagr_pct": 20.855,
+     "cagr_pct": 20.869,
      "total_pct": 130.003,
      "max_dd_pct": -35.423,
      "exposure": 0.533
@@ -846,8 +846,8 @@
      "exposure": 0.613
     },
     "test": {
-     "sharpe": 0.422,
-     "cagr_pct": 9.411,
+     "sharpe": 0.423,
+     "cagr_pct": 9.417,
      "total_pct": 48.511,
      "max_dd_pct": -44.998,
      "exposure": 0.446
@@ -876,7 +876,7 @@
     },
     "test": {
      "sharpe": 0.637,
-     "cagr_pct": 17.181,
+     "cagr_pct": 17.193,
      "total_pct": 100.812,
      "max_dd_pct": -41.673,
      "exposure": 0.534
@@ -899,7 +899,7 @@
     },
     "test": {
      "sharpe": 0.128,
-     "cagr_pct": -3.091,
+     "cagr_pct": -3.093,
      "total_pct": -12.895,
      "max_dd_pct": -56.496,
      "exposure": 0.451
@@ -928,7 +928,7 @@
     },
     "test": {
      "sharpe": 0.71,
-     "cagr_pct": 18.097,
+     "cagr_pct": 18.109,
      "total_pct": 107.801,
      "max_dd_pct": -30.601,
      "exposure": 0.464
@@ -950,8 +950,8 @@
      "exposure": 0.272
     },
     "test": {
-     "sharpe": 0.478,
-     "cagr_pct": 10.002,
+     "sharpe": 0.479,
+     "cagr_pct": 10.008,
      "total_pct": 52.07,
      "max_dd_pct": -32.544,
      "exposure": 0.313
@@ -980,10 +980,10 @@
     },
     "test": {
      "sharpe": 0.644,
-     "cagr_pct": 15.815,
+     "cagr_pct": 15.826,
      "total_pct": 90.719,
      "max_dd_pct": -36.669,
-     "exposure": 0.467
+     "exposure": 0.468
     },
     "pre": {
      "sharpe": 1.55,
@@ -1031,9 +1031,9 @@
      "exposure": 0.551
     },
     "test": {
-     "sharpe": 0.544,
-     "cagr_pct": 13.485,
-     "total_pct": 74.415,
+     "sharpe": 0.545,
+     "cagr_pct": 13.52,
+     "total_pct": 74.59,
      "max_dd_pct": -44.446,
      "exposure": 0.519
     },
@@ -1054,9 +1054,9 @@
      "exposure": 0.585
     },
     "test": {
-     "sharpe": 0.451,
-     "cagr_pct": 10.683,
-     "total_pct": 56.258,
+     "sharpe": 0.452,
+     "cagr_pct": 10.716,
+     "total_pct": 56.414,
      "max_dd_pct": -56.69,
      "exposure": 0.5
     },
@@ -1084,10 +1084,10 @@
     },
     "test": {
      "sharpe": 0.598,
-     "cagr_pct": 15.686,
+     "cagr_pct": 15.697,
      "total_pct": 89.788,
      "max_dd_pct": -47.199,
-     "exposure": 0.51
+     "exposure": 0.509
     },
     "pre": {
      "sharpe": 1.549,
@@ -1107,10 +1107,10 @@
     },
     "test": {
      "sharpe": 0.437,
-     "cagr_pct": 9.991,
+     "cagr_pct": 9.997,
      "total_pct": 52.004,
      "max_dd_pct": -62.49,
-     "exposure": 0.497
+     "exposure": 0.496
     },
     "pre": {
      "sharpe": 2.41,
@@ -1135,9 +1135,9 @@
      "exposure": 0.338
     },
     "test": {
-     "sharpe": 0.624,
-     "cagr_pct": 14.575,
-     "total_pct": 81.904,
+     "sharpe": 0.625,
+     "cagr_pct": 14.611,
+     "total_pct": 82.086,
      "max_dd_pct": -34.661,
      "exposure": 0.437
     },
@@ -1158,9 +1158,9 @@
      "exposure": 0.265
     },
     "test": {
-     "sharpe": 0.546,
-     "cagr_pct": 12.209,
-     "total_pct": 65.956,
+     "sharpe": 0.547,
+     "cagr_pct": 12.239,
+     "total_pct": 66.096,
      "max_dd_pct": -36.978,
      "exposure": 0.329
     },
@@ -1187,11 +1187,11 @@
      "exposure": 0.334
     },
     "test": {
-     "sharpe": 0.71,
-     "cagr_pct": 17.736,
+     "sharpe": 0.711,
+     "cagr_pct": 17.748,
      "total_pct": 105.023,
      "max_dd_pct": -34.709,
-     "exposure": 0.434
+     "exposure": 0.433
     },
     "pre": {
      "sharpe": 1.566,
@@ -1211,10 +1211,10 @@
     },
     "test": {
      "sharpe": 0.495,
-     "cagr_pct": 10.731,
+     "cagr_pct": 10.738,
      "total_pct": 56.555,
      "max_dd_pct": -40.491,
-     "exposure": 0.327
+     "exposure": 0.326
     },
     "pre": {
      "sharpe": 2.501,
@@ -1239,11 +1239,11 @@
      "exposure": 0.579
     },
     "test": {
-     "sharpe": 0.634,
-     "cagr_pct": 16.44,
-     "total_pct": 95.284,
+     "sharpe": 0.635,
+     "cagr_pct": 16.477,
+     "total_pct": 95.479,
      "max_dd_pct": -22.788,
-     "exposure": 0.497
+     "exposure": 0.496
     },
     "pre": {
      "sharpe": 1.483,
@@ -1263,8 +1263,8 @@
     },
     "test": {
      "sharpe": 0.315,
-     "cagr_pct": 4.584,
-     "total_pct": 21.783,
+     "cagr_pct": 4.61,
+     "total_pct": 21.904,
      "max_dd_pct": -51.98,
      "exposure": 0.464
     },
@@ -1291,8 +1291,8 @@
      "exposure": 0.569
     },
     "test": {
-     "sharpe": 0.687,
-     "cagr_pct": 19.018,
+     "sharpe": 0.688,
+     "cagr_pct": 19.031,
      "total_pct": 115.024,
      "max_dd_pct": -33.586,
      "exposure": 0.498
@@ -1315,7 +1315,7 @@
     },
     "test": {
      "sharpe": 0.101,
-     "cagr_pct": -4.679,
+     "cagr_pct": -4.682,
      "total_pct": -19.0,
      "max_dd_pct": -64.02,
      "exposure": 0.472
@@ -1343,11 +1343,11 @@
      "exposure": 0.353
     },
     "test": {
-     "sharpe": 0.635,
-     "cagr_pct": 14.567,
-     "total_pct": 81.844,
+     "sharpe": 0.636,
+     "cagr_pct": 14.603,
+     "total_pct": 82.026,
      "max_dd_pct": -22.529,
-     "exposure": 0.431
+     "exposure": 0.43
     },
     "pre": {
      "sharpe": 1.386,
@@ -1366,11 +1366,11 @@
      "exposure": 0.272
     },
     "test": {
-     "sharpe": 0.374,
-     "cagr_pct": 6.861,
-     "total_pct": 33.882,
+     "sharpe": 0.375,
+     "cagr_pct": 6.886,
+     "total_pct": 33.995,
      "max_dd_pct": -38.598,
-     "exposure": 0.314
+     "exposure": 0.313
     },
     "pre": {
      "sharpe": 2.952,
@@ -1395,8 +1395,8 @@
      "exposure": 0.351
     },
     "test": {
-     "sharpe": 0.742,
-     "cagr_pct": 18.794,
+     "sharpe": 0.743,
+     "cagr_pct": 18.806,
      "total_pct": 113.248,
      "max_dd_pct": -27.606,
      "exposure": 0.432
@@ -1447,8 +1447,8 @@
      "exposure": 0.559
     },
     "test": {
-     "sharpe": 0.57,
-     "cagr_pct": 14.684,
+     "sharpe": 0.571,
+     "cagr_pct": 14.694,
      "total_pct": 82.664,
      "max_dd_pct": -31.037,
      "exposure": 0.535
@@ -1471,7 +1471,7 @@
     },
     "test": {
      "sharpe": 0.336,
-     "cagr_pct": 5.563,
+     "cagr_pct": 5.567,
      "total_pct": 26.879,
      "max_dd_pct": -42.932,
      "exposure": 0.47
@@ -1500,7 +1500,7 @@
     },
     "test": {
      "sharpe": 0.599,
-     "cagr_pct": 15.799,
+     "cagr_pct": 15.81,
      "total_pct": 90.605,
      "max_dd_pct": -35.086,
      "exposure": 0.534
@@ -1523,10 +1523,10 @@
     },
     "test": {
      "sharpe": -0.055,
-     "cagr_pct": -11.319,
+     "cagr_pct": -11.325,
      "total_pct": -41.034,
      "max_dd_pct": -61.553,
-     "exposure": 0.477
+     "exposure": 0.478
     },
     "pre": {
      "sharpe": 2.404,
@@ -1552,7 +1552,7 @@
     },
     "test": {
      "sharpe": 0.539,
-     "cagr_pct": 12.158,
+     "cagr_pct": 12.166,
      "total_pct": 65.622,
      "max_dd_pct": -29.715,
      "exposure": 0.463
@@ -1575,10 +1575,10 @@
     },
     "test": {
      "sharpe": 0.407,
-     "cagr_pct": 7.78,
+     "cagr_pct": 7.785,
      "total_pct": 39.018,
      "max_dd_pct": -26.892,
-     "exposure": 0.318
+     "exposure": 0.319
     },
     "pre": {
      "sharpe": 2.756,
@@ -1604,7 +1604,7 @@
     },
     "test": {
      "sharpe": 0.597,
-     "cagr_pct": 14.185,
+     "cagr_pct": 14.195,
      "total_pct": 79.196,
      "max_dd_pct": -31.909,
      "exposure": 0.465
@@ -1627,7 +1627,7 @@
     },
     "test": {
      "sharpe": 0.076,
-     "cagr_pct": -1.953,
+     "cagr_pct": -1.954,
      "total_pct": -8.305,
      "max_dd_pct": -42.038,
      "exposure": 0.324
@@ -1656,10 +1656,10 @@
     },
     "test": {
      "sharpe": 0.577,
-     "cagr_pct": 15.86,
+     "cagr_pct": 15.87,
      "total_pct": 91.042,
      "max_dd_pct": -33.277,
-     "exposure": 0.636
+     "exposure": 0.637
     },
     "pre": {
      "sharpe": 1.702,
@@ -1679,7 +1679,7 @@
     },
     "test": {
      "sharpe": -0.07,
-     "cagr_pct": -12.168,
+     "cagr_pct": -12.175,
      "total_pct": -43.475,
      "max_dd_pct": -67.083,
      "exposure": 0.524
@@ -1708,10 +1708,10 @@
     },
     "test": {
      "sharpe": 0.699,
-     "cagr_pct": 21.125,
+     "cagr_pct": 21.14,
      "total_pct": 132.274,
      "max_dd_pct": -28.049,
-     "exposure": 0.634
+     "exposure": 0.635
     },
     "pre": {
      "sharpe": 1.719,
@@ -1731,10 +1731,10 @@
     },
     "test": {
      "sharpe": -0.273,
-     "cagr_pct": -20.643,
+     "cagr_pct": -20.654,
      "total_pct": -63.821,
      "max_dd_pct": -75.068,
-     "exposure": 0.525
+     "exposure": 0.526
     },
     "pre": {
      "sharpe": 2.176,
@@ -1760,7 +1760,7 @@
     },
     "test": {
      "sharpe": 0.584,
-     "cagr_pct": 14.537,
+     "cagr_pct": 14.546,
      "total_pct": 81.633,
      "max_dd_pct": -25.454,
      "exposure": 0.544
@@ -1783,7 +1783,7 @@
     },
     "test": {
      "sharpe": -0.019,
-     "cagr_pct": -4.939,
+     "cagr_pct": -4.942,
      "total_pct": -19.968,
      "max_dd_pct": -51.753,
      "exposure": 0.36
@@ -1811,11 +1811,11 @@
      "exposure": 0.35
     },
     "test": {
-     "sharpe": 0.716,
-     "cagr_pct": 19.434,
+     "sharpe": 0.717,
+     "cagr_pct": 19.447,
      "total_pct": 118.35,
      "max_dd_pct": -26.441,
-     "exposure": 0.545
+     "exposure": 0.546
     },
     "pre": {
      "sharpe": 1.836,
@@ -1835,7 +1835,7 @@
     },
     "test": {
      "sharpe": -0.288,
-     "cagr_pct": -12.789,
+     "cagr_pct": -12.796,
      "total_pct": -45.213,
      "max_dd_pct": -60.068,
      "exposure": 0.364
