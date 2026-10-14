@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from pinetest.strategies import ema_cross, rsi_reversion
+from pinetest.strategies import ema_breakeven, ema_cross, rsi_reversion
 
 PINE = Path(__file__).parent.parent / "pine"
 
@@ -13,6 +13,8 @@ CASES = [
     ("ema_cross.pine", ema_cross, {"fastLen": "fast_len", "slowLen": "slow_len"}),
     ("rsi_reversion.pine", rsi_reversion, {"rsiLen": "rsi_len", "oversold": "oversold",
      "overbought": "overbought", "slPct": "sl_pct", "tpPct": "tp_pct"}),
+    ("ema_breakeven.pine", ema_breakeven, {"fastLen": "fast_len", "slowLen": "slow_len",
+     "slPct": "sl_pct", "tpPct": "tp_pct", "beTrig": "be_pct"}),
 ]
 
 

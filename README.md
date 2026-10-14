@@ -3,6 +3,8 @@
 - `pine/` – TradingView strategije (Pine Script v6). Kopiraj sadržaj u Pine Editor i klikni *Add to chart*.
   - `ema_cross.pine` – long kad brza EMA (9) presiječe sporu (21) prema gore, izlaz na suprotni presjek.
   - `rsi_reversion.pine` – long kad RSI(14) izađe iznad 30, izlaz kad prijeđe 70 ili na SL 5% / TP 10%.
+  - `ema_breakeven.pine` – long/short na EMA 9/21 presjek, početni SL 3%, TP 9%; kad cijena ode 3%
+    u plus, SL se pomiče na ulaznu cijenu (breakeven), a TP ostaje.
 - `pinetest/` – Python replika istih strategija i backtester koji oponaša TradingView zadane postavke
   (signal na zatvaranju svijeće, izvršenje na otvaranju sljedeće, 100% kapitala, provizija 0.1%).
 

@@ -4,6 +4,7 @@ Parameters are chosen on the first `train_frac` of the data and then scored on t
 which the search never saw. A large gap between the two scores means overfitting.
 """
 import itertools
+from dataclasses import replace
 
 import pandas as pd
 
@@ -11,9 +12,10 @@ from .backtest import Signals, run
 
 
 def _slice(signals: Signals, start: int, stop: int) -> Signals:
-    return Signals(signals.entry.iloc[start:stop].reset_index(drop=True),
-                   signals.exit.iloc[start:stop].reset_index(drop=True),
-                   signals.stop_pct, signals.limit_pct)
+    def cut(s):
+        return None if s is None else s.iloc[start:stop].reset_index(drop=True)
+    return replace(signals, entry=cut(signals.entry), exit=cut(signals.exit),
+                   short=cut(signals.short))
 
 
 def backtest_range(df: pd.DataFrame, signals: Signals, start: int, stop: int, **kw):
