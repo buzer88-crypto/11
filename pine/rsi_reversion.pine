@@ -1,0 +1,27 @@
+//@version=6
+// RSI mean reversion: long kad RSI izađe iz preprodane zone, izlaz kad uđe u prekupljenu zonu
+// ili na stop-loss / take-profit.
+strategy("RSI Reversion", overlay = false, initial_capital = 10000,
+     default_qty_type = strategy.percent_of_equity, default_qty_value = 100,
+     commission_type = strategy.commission.percent, commission_value = 0.1)
+
+rsiLen     = input.int(14, "RSI duljina", minval = 1)
+oversold   = input.float(30, "Preprodano")
+overbought = input.float(70, "Prekupljeno")
+slPct      = input.float(5, "Stop-loss %", minval = 0) / 100
+tpPct      = input.float(10, "Take-profit %", minval = 0) / 100
+
+r = ta.rsi(close, rsiLen)
+
+if ta.crossover(r, oversold) and strategy.position_size == 0
+    strategy.entry("Long", strategy.long)
+if ta.crossover(r, overbought)
+    strategy.close("Long")
+
+if strategy.position_size > 0
+    entry = strategy.position_avg_price
+    strategy.exit("SL/TP", "Long", stop = entry * (1 - slPct), limit = entry * (1 + tpPct))
+
+plot(r, "RSI", color.purple)
+hline(oversold, "Preprodano")
+hline(overbought, "Prekupljeno")

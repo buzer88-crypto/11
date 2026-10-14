@@ -1,0 +1,19 @@
+//@version=6
+// EMA crossover: long kad brza EMA presijece sporu prema gore, izlaz kad je presijece prema dolje.
+strategy("EMA Cross", overlay = true, initial_capital = 10000,
+     default_qty_type = strategy.percent_of_equity, default_qty_value = 100,
+     commission_type = strategy.commission.percent, commission_value = 0.1)
+
+fastLen = input.int(9, "Brza EMA", minval = 1)
+slowLen = input.int(21, "Spora EMA", minval = 2)
+
+fast = ta.ema(close, fastLen)
+slow = ta.ema(close, slowLen)
+
+if ta.crossover(fast, slow)
+    strategy.entry("Long", strategy.long)
+if ta.crossunder(fast, slow)
+    strategy.close("Long")
+
+plot(fast, "Brza EMA", color.teal)
+plot(slow, "Spora EMA", color.orange)
