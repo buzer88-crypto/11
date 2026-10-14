@@ -94,3 +94,28 @@ def test_order_block_is_last_opposite_candle_before_break():
     df = bars(rows)
     (s,) = [s for s in order_blocks(df, lookback=10) if s.bar == 15]
     assert s.side == 1 and s.price == 100.5 and s.stop < 98
+
+
+def test_pivots_need_right_bars_and_strict_extreme():
+    from pinetest.divergence import pivots
+    x = np.array([5, 4, 3, 2, 1, 2, 3, 4, 5, 6, 1, 2], dtype=float)
+    lows = pivots(x, 2, 2, low=True)
+    assert np.flatnonzero(lows).tolist() == [4]         # bar 10 lacks 2 right bars
+    assert not pivots(np.array([2, 1, 1, 2.0]), 1, 1, low=True)[1]      # ties are not pivots
+
+
+def test_regular_bullish_divergence_signals_after_confirmation():
+    from pinetest.divergence import rsi_divergences
+    # Fall hard to a first low, bounce, then grind to a slightly lower low on weaker momentum.
+    steps = [0.5] * 20 + [-3, 1] * 8 + [2.5] * 3 + [-1.4, 0.6] * 13 + [-0.4] + [2] * 12
+    c = 100 + np.cumsum(steps)
+    o = np.r_[c[0], c[:-1]]
+    df = pd.DataFrame({"open": o, "high": np.maximum(o, c) + 0.2, "low": np.minimum(o, c) - 0.2, "close": c})
+    setups = rsi_divergences(df, kind="regular", left=3, right=3, sides=(1,))
+    assert setups, "expected a bullish divergence"
+    s = setups[-1]
+    p = s.bar - 3                                        # the pivot is 3 bars before the signal
+    assert df["low"].iloc[p] <= df["low"].iloc[:p].min() + 1e-9 and s.stop < df["low"].iloc[p]
+    # No lookahead: the same setups appear when later bars are cut off.
+    cut = rsi_divergences(df.iloc[: s.bar + 2], kind="regular", left=3, right=3, sides=(1,))
+    assert [x.bar for x in cut] == [x.bar for x in setups if x.bar <= s.bar]
