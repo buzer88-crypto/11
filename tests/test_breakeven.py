@@ -99,3 +99,20 @@ def test_volume_filter_drops_low_volume_crosses():
     df.loc[cross_bars, "volume"] = 1000.0
     filtered = ema_breakeven(df, vol_filter=True)
     assert filtered.entry.equals(plain.entry) and filtered.short.equals(plain.short)
+
+
+def test_cvd_filter_requires_delta_in_signal_direction():
+    closes = [100] * 25 + [101, 102, 103, 104, 105] + [104, 102, 100, 98, 96]
+    df = make_ohlc(closes)
+    df["volume"] = 100.0
+    plain = ema_breakeven(df)
+    assert plain.entry.any() and plain.short.any()
+
+    with_cvd = ema_breakeven(df, cvd_filter=True, cvd_len=3)
+    # Long cross comes after up candles (positive delta), short cross after down candles.
+    assert with_cvd.entry.equals(plain.entry) and with_cvd.short.equals(plain.short)
+
+    # Mirror each open around its close: rising bars become red candles, so delta disagrees.
+    df["open"] = 2 * df["close"] - df["open"]
+    flipped = ema_breakeven(df, cvd_filter=True, cvd_len=3)
+    assert not flipped.entry.any() and not flipped.short.any()

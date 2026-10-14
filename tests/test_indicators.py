@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from pinetest.indicators import crossover, crossunder, ema, rma, rsi, sma
+from pinetest.indicators import crossover, crossunder, ema, rma, rsi, sma, volume_delta
 
 
 def test_ema_is_sma_seeded_then_recursive():
@@ -51,3 +51,11 @@ def test_sma_includes_current_bar():
     out = sma(pd.Series([1, 2, 3, 4]), 3)
     assert out.iloc[:2].isna().all()
     assert out.iloc[2:].tolist() == [2.0, 3.0]
+
+
+def test_volume_delta_signs_by_candle_then_previous_close():
+    df = pd.DataFrame({"open":   [10.0, 10, 11, 11, 11],
+                       "close":  [10.0, 11, 10, 11, 11],
+                       "volume": [5.0, 1, 2, 3, 4]})
+    # bar0 doji, no previous close -> 0; bar3 doji above prev close -> +; bar4 flat -> 0
+    assert volume_delta(df).tolist() == [0, 1, -2, 3, 0]

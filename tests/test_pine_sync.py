@@ -15,7 +15,7 @@ CASES = [
      "overbought": "overbought", "slPct": "sl_pct", "tpPct": "tp_pct"}),
     ("ema_breakeven.pine", ema_breakeven, {"fastLen": "fast_len", "slowLen": "slow_len",
      "slPct": "sl_pct", "tpPct": "tp_pct", "beTrig": "be_pct", "volLen": "vol_len",
-     "volMult": "vol_mult"}),
+     "volMult": "vol_mult", "cvdLen": "cvd_len"}),
 ]
 
 
@@ -39,10 +39,11 @@ def test_pine_brackets_balanced(fname):
         assert src.count(o) == src.count(c)
 
 
-def test_pine_volume_filter_off_by_default():
+@pytest.mark.parametrize("pine_name,py_name", [("useVol", "vol_filter"), ("useCvd", "cvd_filter")])
+def test_pine_filters_off_by_default(pine_name, py_name):
     src = (PINE / "ema_breakeven.pine").read_text()
-    assert re.search(r"^useVol\s*=\s*input\.bool\(false", src, re.M)
-    assert inspect.signature(ema_breakeven).parameters["vol_filter"].default is False
+    assert re.search(rf"^{pine_name}\s*=\s*input\.bool\(false", src, re.M)
+    assert inspect.signature(ema_breakeven).parameters[py_name].default is False
 
 
 @pytest.mark.parametrize("fname", [c[0] for c in CASES])

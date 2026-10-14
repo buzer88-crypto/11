@@ -40,6 +40,15 @@ def rsi(src: pd.Series, length: int) -> pd.Series:
     return out
 
 
+def volume_delta(df: pd.DataFrame) -> pd.Series:
+    """Per-bar volume delta from the candle alone: +volume on an up candle, -volume on a down one;
+    a doji falls back to the change from the previous close. True CVD needs trade-level
+    (bid/ask aggressor) data, which OHLCV bars do not have, so this is an approximation."""
+    sign = np.sign(df["close"] - df["open"])
+    prev = np.sign(df["close"].diff()).fillna(0)
+    return sign.where(sign != 0, prev) * df["volume"]
+
+
 def crossover(a: pd.Series | float, b: pd.Series | float) -> pd.Series:
     """ta.crossover: a > b now and a <= b on the previous bar."""
     a, b = _align(a, b)
