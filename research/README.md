@@ -137,4 +137,5 @@ git clone --depth 1 https://github.com/coinmetrics/data /home/user/coinmetrics/d
 cd /home/user/11
 python -m pytest
 PYTHONPATH=. python3 research/<obitelj>/run.py
+python3 research/check_summary.py    # provjerava svaki broj iz ovog README-a prema results.json
 ```
