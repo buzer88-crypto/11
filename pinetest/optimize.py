@@ -22,7 +22,7 @@ def backtest_range(df: pd.DataFrame, signals: Signals, start: int, stop: int, **
 
 
 def grid_search(df: pd.DataFrame, strategy, grid: dict, train_frac: float = 0.7,
-                valid=lambda p: True) -> pd.DataFrame:
+                valid=lambda p: True, **run_kw) -> pd.DataFrame:
     split = int(len(df) * train_frac)
     rows = []
     for values in itertools.product(*grid.values()):
@@ -30,8 +30,8 @@ def grid_search(df: pd.DataFrame, strategy, grid: dict, train_frac: float = 0.7,
         if not valid(params):
             continue
         signals = strategy(df, **params)
-        train = backtest_range(df, signals, 0, split)
-        test = backtest_range(df, signals, split, len(df))
+        train = backtest_range(df, signals, 0, split, **run_kw)
+        test = backtest_range(df, signals, split, len(df), **run_kw)
         rows.append({**params,
                      "train_pct": 100 * train.net_profit / train.initial_capital,
                      "test_pct": 100 * test.net_profit / test.initial_capital,
