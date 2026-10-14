@@ -1,0 +1,9 @@
+2015-03-17 08:00 {'bars_kept': 4833, 'setups_compared': 469, 'setup_differences': 0, 'trades_closed_before_cut': 65, 'trade_lists_differ': 0}
+2017-12-14 20:00 {'bars_kept': 10854, 'setups_compared': 1119, 'setup_differences': 0, 'trades_closed_before_cut': 143, 'trade_lists_differ': 0}
+2019-06-26 12:00 {'bars_kept': 14206, 'setups_compared': 1488, 'setup_differences': 0, 'trades_closed_before_cut': 187, 'trade_lists_differ': 0}
+2021-04-14 04:00 {'bars_kept': 18152, 'setups_compared': 1930, 'setup_differences': 0, 'trades_closed_before_cut': 242, 'trade_lists_differ': 0}
+2022-11-08 16:00 {'bars_kept': 21593, 'setups_compared': 2318, 'setup_differences': 0, 'trades_closed_before_cut': 290, 'trade_lists_differ': 0}
+2024-03-05 00:00 {'bars_kept': 24487, 'setups_compared': 2611, 'setup_differences': 0, 'trades_closed_before_cut': 331, 'trade_lists_differ': 0}
+2025-10-06 12:00 {'bars_kept': 27970, 'setups_compared': 2946, 'setup_differences': 0, 'trades_closed_before_cut': 365, 'trade_lists_differ': 0}
+2026-08-01 04:00 {'bars_kept': 29762, 'setups_compared': 3131, 'setup_differences': 0, 'trades_closed_before_cut': 388, 'trade_lists_differ': 0}
+{'entries_checked': 393, 'entries_not_at_next_open': 0, 'stops_not_at_pivot_extreme': np.int64(0), 'total_setup_or_trade_differences': 0}

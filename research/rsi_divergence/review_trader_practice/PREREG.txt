@@ -1,0 +1,68 @@
+PRE-REGISTRATION -- trader-practice lens, RSI divergence on BTC/USD 4h (written 2026-10-14 before any run)
+
+Question: is the study fair to how divergence traders actually trade? I test commonly taught
+RSI-divergence trading rules on the same data, costs, periods and selection protocol.
+
+DATA / PERIODS / COSTS (same as the study)
+  data/BTCUSD_4h.csv from 2013-01-01; RSI(14) Pine-compatible; ATR(14) as pinetest.smc.atr; EMA200.
+  PRE 2014-01-01..2017-12-31, TRAIN 2018-01-01..2021-12-31, TEST 2022-01-01..end. A trade belongs
+  to the period of its signal bar. Costs 0.1% per side (primary) and 0.05% (secondary), charged on
+  entry + exit notional, in R (multiples of initial risk). One trade at a time.
+
+GRID (3 x 2 x 5 x 2 x 11 = 660 configs)
+  detector (3):
+    rsi_pivstop  : TV-style pivots on RSI (left=right=lb), price compared at the RSI pivot bars,
+                   previous pivot 5..60 bars earlier, signal on pivot+right. Stop beyond the price
+                   extreme of the RSI-pivot bar (the study's rule).
+    rsi_swingstop: same signals, stop beyond the actual swing extreme = lowest low (long) / highest
+                   high (short) over [pivot-lb, signal bar].
+    price_pivot  : pivots on price (low for bullish, high for bearish; strict, left=right=lb);
+                   compare RSI at those two price-pivot bars (prev 5..60 bars earlier). Signal on
+                   pivot+right. Stop beyond the price pivot (equals the swing extreme).
+    All stops get the study's 0.1 ATR(signal bar) buffer.
+  lb (2): 3, 5
+  setup (5):
+    regbull     : regular bullish (price LL, RSI HL), long only, no filter
+    regbull_os  : regular bullish, long only, RSI at the FIRST (earlier) pivot < 30
+    regular     : regular bullish long + regular bearish short, no filter
+    regular_ext : regular, bullish needs first-pivot RSI < 30, bearish first-pivot RSI > 70
+    hidden_trend: hidden bullish long if close > EMA200, hidden bearish short if close < EMA200
+  entry (2):
+    next_open   : market at the open after the signal bar (study)
+    confirm     : wait for a close beyond the pivot bar's high (long) / low (short), checked from
+                  the signal bar itself up to 10 bars after it; enter at the next open. Cancelled
+                  if the stop trades first or no confirmation within 10 bars.
+  exit (11), all with the structural stop live from the fill bar (gap at open fills at the open;
+  stop beats any same-bar target):
+    rr1, rr2, rr3 : fixed target rr x risk, time stop at the close of bar 30 (study)
+    rsi50         : exit at the next open after the first close (fill bar on) with RSI >= 50
+                    (long) / <= 50 (short); cap 60 bars
+    rsi7030       : same with 70 (long) / 30 (short); cap 60 bars
+    oppdiv        : exit at the next open after an opposite regular divergence (same detector and
+                    lb, no filter) is confirmed on or after the fill bar; cap 60 bars
+    chand2, chand3: chandelier trailing stop max(initial stop, highest high since fill - k*ATR)
+                    (mirrored for shorts), updated on each close, used from the next bar; cap 60
+    time12, time30, time60: exit at the close of the N-th bar (fill bar = bar 1)
+
+SELECTION (on TRAIN at 0.1% cost, n >= 30): (a) highest average R, (b) highest trade Sharpe
+(mean R / std R). Both picks judged on TEST and PRE at 0.1% and 0.05%. Also repeat the pick at
+0.05% cost.
+
+PLACEBOS for each pick: 300 reps per period; random signal bars drawn uniformly between the first
+and last real signal bar of the period, same count, same side as each real trade, same risk % of
+entry, same exit rule (rr target / RSI level / next opposite divergence / chandelier / time),
+market entry at next open, one at a time. Report % of placebo avg R below the real avg R.
+
+GRID REPORTS: TEST median avg R; number of configs positive in TEST; number positive in all three
+periods (n=0 counts as not positive); same at 0.05% cost; marginal TEST medians per dimension
+value; Spearman rank correlation TRAIN vs TEST. Benchmark for "all three positive": the same count
+in a placebo version of the grid (each config's trades moved to random bars, same side/risk/exit).
+
+DECISION RULE (fixed now)
+  The study is called materially unfair to divergence traders if EITHER
+   (1) a TRAIN-chosen trader rule (pick a or b) has TEST avg R > 0 at 0.1% cost AND beats >= 90%
+       of random-bars-same-side placebos on TEST AND PRE avg R > 0; OR
+   (2) the trader-rule grid's TEST median avg R > 0, or its count of configs positive in all three
+       periods clearly exceeds the placebo-grid count (above the placebo 95th percentile).
+  Otherwise the negative result stands (trader rules do not rescue it), and I will quantify how
+  much each dimension moves the result.

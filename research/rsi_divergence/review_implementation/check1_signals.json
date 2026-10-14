@@ -1,0 +1,3710 @@
+{
+ "rsi": {
+  "nan_pattern_equal": true,
+  "max_abs_diff": 0.0
+ },
+ "signals": {
+  "lb5_left_strict_regular_bull": {
+   "tv_n": 148,
+   "study_n_raw": 150,
+   "both": 147,
+   "jaccard_pct": 97.35,
+   "tv_only": 1,
+   "study_only": 3,
+   "reasons": {
+    "study_only:equal_price_extreme": 1,
+    "tv_only:pivot_tie(centre)": 1,
+    "study_only:pivot_tie(previous pivot differs)": 2
+   },
+   "study_n_after_risk_filter": 149,
+   "dropped_by_open_beyond_stop": 1,
+   "since2014_tv_n": "138",
+   "since2014_mismatch": "4",
+   "details": [
+    {
+     "bar": 3525,
+     "date": "2014-08-11 12:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 4432,
+     "date": "2015-01-09 16:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 4450,
+     "date": "2015-01-12 16:00:00",
+     "who": "study_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 22508,
+     "date": "2023-04-10 08:00:00",
+     "who": "study_only",
+     "why": "pivot_tie(previous pivot differs)"
+    }
+   ]
+  },
+  "lb5_left_strict_hidden_bull": {
+   "tv_n": 261,
+   "study_n_raw": 257,
+   "both": 257,
+   "jaccard_pct": 98.47,
+   "tv_only": 4,
+   "study_only": 0,
+   "reasons": {
+    "tv_only:pivot_tie(centre)": 1,
+    "tv_only:pivot_tie(previous pivot differs)": 3
+   },
+   "study_n_after_risk_filter": 257,
+   "dropped_by_open_beyond_stop": 0,
+   "since2014_tv_n": "239",
+   "since2014_mismatch": "1",
+   "details": [
+    {
+     "bar": 123,
+     "date": "2013-01-21 12:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 1416,
+     "date": "2013-08-25 00:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 1776,
+     "date": "2013-10-24 00:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 3110,
+     "date": "2014-06-03 08:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    }
+   ]
+  },
+  "lb5_left_strict_regular_bear": {
+   "tv_n": 225,
+   "study_n_raw": 225,
+   "both": 224,
+   "jaccard_pct": 99.12,
+   "tv_only": 1,
+   "study_only": 1,
+   "reasons": {
+    "tv_only:pivot_tie(centre)": 1,
+    "study_only:pivot_tie(previous pivot differs)": 1
+   },
+   "study_n_after_risk_filter": 211,
+   "dropped_by_open_beyond_stop": 14,
+   "since2014_tv_n": "204",
+   "since2014_mismatch": "1",
+   "details": [
+    {
+     "bar": 145,
+     "date": "2013-01-25 04:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 8261,
+     "date": "2016-10-08 20:00:00",
+     "who": "study_only",
+     "why": "pivot_tie(previous pivot differs)"
+    }
+   ]
+  },
+  "lb5_left_strict_hidden_bear": {
+   "tv_n": 199,
+   "study_n_raw": 200,
+   "both": 197,
+   "jaccard_pct": 97.52,
+   "tv_only": 2,
+   "study_only": 3,
+   "reasons": {
+    "tv_only:pivot_tie(previous pivot differs)": 1,
+    "tv_only:pivot_tie(centre)": 1,
+    "study_only:pivot_tie(previous pivot differs)": 1,
+    "study_only:equal_price_extreme": 2
+   },
+   "study_n_after_risk_filter": 199,
+   "dropped_by_open_beyond_stop": 1,
+   "since2014_tv_n": "190",
+   "since2014_mismatch": "4",
+   "details": [
+    {
+     "bar": 1091,
+     "date": "2013-07-01 20:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 4423,
+     "date": "2015-01-08 04:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 4438,
+     "date": "2015-01-10 16:00:00",
+     "who": "study_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 7071,
+     "date": "2016-03-24 12:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 21194,
+     "date": "2022-09-03 08:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    }
+   ]
+  },
+  "lb5_strict_regular_bull": {
+   "tv_n": 149,
+   "study_n_raw": 150,
+   "both": 149,
+   "jaccard_pct": 99.33,
+   "tv_only": 0,
+   "study_only": 1,
+   "reasons": {
+    "study_only:equal_price_extreme": 1
+   },
+   "study_n_after_risk_filter": 149,
+   "dropped_by_open_beyond_stop": 1,
+   "since2014_tv_n": "139",
+   "since2014_mismatch": "1",
+   "details": [
+    {
+     "bar": 3525,
+     "date": "2014-08-11 12:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    }
+   ]
+  },
+  "lb5_strict_hidden_bull": {
+   "tv_n": 257,
+   "study_n_raw": 257,
+   "both": 257,
+   "jaccard_pct": 100.0,
+   "tv_only": 0,
+   "study_only": 0,
+   "reasons": {},
+   "study_n_after_risk_filter": 257,
+   "dropped_by_open_beyond_stop": 0,
+   "since2014_tv_n": "238",
+   "since2014_mismatch": 0,
+   "details": []
+  },
+  "lb5_strict_regular_bear": {
+   "tv_n": 225,
+   "study_n_raw": 225,
+   "both": 225,
+   "jaccard_pct": 100.0,
+   "tv_only": 0,
+   "study_only": 0,
+   "reasons": {},
+   "study_n_after_risk_filter": 211,
+   "dropped_by_open_beyond_stop": 14,
+   "since2014_tv_n": "205",
+   "since2014_mismatch": 0,
+   "details": []
+  },
+  "lb5_strict_hidden_bear": {
+   "tv_n": 198,
+   "study_n_raw": 200,
+   "both": 198,
+   "jaccard_pct": 99.0,
+   "tv_only": 0,
+   "study_only": 2,
+   "reasons": {
+    "study_only:equal_price_extreme": 2
+   },
+   "study_n_after_risk_filter": 199,
+   "dropped_by_open_beyond_stop": 1,
+   "since2014_tv_n": "190",
+   "since2014_mismatch": "2",
+   "details": [
+    {
+     "bar": 7071,
+     "date": "2016-03-24 12:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 21194,
+     "date": "2022-09-03 08:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    }
+   ]
+  },
+  "lb5_right_strict_regular_bull": {
+   "tv_n": 148,
+   "study_n_raw": 150,
+   "both": 147,
+   "jaccard_pct": 97.35,
+   "tv_only": 1,
+   "study_only": 3,
+   "reasons": {
+    "study_only:equal_price_extreme": 1,
+    "tv_only:pivot_tie(centre)": 1,
+    "study_only:pivot_tie(previous pivot differs)": 2
+   },
+   "study_n_after_risk_filter": 149,
+   "dropped_by_open_beyond_stop": 1,
+   "since2014_tv_n": "138",
+   "since2014_mismatch": "4",
+   "details": [
+    {
+     "bar": 3525,
+     "date": "2014-08-11 12:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 4421,
+     "date": "2015-01-07 20:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 4450,
+     "date": "2015-01-12 16:00:00",
+     "who": "study_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 22508,
+     "date": "2023-04-10 08:00:00",
+     "who": "study_only",
+     "why": "pivot_tie(previous pivot differs)"
+    }
+   ]
+  },
+  "lb5_right_strict_hidden_bull": {
+   "tv_n": 261,
+   "study_n_raw": 257,
+   "both": 257,
+   "jaccard_pct": 98.47,
+   "tv_only": 4,
+   "study_only": 0,
+   "reasons": {
+    "tv_only:pivot_tie(centre)": 1,
+    "tv_only:pivot_tie(previous pivot differs)": 3
+   },
+   "study_n_after_risk_filter": 257,
+   "dropped_by_open_beyond_stop": 0,
+   "since2014_tv_n": "239",
+   "since2014_mismatch": "1",
+   "details": [
+    {
+     "bar": 124,
+     "date": "2013-01-21 16:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 1416,
+     "date": "2013-08-25 00:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 1776,
+     "date": "2013-10-24 00:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 3110,
+     "date": "2014-06-03 08:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    }
+   ]
+  },
+  "lb5_right_strict_regular_bear": {
+   "tv_n": 225,
+   "study_n_raw": 225,
+   "both": 224,
+   "jaccard_pct": 99.12,
+   "tv_only": 1,
+   "study_only": 1,
+   "reasons": {
+    "tv_only:pivot_tie(centre)": 1,
+    "study_only:pivot_tie(previous pivot differs)": 1
+   },
+   "study_n_after_risk_filter": 211,
+   "dropped_by_open_beyond_stop": 14,
+   "since2014_tv_n": "204",
+   "since2014_mismatch": "1",
+   "details": [
+    {
+     "bar": 146,
+     "date": "2013-01-25 08:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 8261,
+     "date": "2016-10-08 20:00:00",
+     "who": "study_only",
+     "why": "pivot_tie(previous pivot differs)"
+    }
+   ]
+  },
+  "lb5_right_strict_hidden_bear": {
+   "tv_n": 199,
+   "study_n_raw": 200,
+   "both": 198,
+   "jaccard_pct": 98.51,
+   "tv_only": 1,
+   "study_only": 2,
+   "reasons": {
+    "tv_only:pivot_tie(previous pivot differs)": 1,
+    "study_only:equal_price_extreme": 2
+   },
+   "study_n_after_risk_filter": 199,
+   "dropped_by_open_beyond_stop": 1,
+   "since2014_tv_n": "190",
+   "since2014_mismatch": "2",
+   "details": [
+    {
+     "bar": 1091,
+     "date": "2013-07-01 20:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 7071,
+     "date": "2016-03-24 12:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 21194,
+     "date": "2022-09-03 08:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    }
+   ]
+  },
+  "lb3_left_strict_regular_bull": {
+   "tv_n": 140,
+   "study_n_raw": 176,
+   "both": 139,
+   "jaccard_pct": 78.53,
+   "tv_only": 1,
+   "study_only": 37,
+   "reasons": {
+    "study_only:range_offbyone(dist=5)": 36,
+    "tv_only:pivot_tie(centre)": 1,
+    "study_only:pivot_tie(previous pivot differs)": 1
+   },
+   "study_n_after_risk_filter": 175,
+   "dropped_by_open_beyond_stop": 1,
+   "since2014_tv_n": "131",
+   "since2014_mismatch": "37",
+   "details": [
+    {
+     "bar": 732,
+     "date": "2013-05-03 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2426,
+     "date": "2014-02-09 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2610,
+     "date": "2014-03-12 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2873,
+     "date": "2014-04-24 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2943,
+     "date": "2014-05-06 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3415,
+     "date": "2014-07-24 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3667,
+     "date": "2014-09-04 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4142,
+     "date": "2014-11-22 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4430,
+     "date": "2015-01-09 08:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 4462,
+     "date": "2015-01-14 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 5027,
+     "date": "2015-04-18 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 5662,
+     "date": "2015-08-02 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6634,
+     "date": "2016-01-11 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6728,
+     "date": "2016-01-27 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8446,
+     "date": "2016-11-08 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9166,
+     "date": "2017-03-08 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9834,
+     "date": "2017-06-28 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 10008,
+     "date": "2017-07-27 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 10664,
+     "date": "2017-11-13 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13050,
+     "date": "2018-12-16 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13860,
+     "date": "2019-04-30 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14901,
+     "date": "2019-10-20 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15025,
+     "date": "2019-11-10 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 16673,
+     "date": "2020-08-10 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18331,
+     "date": "2021-05-14 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21277,
+     "date": "2022-09-17 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21552,
+     "date": "2022-11-02 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 22472,
+     "date": "2023-04-04 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 22501,
+     "date": "2023-04-09 04:00:00",
+     "who": "study_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 22596,
+     "date": "2023-04-25 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 23269,
+     "date": "2023-08-15 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 24834,
+     "date": "2024-05-02 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25759,
+     "date": "2024-10-03 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25764,
+     "date": "2024-10-04 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26089,
+     "date": "2024-11-27 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26521,
+     "date": "2025-02-07 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 28788,
+     "date": "2026-02-20 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 29453,
+     "date": "2026-06-10 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    }
+   ]
+  },
+  "lb3_left_strict_hidden_bull": {
+   "tv_n": 308,
+   "study_n_raw": 351,
+   "both": 305,
+   "jaccard_pct": 86.16,
+   "tv_only": 3,
+   "study_only": 46,
+   "reasons": {
+    "tv_only:pivot_tie(centre)": 1,
+    "study_only:range_offbyone(dist=5)": 46,
+    "tv_only:pivot_tie(previous pivot differs)": 2
+   },
+   "study_n_after_risk_filter": 351,
+   "dropped_by_open_beyond_stop": 0,
+   "since2014_tv_n": "278",
+   "since2014_mismatch": "44",
+   "details": [
+    {
+     "bar": 121,
+     "date": "2013-01-21 04:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 311,
+     "date": "2013-02-21 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 398,
+     "date": "2013-03-08 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1774,
+     "date": "2013-10-23 16:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 1975,
+     "date": "2013-11-26 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3108,
+     "date": "2014-06-03 00:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 3220,
+     "date": "2014-06-21 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3893,
+     "date": "2014-10-11 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4076,
+     "date": "2014-11-11 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4486,
+     "date": "2015-01-18 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4625,
+     "date": "2015-02-10 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4948,
+     "date": "2015-04-05 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6121,
+     "date": "2015-10-18 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7245,
+     "date": "2016-04-22 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7904,
+     "date": "2016-08-10 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8200,
+     "date": "2016-09-28 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8514,
+     "date": "2016-11-20 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8660,
+     "date": "2016-12-14 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9087,
+     "date": "2017-02-23 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9119,
+     "date": "2017-02-28 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9124,
+     "date": "2017-03-01 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9320,
+     "date": "2017-04-03 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11236,
+     "date": "2018-02-16 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11635,
+     "date": "2018-04-24 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11674,
+     "date": "2018-04-30 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 12485,
+     "date": "2018-09-12 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13733,
+     "date": "2019-04-08 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14166,
+     "date": "2019-06-20 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14968,
+     "date": "2019-10-31 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15279,
+     "date": "2019-12-22 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15429,
+     "date": "2020-01-16 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15455,
+     "date": "2020-01-20 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15604,
+     "date": "2020-02-14 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15720,
+     "date": "2020-03-05 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15850,
+     "date": "2020-03-26 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17047,
+     "date": "2020-10-12 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17434,
+     "date": "2020-12-15 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17463,
+     "date": "2020-12-20 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17560,
+     "date": "2021-01-05 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 19184,
+     "date": "2021-10-03 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21509,
+     "date": "2022-10-25 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 22383,
+     "date": "2023-03-20 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 22417,
+     "date": "2023-03-26 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 23503,
+     "date": "2023-09-23 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25318,
+     "date": "2024-07-21 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26327,
+     "date": "2025-01-05 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 27511,
+     "date": "2025-07-22 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 29816,
+     "date": "2026-08-10 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 29901,
+     "date": "2026-08-24 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    }
+   ]
+  },
+  "lb3_left_strict_regular_bear": {
+   "tv_n": 229,
+   "study_n_raw": 268,
+   "both": 228,
+   "jaccard_pct": 84.76,
+   "tv_only": 1,
+   "study_only": 40,
+   "reasons": {
+    "tv_only:pivot_tie(centre)": 1,
+    "study_only:range_offbyone(dist=5)": 40
+   },
+   "study_n_after_risk_filter": 256,
+   "dropped_by_open_beyond_stop": 12,
+   "since2014_tv_n": "205",
+   "since2014_mismatch": "36",
+   "details": [
+    {
+     "bar": 143,
+     "date": "2013-01-24 20:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 1025,
+     "date": "2013-06-20 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1446,
+     "date": "2013-08-30 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1536,
+     "date": "2013-09-14 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1919,
+     "date": "2013-11-16 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2853,
+     "date": "2014-04-21 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4807,
+     "date": "2015-03-13 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6120,
+     "date": "2015-10-18 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6201,
+     "date": "2015-10-31 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6426,
+     "date": "2015-12-08 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7471,
+     "date": "2016-05-30 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7842,
+     "date": "2016-07-31 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8512,
+     "date": "2016-11-19 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8628,
+     "date": "2016-12-09 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9121,
+     "date": "2017-03-01 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9682,
+     "date": "2017-06-02 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 10075,
+     "date": "2017-08-07 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 10757,
+     "date": "2017-11-28 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11602,
+     "date": "2018-04-18 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11765,
+     "date": "2018-05-15 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13554,
+     "date": "2019-03-10 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13809,
+     "date": "2019-04-21 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14015,
+     "date": "2019-05-25 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14452,
+     "date": "2019-08-06 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15403,
+     "date": "2020-01-12 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15506,
+     "date": "2020-01-29 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15563,
+     "date": "2020-02-07 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17535,
+     "date": "2021-01-01 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17839,
+     "date": "2021-02-21 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18848,
+     "date": "2021-08-08 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 19483,
+     "date": "2021-11-22 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 20561,
+     "date": "2022-05-20 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21081,
+     "date": "2022-08-15 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 23730,
+     "date": "2023-10-31 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25055,
+     "date": "2024-06-07 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25818,
+     "date": "2024-10-13 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26062,
+     "date": "2024-11-22 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26484,
+     "date": "2025-02-01 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 27861,
+     "date": "2025-09-18 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 28185,
+     "date": "2025-11-11 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 30060,
+     "date": "2026-09-20 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    }
+   ]
+  },
+  "lb3_left_strict_hidden_bear": {
+   "tv_n": 243,
+   "study_n_raw": 283,
+   "both": 240,
+   "jaccard_pct": 83.92,
+   "tv_only": 3,
+   "study_only": 43,
+   "reasons": {
+    "study_only:equal_price_extreme": 3,
+    "study_only:range_offbyone(dist=5)": 40,
+    "tv_only:pivot_tie(previous pivot differs)": 1,
+    "tv_only:pivot_tie(centre)": 2
+   },
+   "study_n_after_risk_filter": 283,
+   "dropped_by_open_beyond_stop": 0,
+   "since2014_tv_n": "230",
+   "since2014_mismatch": "42",
+   "details": [
+    {
+     "bar": 158,
+     "date": "2013-01-27 08:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 719,
+     "date": "2013-04-30 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1089,
+     "date": "2013-07-01 12:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 1583,
+     "date": "2013-09-21 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2242,
+     "date": "2014-01-09 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2376,
+     "date": "2014-02-01 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2539,
+     "date": "2014-02-28 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2683,
+     "date": "2014-03-24 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2719,
+     "date": "2014-03-30 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2887,
+     "date": "2014-04-27 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3330,
+     "date": "2014-07-10 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3779,
+     "date": "2014-09-22 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4198,
+     "date": "2014-12-01 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4409,
+     "date": "2015-01-05 20:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 4421,
+     "date": "2015-01-07 20:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 4496,
+     "date": "2015-01-20 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4860,
+     "date": "2015-03-22 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4938,
+     "date": "2015-04-04 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 5555,
+     "date": "2015-07-15 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6080,
+     "date": "2015-10-11 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6284,
+     "date": "2015-11-14 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6655,
+     "date": "2016-01-15 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6730,
+     "date": "2016-01-27 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6743,
+     "date": "2016-01-29 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7770,
+     "date": "2016-07-19 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7879,
+     "date": "2016-08-06 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8150,
+     "date": "2016-09-20 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11027,
+     "date": "2018-01-12 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11391,
+     "date": "2018-03-14 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11477,
+     "date": "2018-03-28 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 12007,
+     "date": "2018-06-25 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 12765,
+     "date": "2018-10-29 12:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 12880,
+     "date": "2018-11-17 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13118,
+     "date": "2018-12-27 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18198,
+     "date": "2021-04-22 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18217,
+     "date": "2021-04-25 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18377,
+     "date": "2021-05-21 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 19986,
+     "date": "2022-02-14 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 20151,
+     "date": "2022-03-13 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 20167,
+     "date": "2022-03-16 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21177,
+     "date": "2022-08-31 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21192,
+     "date": "2022-09-03 00:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 21329,
+     "date": "2022-09-25 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 23208,
+     "date": "2023-08-05 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 27416,
+     "date": "2025-07-06 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 29542,
+     "date": "2026-06-25 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    }
+   ]
+  },
+  "lb3_strict_regular_bull": {
+   "tv_n": 140,
+   "study_n_raw": 176,
+   "both": 140,
+   "jaccard_pct": 79.55,
+   "tv_only": 0,
+   "study_only": 36,
+   "reasons": {
+    "study_only:range_offbyone(dist=5)": 36
+   },
+   "study_n_after_risk_filter": 175,
+   "dropped_by_open_beyond_stop": 1,
+   "since2014_tv_n": "131",
+   "since2014_mismatch": "35",
+   "details": [
+    {
+     "bar": 732,
+     "date": "2013-05-03 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2426,
+     "date": "2014-02-09 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2610,
+     "date": "2014-03-12 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2873,
+     "date": "2014-04-24 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2943,
+     "date": "2014-05-06 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3415,
+     "date": "2014-07-24 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3667,
+     "date": "2014-09-04 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4142,
+     "date": "2014-11-22 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4462,
+     "date": "2015-01-14 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 5027,
+     "date": "2015-04-18 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 5662,
+     "date": "2015-08-02 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6634,
+     "date": "2016-01-11 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6728,
+     "date": "2016-01-27 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8446,
+     "date": "2016-11-08 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9166,
+     "date": "2017-03-08 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9834,
+     "date": "2017-06-28 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 10008,
+     "date": "2017-07-27 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 10664,
+     "date": "2017-11-13 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13050,
+     "date": "2018-12-16 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13860,
+     "date": "2019-04-30 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14901,
+     "date": "2019-10-20 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15025,
+     "date": "2019-11-10 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 16673,
+     "date": "2020-08-10 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18331,
+     "date": "2021-05-14 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21277,
+     "date": "2022-09-17 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21552,
+     "date": "2022-11-02 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 22472,
+     "date": "2023-04-04 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 22596,
+     "date": "2023-04-25 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 23269,
+     "date": "2023-08-15 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 24834,
+     "date": "2024-05-02 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25759,
+     "date": "2024-10-03 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25764,
+     "date": "2024-10-04 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26089,
+     "date": "2024-11-27 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26521,
+     "date": "2025-02-07 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 28788,
+     "date": "2026-02-20 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 29453,
+     "date": "2026-06-10 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    }
+   ]
+  },
+  "lb3_strict_hidden_bull": {
+   "tv_n": 305,
+   "study_n_raw": 351,
+   "both": 305,
+   "jaccard_pct": 86.89,
+   "tv_only": 0,
+   "study_only": 46,
+   "reasons": {
+    "study_only:range_offbyone(dist=5)": 46
+   },
+   "study_n_after_risk_filter": 351,
+   "dropped_by_open_beyond_stop": 0,
+   "since2014_tv_n": "277",
+   "since2014_mismatch": "43",
+   "details": [
+    {
+     "bar": 311,
+     "date": "2013-02-21 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 398,
+     "date": "2013-03-08 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1975,
+     "date": "2013-11-26 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3220,
+     "date": "2014-06-21 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3893,
+     "date": "2014-10-11 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4076,
+     "date": "2014-11-11 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4486,
+     "date": "2015-01-18 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4625,
+     "date": "2015-02-10 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4948,
+     "date": "2015-04-05 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6121,
+     "date": "2015-10-18 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7245,
+     "date": "2016-04-22 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7904,
+     "date": "2016-08-10 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8200,
+     "date": "2016-09-28 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8514,
+     "date": "2016-11-20 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8660,
+     "date": "2016-12-14 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9087,
+     "date": "2017-02-23 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9119,
+     "date": "2017-02-28 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9124,
+     "date": "2017-03-01 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9320,
+     "date": "2017-04-03 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11236,
+     "date": "2018-02-16 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11635,
+     "date": "2018-04-24 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11674,
+     "date": "2018-04-30 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 12485,
+     "date": "2018-09-12 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13733,
+     "date": "2019-04-08 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14166,
+     "date": "2019-06-20 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14968,
+     "date": "2019-10-31 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15279,
+     "date": "2019-12-22 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15429,
+     "date": "2020-01-16 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15455,
+     "date": "2020-01-20 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15604,
+     "date": "2020-02-14 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15720,
+     "date": "2020-03-05 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15850,
+     "date": "2020-03-26 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17047,
+     "date": "2020-10-12 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17434,
+     "date": "2020-12-15 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17463,
+     "date": "2020-12-20 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17560,
+     "date": "2021-01-05 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 19184,
+     "date": "2021-10-03 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21509,
+     "date": "2022-10-25 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 22383,
+     "date": "2023-03-20 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 22417,
+     "date": "2023-03-26 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 23503,
+     "date": "2023-09-23 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25318,
+     "date": "2024-07-21 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26327,
+     "date": "2025-01-05 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 27511,
+     "date": "2025-07-22 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 29816,
+     "date": "2026-08-10 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 29901,
+     "date": "2026-08-24 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    }
+   ]
+  },
+  "lb3_strict_regular_bear": {
+   "tv_n": 228,
+   "study_n_raw": 268,
+   "both": 228,
+   "jaccard_pct": 85.07,
+   "tv_only": 0,
+   "study_only": 40,
+   "reasons": {
+    "study_only:range_offbyone(dist=5)": 40
+   },
+   "study_n_after_risk_filter": 256,
+   "dropped_by_open_beyond_stop": 12,
+   "since2014_tv_n": "205",
+   "since2014_mismatch": "36",
+   "details": [
+    {
+     "bar": 1025,
+     "date": "2013-06-20 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1446,
+     "date": "2013-08-30 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1536,
+     "date": "2013-09-14 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1919,
+     "date": "2013-11-16 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2853,
+     "date": "2014-04-21 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4807,
+     "date": "2015-03-13 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6120,
+     "date": "2015-10-18 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6201,
+     "date": "2015-10-31 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6426,
+     "date": "2015-12-08 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7471,
+     "date": "2016-05-30 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7842,
+     "date": "2016-07-31 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8512,
+     "date": "2016-11-19 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8628,
+     "date": "2016-12-09 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9121,
+     "date": "2017-03-01 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9682,
+     "date": "2017-06-02 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 10075,
+     "date": "2017-08-07 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 10757,
+     "date": "2017-11-28 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11602,
+     "date": "2018-04-18 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11765,
+     "date": "2018-05-15 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13554,
+     "date": "2019-03-10 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13809,
+     "date": "2019-04-21 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14015,
+     "date": "2019-05-25 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14452,
+     "date": "2019-08-06 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15403,
+     "date": "2020-01-12 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15506,
+     "date": "2020-01-29 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15563,
+     "date": "2020-02-07 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17535,
+     "date": "2021-01-01 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17839,
+     "date": "2021-02-21 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18848,
+     "date": "2021-08-08 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 19483,
+     "date": "2021-11-22 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 20561,
+     "date": "2022-05-20 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21081,
+     "date": "2022-08-15 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 23730,
+     "date": "2023-10-31 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25055,
+     "date": "2024-06-07 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25818,
+     "date": "2024-10-13 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26062,
+     "date": "2024-11-22 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26484,
+     "date": "2025-02-01 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 27861,
+     "date": "2025-09-18 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 28185,
+     "date": "2025-11-11 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 30060,
+     "date": "2026-09-20 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    }
+   ]
+  },
+  "lb3_strict_hidden_bear": {
+   "tv_n": 240,
+   "study_n_raw": 283,
+   "both": 240,
+   "jaccard_pct": 84.81,
+   "tv_only": 0,
+   "study_only": 43,
+   "reasons": {
+    "study_only:equal_price_extreme": 3,
+    "study_only:range_offbyone(dist=5)": 40
+   },
+   "study_n_after_risk_filter": 283,
+   "dropped_by_open_beyond_stop": 0,
+   "since2014_tv_n": "228",
+   "since2014_mismatch": "40",
+   "details": [
+    {
+     "bar": 158,
+     "date": "2013-01-27 08:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 719,
+     "date": "2013-04-30 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1583,
+     "date": "2013-09-21 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2242,
+     "date": "2014-01-09 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2376,
+     "date": "2014-02-01 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2539,
+     "date": "2014-02-28 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2683,
+     "date": "2014-03-24 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2719,
+     "date": "2014-03-30 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2887,
+     "date": "2014-04-27 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3330,
+     "date": "2014-07-10 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3779,
+     "date": "2014-09-22 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4198,
+     "date": "2014-12-01 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4496,
+     "date": "2015-01-20 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4860,
+     "date": "2015-03-22 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4938,
+     "date": "2015-04-04 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 5555,
+     "date": "2015-07-15 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6080,
+     "date": "2015-10-11 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6284,
+     "date": "2015-11-14 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6655,
+     "date": "2016-01-15 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6730,
+     "date": "2016-01-27 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6743,
+     "date": "2016-01-29 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7770,
+     "date": "2016-07-19 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7879,
+     "date": "2016-08-06 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8150,
+     "date": "2016-09-20 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11027,
+     "date": "2018-01-12 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11391,
+     "date": "2018-03-14 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11477,
+     "date": "2018-03-28 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 12007,
+     "date": "2018-06-25 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 12765,
+     "date": "2018-10-29 12:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 12880,
+     "date": "2018-11-17 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13118,
+     "date": "2018-12-27 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18198,
+     "date": "2021-04-22 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18217,
+     "date": "2021-04-25 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18377,
+     "date": "2021-05-21 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 19986,
+     "date": "2022-02-14 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 20151,
+     "date": "2022-03-13 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 20167,
+     "date": "2022-03-16 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21177,
+     "date": "2022-08-31 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21192,
+     "date": "2022-09-03 00:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 21329,
+     "date": "2022-09-25 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 23208,
+     "date": "2023-08-05 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 27416,
+     "date": "2025-07-06 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 29542,
+     "date": "2026-06-25 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    }
+   ]
+  },
+  "lb3_right_strict_regular_bull": {
+   "tv_n": 142,
+   "study_n_raw": 176,
+   "both": 139,
+   "jaccard_pct": 77.65,
+   "tv_only": 3,
+   "study_only": 37,
+   "reasons": {
+    "study_only:range_offbyone(dist=5)": 36,
+    "tv_only:pivot_tie(previous pivot differs)": 1,
+    "tv_only:pivot_tie(centre)": 2,
+    "study_only:pivot_tie(previous pivot differs)": 1
+   },
+   "study_n_after_risk_filter": 175,
+   "dropped_by_open_beyond_stop": 1,
+   "since2014_tv_n": "132",
+   "since2014_mismatch": "38",
+   "details": [
+    {
+     "bar": 732,
+     "date": "2013-05-03 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1004,
+     "date": "2013-06-17 08:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 2426,
+     "date": "2014-02-09 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2610,
+     "date": "2014-03-12 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2873,
+     "date": "2014-04-24 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2943,
+     "date": "2014-05-06 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3415,
+     "date": "2014-07-24 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3667,
+     "date": "2014-09-04 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4142,
+     "date": "2014-11-22 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4419,
+     "date": "2015-01-07 12:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 4462,
+     "date": "2015-01-14 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 5027,
+     "date": "2015-04-18 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 5662,
+     "date": "2015-08-02 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6634,
+     "date": "2016-01-11 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6728,
+     "date": "2016-01-27 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7161,
+     "date": "2016-04-08 12:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 8446,
+     "date": "2016-11-08 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9166,
+     "date": "2017-03-08 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9834,
+     "date": "2017-06-28 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 10008,
+     "date": "2017-07-27 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 10664,
+     "date": "2017-11-13 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13050,
+     "date": "2018-12-16 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13860,
+     "date": "2019-04-30 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14901,
+     "date": "2019-10-20 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15025,
+     "date": "2019-11-10 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 16673,
+     "date": "2020-08-10 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18331,
+     "date": "2021-05-14 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21277,
+     "date": "2022-09-17 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21552,
+     "date": "2022-11-02 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 22472,
+     "date": "2023-04-04 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 22501,
+     "date": "2023-04-09 04:00:00",
+     "who": "study_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 22596,
+     "date": "2023-04-25 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 23269,
+     "date": "2023-08-15 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 24834,
+     "date": "2024-05-02 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25759,
+     "date": "2024-10-03 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25764,
+     "date": "2024-10-04 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26089,
+     "date": "2024-11-27 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26521,
+     "date": "2025-02-07 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 28788,
+     "date": "2026-02-20 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 29453,
+     "date": "2026-06-10 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    }
+   ]
+  },
+  "lb3_right_strict_hidden_bull": {
+   "tv_n": 308,
+   "study_n_raw": 351,
+   "both": 305,
+   "jaccard_pct": 86.16,
+   "tv_only": 3,
+   "study_only": 46,
+   "reasons": {
+    "tv_only:pivot_tie(centre)": 1,
+    "study_only:range_offbyone(dist=5)": 46,
+    "tv_only:pivot_tie(previous pivot differs)": 2
+   },
+   "study_n_after_risk_filter": 351,
+   "dropped_by_open_beyond_stop": 0,
+   "since2014_tv_n": "278",
+   "since2014_mismatch": "44",
+   "details": [
+    {
+     "bar": 122,
+     "date": "2013-01-21 08:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 311,
+     "date": "2013-02-21 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 398,
+     "date": "2013-03-08 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1774,
+     "date": "2013-10-23 16:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 1975,
+     "date": "2013-11-26 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3108,
+     "date": "2014-06-03 00:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 3220,
+     "date": "2014-06-21 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3893,
+     "date": "2014-10-11 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4076,
+     "date": "2014-11-11 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4486,
+     "date": "2015-01-18 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4625,
+     "date": "2015-02-10 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4948,
+     "date": "2015-04-05 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6121,
+     "date": "2015-10-18 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7245,
+     "date": "2016-04-22 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7904,
+     "date": "2016-08-10 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8200,
+     "date": "2016-09-28 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8514,
+     "date": "2016-11-20 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8660,
+     "date": "2016-12-14 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9087,
+     "date": "2017-02-23 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9119,
+     "date": "2017-02-28 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9124,
+     "date": "2017-03-01 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9320,
+     "date": "2017-04-03 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11236,
+     "date": "2018-02-16 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11635,
+     "date": "2018-04-24 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11674,
+     "date": "2018-04-30 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 12485,
+     "date": "2018-09-12 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13733,
+     "date": "2019-04-08 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14166,
+     "date": "2019-06-20 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14968,
+     "date": "2019-10-31 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15279,
+     "date": "2019-12-22 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15429,
+     "date": "2020-01-16 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15455,
+     "date": "2020-01-20 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15604,
+     "date": "2020-02-14 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15720,
+     "date": "2020-03-05 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15850,
+     "date": "2020-03-26 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17047,
+     "date": "2020-10-12 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17434,
+     "date": "2020-12-15 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17463,
+     "date": "2020-12-20 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17560,
+     "date": "2021-01-05 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 19184,
+     "date": "2021-10-03 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21509,
+     "date": "2022-10-25 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 22383,
+     "date": "2023-03-20 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 22417,
+     "date": "2023-03-26 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 23503,
+     "date": "2023-09-23 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25318,
+     "date": "2024-07-21 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26327,
+     "date": "2025-01-05 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 27511,
+     "date": "2025-07-22 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 29816,
+     "date": "2026-08-10 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 29901,
+     "date": "2026-08-24 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    }
+   ]
+  },
+  "lb3_right_strict_regular_bear": {
+   "tv_n": 229,
+   "study_n_raw": 268,
+   "both": 228,
+   "jaccard_pct": 84.76,
+   "tv_only": 1,
+   "study_only": 40,
+   "reasons": {
+    "tv_only:pivot_tie(centre)": 1,
+    "study_only:range_offbyone(dist=5)": 40
+   },
+   "study_n_after_risk_filter": 256,
+   "dropped_by_open_beyond_stop": 12,
+   "since2014_tv_n": "205",
+   "since2014_mismatch": "36",
+   "details": [
+    {
+     "bar": 144,
+     "date": "2013-01-25 00:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 1025,
+     "date": "2013-06-20 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1446,
+     "date": "2013-08-30 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1536,
+     "date": "2013-09-14 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1919,
+     "date": "2013-11-16 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2853,
+     "date": "2014-04-21 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4807,
+     "date": "2015-03-13 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6120,
+     "date": "2015-10-18 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6201,
+     "date": "2015-10-31 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6426,
+     "date": "2015-12-08 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7471,
+     "date": "2016-05-30 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7842,
+     "date": "2016-07-31 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8512,
+     "date": "2016-11-19 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8628,
+     "date": "2016-12-09 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9121,
+     "date": "2017-03-01 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 9682,
+     "date": "2017-06-02 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 10075,
+     "date": "2017-08-07 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 10757,
+     "date": "2017-11-28 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11602,
+     "date": "2018-04-18 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11765,
+     "date": "2018-05-15 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13554,
+     "date": "2019-03-10 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13809,
+     "date": "2019-04-21 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14015,
+     "date": "2019-05-25 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 14452,
+     "date": "2019-08-06 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15403,
+     "date": "2020-01-12 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15506,
+     "date": "2020-01-29 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 15563,
+     "date": "2020-02-07 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17535,
+     "date": "2021-01-01 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 17839,
+     "date": "2021-02-21 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18848,
+     "date": "2021-08-08 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 19483,
+     "date": "2021-11-22 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 20561,
+     "date": "2022-05-20 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21081,
+     "date": "2022-08-15 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 23730,
+     "date": "2023-10-31 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25055,
+     "date": "2024-06-07 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 25818,
+     "date": "2024-10-13 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26062,
+     "date": "2024-11-22 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 26484,
+     "date": "2025-02-01 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 27861,
+     "date": "2025-09-18 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 28185,
+     "date": "2025-11-11 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 30060,
+     "date": "2026-09-20 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    }
+   ]
+  },
+  "lb3_right_strict_hidden_bear": {
+   "tv_n": 242,
+   "study_n_raw": 283,
+   "both": 240,
+   "jaccard_pct": 84.21,
+   "tv_only": 2,
+   "study_only": 43,
+   "reasons": {
+    "study_only:equal_price_extreme": 3,
+    "study_only:range_offbyone(dist=5)": 40,
+    "tv_only:pivot_tie(previous pivot differs)": 1,
+    "tv_only:pivot_tie(centre)": 1
+   },
+   "study_n_after_risk_filter": 283,
+   "dropped_by_open_beyond_stop": 0,
+   "since2014_tv_n": "229",
+   "since2014_mismatch": "41",
+   "details": [
+    {
+     "bar": 158,
+     "date": "2013-01-27 08:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 719,
+     "date": "2013-04-30 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 1089,
+     "date": "2013-07-01 12:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(previous pivot differs)"
+    },
+    {
+     "bar": 1583,
+     "date": "2013-09-21 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2242,
+     "date": "2014-01-09 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2376,
+     "date": "2014-02-01 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2539,
+     "date": "2014-02-28 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2683,
+     "date": "2014-03-24 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2719,
+     "date": "2014-03-30 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 2887,
+     "date": "2014-04-27 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3330,
+     "date": "2014-07-10 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 3779,
+     "date": "2014-09-22 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4198,
+     "date": "2014-12-01 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4429,
+     "date": "2015-01-09 04:00:00",
+     "who": "tv_only",
+     "why": "pivot_tie(centre)"
+    },
+    {
+     "bar": 4496,
+     "date": "2015-01-20 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4860,
+     "date": "2015-03-22 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 4938,
+     "date": "2015-04-04 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 5555,
+     "date": "2015-07-15 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6080,
+     "date": "2015-10-11 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6284,
+     "date": "2015-11-14 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6655,
+     "date": "2016-01-15 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6730,
+     "date": "2016-01-27 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 6743,
+     "date": "2016-01-29 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7770,
+     "date": "2016-07-19 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 7879,
+     "date": "2016-08-06 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 8150,
+     "date": "2016-09-20 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11027,
+     "date": "2018-01-12 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11391,
+     "date": "2018-03-14 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 11477,
+     "date": "2018-03-28 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 12007,
+     "date": "2018-06-25 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 12765,
+     "date": "2018-10-29 12:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 12880,
+     "date": "2018-11-17 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 13118,
+     "date": "2018-12-27 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18198,
+     "date": "2021-04-22 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18217,
+     "date": "2021-04-25 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 18377,
+     "date": "2021-05-21 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 19986,
+     "date": "2022-02-14 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 20151,
+     "date": "2022-03-13 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 20167,
+     "date": "2022-03-16 04:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21177,
+     "date": "2022-08-31 12:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 21192,
+     "date": "2022-09-03 00:00:00",
+     "who": "study_only",
+     "why": "equal_price_extreme"
+    },
+    {
+     "bar": 21329,
+     "date": "2022-09-25 20:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 23208,
+     "date": "2023-08-05 00:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 27416,
+     "date": "2025-07-06 08:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    },
+    {
+     "bar": 29542,
+     "date": "2026-06-25 16:00:00",
+     "who": "study_only",
+     "why": "range_offbyone(dist=5)"
+    }
+   ]
+  }
+ }
+}

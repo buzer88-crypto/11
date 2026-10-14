@@ -1,0 +1,101 @@
+{
+ "test_avg_r_4h": -0.333,
+ "test_avg_r_1m": -0.302,
+ "test_n": 132,
+ "test_pct_per_year_at_1pct_risk_1m": -8.3,
+ "test_years": {
+  "2022": {
+   "4h": {
+    "n": 34,
+    "avg_r": -0.23,
+    "win_pct": 32.4,
+    "t": -0.87
+   },
+   "1m": {
+    "n": 34,
+    "avg_r": -0.23,
+    "win_pct": 32.4,
+    "t": -0.87
+   }
+  },
+  "2023": {
+   "4h": {
+    "n": 29,
+    "avg_r": -0.659,
+    "win_pct": 17.2,
+    "t": -2.62
+   },
+   "1m": {
+    "n": 29,
+    "avg_r": -0.659,
+    "win_pct": 17.2,
+    "t": -2.62
+   }
+  },
+  "2024": {
+   "4h": {
+    "n": 24,
+    "avg_r": -0.1,
+    "win_pct": 33.3,
+    "t": -0.31
+   },
+   "1m": {
+    "n": 24,
+    "avg_r": -0.1,
+    "win_pct": 33.3,
+    "t": -0.31
+   }
+  },
+  "2025": {
+   "4h": {
+    "n": 24,
+    "avg_r": -0.169,
+    "win_pct": 29.2,
+    "t": -0.51
+   },
+   "1m": {
+    "n": 24,
+    "avg_r": -0.003,
+    "win_pct": 33.3,
+    "t": -0.01
+   }
+  },
+  "2026": {
+   "4h": {
+    "n": 21,
+    "avg_r": -0.502,
+    "win_pct": 23.8,
+    "t": -1.63
+   },
+   "1m": {
+    "n": 21,
+    "avg_r": -0.502,
+    "win_pct": 23.8,
+    "t": -1.63
+   }
+  }
+ },
+ "placebo_test": {
+  "same_bars_random_side": {
+   "4h_pct_below_real": 59.3,
+   "4h_placebo_median": -0.362,
+   "1m_pct_below_real": 61.0,
+   "1m_placebo_median": -0.324,
+   "mean_shift_placebo_1m_minus_4h": 0.03
+  },
+  "random_bars_same_side": {
+   "4h_pct_below_real": 15.7,
+   "4h_placebo_median": -0.181,
+   "1m_pct_below_real": 19.7,
+   "1m_placebo_median": -0.162,
+   "mean_shift_placebo_1m_minus_4h": 0.0171
+  },
+  "random_bars_random_side": {
+   "4h_pct_below_real": 14.3,
+   "4h_placebo_median": -0.186,
+   "1m_pct_below_real": 18.0,
+   "1m_placebo_median": -0.167,
+   "mean_shift_placebo_1m_minus_4h": 0.0145
+  }
+ }
+}
