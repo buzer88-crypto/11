@@ -42,7 +42,8 @@ def by_period(df, trades):
     idx = df.index
     out = {}
     for name, (a, b) in PERIODS.items():
-        lo, hi = idx.searchsorted(pd.Timestamp(a)), idx.searchsorted(pd.Timestamp(b), side="right")
+        # Periods run through the whole last day (4h/1h bars after 00:00 included).
+        lo, hi = idx.searchsorted(pd.Timestamp(a)), idx.searchsorted(pd.Timestamp(b) + pd.Timedelta(days=1))
         out[name] = [t for t in trades if lo <= t.bar < hi]
     return out
 

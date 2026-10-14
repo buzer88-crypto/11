@@ -2,7 +2,9 @@
 
 Pivots are found on the RSI (ta.pivotlow/ta.pivothigh with `left`/`right` bars), so a pivot at
 bar p is only confirmed at bar p + right, and the signal is that confirmation bar. Price is
-compared at the same pivot bars, against the previous RSI pivot 5..60 bars earlier.
+compared at the same pivot bars, against the previous RSI pivot. The range check follows
+Pine's `ta.barssince(plFound[1])`, which is the pivot distance minus 1, so the default 5..60
+accepts pivots 6..61 bars apart. Comparisons are strict, as in the indicator.
 
 - regular bullish: price lower low,  RSI higher low   -> long  (reversal)
 - hidden bullish:  price higher low, RSI lower low    -> long  (continuation)
@@ -70,13 +72,14 @@ def rsi_divergences(df: pd.DataFrame, kind: str = "regular", rsi_len: int = 14, 
         price = l if is_low else h
         for prev, cur in zip(piv[:-1], piv[1:]):
             i = cur + right                      # confirmation (signal) bar
-            if i + 1 >= len(c) or not (range_lower <= cur - prev <= range_upper):
+            if i + 1 >= len(c) or not (range_lower <= cur - prev - 1 <= range_upper):
                 continue
-            osc_up, price_up = osc[cur] > osc[prev], price[cur] > price[prev]
+            osc_up, osc_down = osc[cur] > osc[prev], osc[cur] < osc[prev]
+            price_up, price_down = price[cur] > price[prev], price[cur] < price[prev]
             if is_low:
-                ok = (not price_up and osc_up) if kind == "regular" else (price_up and not osc_up)
+                ok = (price_down and osc_up) if kind == "regular" else (price_up and osc_down)
             else:
-                ok = (price_up and not osc_up) if kind == "regular" else (not price_up and osc_up)
+                ok = (price_up and osc_down) if kind == "regular" else (price_down and osc_up)
             if not ok or np.isnan(a[i]):
                 continue
             if extreme and not (osc[cur] < 30 if is_low else osc[cur] > 70):

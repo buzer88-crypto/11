@@ -150,3 +150,22 @@ def test_confirmations_filter_or_delay_the_base_setups():
             assert b <= s.bar <= b + 6
     with pytest.raises(ValueError):
         rsi_divergences(df, confirm="magic")
+
+
+@pytest.mark.parametrize("gap,expected", [(5, False), (6, True), (61, True), (62, False)])
+def test_pivot_distance_follows_pine_barssince(monkeypatch, gap, expected):
+    """Pine's 5..60 range uses barssince(plFound[1]) = distance - 1, i.e. pivots 6..61 apart."""
+    import pinetest.divergence as dv
+    n = 120
+    first, second = 20, 20 + gap
+    osc = np.full(n, 50.0)
+    osc[first], osc[second] = 25.0, 30.0                    # RSI higher low
+    low = np.full(n, 100.0)
+    low[first], low[second] = 90.0, 89.0                    # price lower low
+    df = pd.DataFrame({"open": low + 1, "high": low + 2, "low": low, "close": low + 1})
+    monkeypatch.setattr(dv, "rsi", lambda close, n: pd.Series(osc))
+    mask = np.zeros(n, dtype=bool)
+    mask[[first, second]] = True
+    monkeypatch.setattr(dv, "pivots", lambda x, left, right, low: mask if low else np.zeros(n, dtype=bool))
+    setups = dv.rsi_divergences(df, kind="regular", left=5, right=5, sides=(1,))
+    assert any(s.bar == second + 5 for s in setups) == expected
