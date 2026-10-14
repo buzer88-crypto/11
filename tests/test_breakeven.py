@@ -83,3 +83,19 @@ def test_ema_breakeven_trades_both_directions(random_walk):
     assert {t.reason for t in res.trades} <= {"stop", "limit", "be", "end"}
     for a, b in zip(res.trades, res.trades[1:]):
         assert b.entry_bar > a.exit_bar  # never more than one position at a time
+
+
+def test_volume_filter_drops_low_volume_crosses():
+    closes = [100] * 25 + [101, 102, 103, 104, 105] + [104, 102, 100, 98, 96]
+    df = make_ohlc(closes)
+    df["volume"] = 100.0
+    plain = ema_breakeven(df)
+    cross_bars = list(plain.entry[plain.entry].index) + list(plain.short[plain.short].index)
+    assert cross_bars, "fixture must produce at least one EMA cross"
+
+    filtered = ema_breakeven(df, vol_filter=True)
+    assert not filtered.entry.any() and not filtered.short.any()
+
+    df.loc[cross_bars, "volume"] = 1000.0
+    filtered = ema_breakeven(df, vol_filter=True)
+    assert filtered.entry.equals(plain.entry) and filtered.short.equals(plain.short)

@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from pinetest.indicators import crossover, crossunder, ema, rma, rsi
+from pinetest.indicators import crossover, crossunder, ema, rma, rsi, sma
 
 
 def test_ema_is_sma_seeded_then_recursive():
@@ -45,3 +45,9 @@ def test_crossover_and_crossunder():
     assert crossover(a, b).tolist() == [False, False, True, False, False]
     assert crossunder(a, b).tolist() == [False, False, False, False, True]
     assert crossover(a, 2.5).tolist() == [False, False, True, False, False]
+
+
+def test_sma_includes_current_bar():
+    out = sma(pd.Series([1, 2, 3, 4]), 3)
+    assert out.iloc[:2].isna().all()
+    assert out.iloc[2:].tolist() == [2.0, 3.0]

@@ -14,6 +14,11 @@ def _seeded_ma(src: pd.Series, length: int, alpha: float) -> pd.Series:
     return pd.Series(out, index=src.index)
 
 
+def sma(src: pd.Series, length: int) -> pd.Series:
+    """ta.sma: plain moving average including the current bar, NaN until `length` bars exist."""
+    return src.astype(float).rolling(length).mean()
+
+
 def ema(src: pd.Series, length: int) -> pd.Series:
     """ta.ema: alpha = 2 / (length + 1), seeded with the SMA of the first `length` values."""
     return _seeded_ma(src, length, 2 / (length + 1))

@@ -1,5 +1,6 @@
 //@version=6
 // Smjer pogađa EMA presjek (long prema gore, short prema dolje). Izlaz samo na SL ili TP.
+// Opcionalno: signal vrijedi samo ako je volumen iznad prosjeka.
 // Kad cijena ode beTrig % u plus, SL se pomiče na ulaznu cijenu (breakeven), a TP ostaje isti.
 strategy("EMA Breakeven", overlay = true, initial_capital = 10000,
      default_qty_type = strategy.percent_of_equity, default_qty_value = 100,
@@ -10,16 +11,25 @@ slowLen = input.int(21, "Spora EMA", minval = 2)
 slPct   = input.float(3, "Početni stop-loss %", minval = 0) / 100
 tpPct   = input.float(9, "Take-profit %", minval = 0) / 100
 beTrig  = input.float(3, "Breakeven nakon %", minval = 0) / 100
+useVol  = input.bool(false, "Filtar volumena")
+volLen  = input.int(20, "Prosjek volumena (svijeće)", minval = 1)
+volMult = input.float(1.5, "Volumen > prosjek ×", minval = 0)
 
 fast = ta.ema(close, fastLen)
 slow = ta.ema(close, slowLen)
 
+// ta.* pozivi su izvan if blokova i lijenog "or", da se računaju na svakoj svijeći.
+volAvg   = ta.sma(volume, volLen)
+volOk    = not useVol or volume > volMult * volAvg
+longSig  = ta.crossover(fast, slow) and volOk
+shortSig = ta.crossunder(fast, slow) and volOk
+
 var bool beActive = false
 if strategy.position_size == 0
     beActive := false
-    if ta.crossover(fast, slow)
+    if longSig
         strategy.entry("Long", strategy.long)
-    else if ta.crossunder(fast, slow)
+    else if shortSig
         strategy.entry("Short", strategy.short)
 
 entry = strategy.position_avg_price
