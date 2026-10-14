@@ -99,3 +99,42 @@ def test_placebos_preserve_shape():
     rows = w.notna().any(axis=1)
     assert (perm[rows].sum(axis=1) == w[rows].sum(axis=1)).all()
     assert (perm[rows] != 0).sum(axis=1).equals((w[rows] != 0).sum(axis=1))
+
+
+def test_rebalance_on_skips_unfinished_last_period():
+    w = frame({"a": np.arange(10)}, start="2024-01-01")           # Mon 1 .. Wed 10
+    r = rebalance_on(w, "W-SUN")
+    assert r["a"].dropna().index.strftime("%Y-%m-%d").tolist() == ["2024-01-07"]
+
+
+def test_died_on_is_reported():
+    prices = frame({"a": [100, 100, 250, 300]})
+    res = backtest(frame({"a": [-1, -1, -1, -1]}), prices, cost_bps=0, lag=0, short_fee_annual=0)
+    assert res.died_on == prices.index[2]
+    assert res.metrics()["died"] and not res.metrics(None, prices.index[1])["died"]
+    ok = backtest(frame({"a": [1, 1, 1, 1]}), prices, cost_bps=0, lag=0)
+    assert ok.died_on is None and not ok.metrics()["died"]
+
+
+def test_circular_shift_can_be_restricted_to_a_window():
+    rng = np.random.default_rng(3)
+    n = 800
+    prices = frame({"a": np.linspace(1, 2, n)})
+    w = frame({"a": (np.arange(n) % 60 < 30).astype(float)})
+    start = prices.index[300]
+    shifted = circular_shift(w, prices, rng, start=start)
+    assert (shifted["a"].loc[:prices.index[299]] == 0).all()
+    assert shifted["a"].loc[start:].sum() == pytest.approx(w["a"].loc[start:].sum())
+
+
+def test_permute_assets_keeps_assignment_while_real_row_repeats():
+    rng = np.random.default_rng(4)
+    n = 30
+    cols = list("abcdefgh")
+    w = pd.DataFrame(0.0, index=pd.date_range("2020-01-01", periods=n), columns=cols)
+    w.iloc[:15, 0] = 1.0                       # hold "a" for 15 days, then "b"
+    w.iloc[15:, 1] = 1.0
+    members = pd.DataFrame(True, index=w.index, columns=cols)
+    perm = permute_assets(w, members, rng)
+    held = perm.idxmax(axis=1)
+    assert held.iloc[:15].nunique() == 1 and held.iloc[15:].nunique() == 1

@@ -28,6 +28,7 @@ class PortfolioResult:
     gross_exposure: pd.Series   # sum of |held weights| during each day
     turnover: pd.Series         # traded notional / equity at each close
     held: pd.DataFrame          # weights held during each day
+    died_on: pd.Timestamp | None = None   # first day equity hit zero, if it did
 
     def equity(self, start=None, end=None) -> pd.Series:
         return (1 + self.returns.loc[start:end]).cumprod()
@@ -48,6 +49,7 @@ class PortfolioResult:
             "max_dd_pct": 100 * float((eq / eq.cummax() - 1).min()),
             "exposure": float(self.gross_exposure.loc[start:end].mean()),
             "turnover_per_year": float(self.turnover.loc[start:end].sum() / years),
+            "died": self.died_on is not None and self.died_on <= r.index[-1],
         }
 
     def split_metrics(self) -> dict:
@@ -88,15 +90,24 @@ def backtest(weights: pd.DataFrame, prices: pd.DataFrame, cost_bps: float = 10.0
         out[t] = (1 + port) * (1 - cost_bps / 1e4 * traded) - 1
         held = new
     idx = prices.index
+    died_on = idx[int(np.flatnonzero(out == -1.0)[0])] if dead else None
     return PortfolioResult(pd.Series(out, idx), pd.Series(gross, idx), pd.Series(turnover, idx),
-                           pd.DataFrame(held_hist, idx, prices.columns))
+                           pd.DataFrame(held_hist, idx, prices.columns), died_on)
 
 
 def rebalance_on(weights: pd.DataFrame, freq: str = "W-SUN") -> pd.DataFrame:
-    """Keep only the rows on the last day of each `freq` period; other rows become NaN (hold)."""
-    keep = weights.index.to_series().groupby(weights.index.to_period(freq)).transform("max")
+    """Keep only the rows on the last day of each `freq` period; other rows become NaN (hold).
+
+    The last available day of a period counts (so gaps such as missing weekends are fine),
+    except for a final period that has not ended yet: live, its last row is not a period end.
+    """
+    periods = weights.index.to_period(freq)
+    keep = weights.index.to_series().groupby(periods).transform("max").to_numpy()
+    is_end = weights.index == keep
+    if len(weights) and periods[-1].end_time.normalize() > weights.index[-1]:
+        is_end &= periods != periods[-1]
     out = weights.copy()
-    out.loc[weights.index != keep.to_numpy()] = np.nan
+    out.loc[~is_end] = np.nan
     return out
 
 
@@ -116,15 +127,20 @@ def equal_weight(members: pd.DataFrame, freq: str = "W-SUN") -> pd.DataFrame:
 # --- Placebo controls -------------------------------------------------------------------------
 
 def circular_shift(weights: pd.DataFrame, prices: pd.DataFrame, rng: np.random.Generator,
-                   min_shift: int = 90) -> pd.DataFrame:
+                   min_shift: int = 90, start=None) -> pd.DataFrame:
     """Timing placebo: rotate each asset's position series by a random offset within that
     asset's own priced span. Keeps each asset's exposure profile and the rebalance days,
-    destroys the timing. A real timing signal should beat most of these."""
+    destroys the timing. A real timing signal should beat most of these.
+
+    With `start` (e.g. TRAIN[0]) only positions from that date on are rotated, among themselves,
+    so early years with a tiny universe and large weights do not leak into the placebo.
+    Positions before `start` are then set to 0."""
     rows = weights.notna().any(axis=1)
     held = weights.ffill().fillna(0.0)
     out = pd.DataFrame(0.0, index=weights.index, columns=weights.columns)
+    in_window = np.ones(len(weights), dtype=bool) if start is None else weights.index >= pd.Timestamp(start)
     for col in weights.columns:
-        valid = prices[col].reindex(weights.index).notna().to_numpy()
+        valid = prices[col].reindex(weights.index).notna().to_numpy() & in_window
         pos = np.flatnonzero(valid)
         if len(pos) <= 2 * min_shift:
             continue
@@ -138,17 +154,25 @@ def circular_shift(weights: pd.DataFrame, prices: pd.DataFrame, rng: np.random.G
 def permute_assets(weights: pd.DataFrame, members: pd.DataFrame,
                    rng: np.random.Generator) -> pd.DataFrame:
     """Selection placebo: on each rebalance row, give the same weights to randomly chosen
-    universe members. Keeps the number of positions and their sizes, destroys the selection."""
+    universe members. Keeps the number of positions and their sizes, destroys the selection.
+    While the real row repeats unchanged, the random assignment is kept too (if those coins are
+    still members), so the placebo does not trade more often than the real strategy."""
     out = weights.copy()
     m = members.reindex_like(weights).fillna(False).to_numpy()
     w = weights.to_numpy()
     res = out.to_numpy(copy=True)
+    prev_real, prev_row = None, None
     for t in np.flatnonzero(~np.isnan(w).all(axis=1)):
         vals = np.nan_to_num(w[t])
+        if (prev_real is not None and np.array_equal(vals, prev_real)
+                and m[t][prev_row != 0].all()):
+            res[t] = prev_row
+            continue
         nz = vals[vals != 0]
         pool = np.flatnonzero(m[t])
         row = np.zeros(len(vals))
         if len(nz) and len(pool) >= len(nz):
             row[rng.choice(pool, len(nz), replace=False)] = rng.permutation(nz)
         res[t] = row
+        prev_real, prev_row = vals, row
     return pd.DataFrame(res, index=weights.index, columns=weights.columns)

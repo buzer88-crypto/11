@@ -39,3 +39,26 @@ def test_universe_is_point_in_time(archive):
     assert u.loc[day, ["big", "mid"]].all()
     assert not u.iloc[20].any()                    # nobody has 30 days of history yet
     assert u.loc[u.index[-1]].sum() == 2
+
+
+def test_trailing_rows_without_prices_are_dropped(tmp_path, monkeypatch):
+    days = pd.date_range("2020-01-01", periods=40).strftime("%Y-%m-%d")
+    write(tmp_path, "a", {"time": days, "PriceUSD": [1.0] * 38 + [None, None],
+                          "CapMrktCurUSD": [1e9] * 40})
+    monkeypatch.setattr(crypto_data, "CACHE", tmp_path / "cache.pkl")
+    panel = crypto_data.load_panel(tmp_path)
+    assert len(panel["PriceUSD"]) == 38
+
+
+def test_universe_fills_missing_market_cap_and_volume(tmp_path, monkeypatch):
+    days = pd.date_range("2020-01-01", periods=60).strftime("%Y-%m-%d")
+    vol = {"volume_reported_spot_usd_1d": [5e6] * 60}
+    write(tmp_path, "capped", {"time": days, "PriceUSD": [1.0] * 60, "CapMrktCurUSD": [1e9] * 60, **vol})
+    # No market cap in the archive and supply only reported early on: price x last supply = 5e9.
+    write(tmp_path, "nocap", {"time": days, "PriceUSD": [5.0] * 60, "SplyCur": [1e9] * 20 + [None] * 40, **vol})
+    # No volume reported at all.
+    write(tmp_path, "novol", {"time": days, "PriceUSD": [1.0] * 60, "CapMrktCurUSD": [3e9] * 60})
+    monkeypatch.setattr(crypto_data, "CACHE", tmp_path / "cache.pkl")
+    panel = crypto_data.load_panel(tmp_path)
+    u = crypto_data.universe(panel, top_n=2, min_history=30, min_volume=1e6)
+    assert u.iloc[-1].to_dict() == {"capped": False, "nocap": True, "novol": True}

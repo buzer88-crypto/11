@@ -58,7 +58,8 @@ def load_panel(data_dir: Path = DEFAULT_DIR, refresh: bool = False) -> dict[str,
             if f in d:
                 frames[f][asset] = d[f]
     prices = pd.DataFrame(frames["PriceUSD"]).sort_index()
-    prices = prices.loc[prices.notna().any(axis=1).idxmax():]
+    priced = prices.notna().any(axis=1)
+    prices = prices.loc[priced.idxmax():priced[::-1].idxmax()]
     panel = {f: pd.DataFrame(cols).reindex(index=prices.index) for f, cols in frames.items() if cols}
     panel["PriceUSD"] = prices
     CACHE.parent.mkdir(exist_ok=True)
@@ -73,14 +74,20 @@ def universe(panel: dict[str, pd.DataFrame], top_n: int = 30, min_history: int =
 
     An asset qualifies on date t if it has a price on t, at least `min_history` days of prices,
     a median reported spot volume over the last `volume_window` days of at least `min_volume`
-    USD (skipped when min_volume is 0), and is among the `top_n` largest by market cap of the
-    assets that pass those filters.
+    USD (skipped when min_volume is 0, and for assets whose volume is not reported), and is
+    among the `top_n` largest by market cap of the assets that pass those filters. Where the
+    archive has no market cap, price x the last reported supply is used instead (BNB after
+    2019-04, DOT after 2022-06); TRX has neither and never qualifies. The ranking is among
+    the archive's assets only, so a few small coins fill slots of missing large ones (SOL, TON).
     """
     px = panel["PriceUSD"]
     ok = px.notna() & (px.notna().cumsum() >= min_history)
     if min_volume:
         vol = panel["volume_reported_spot_usd_1d"].reindex_like(px)
-        ok &= vol.rolling(volume_window, min_periods=10).median() >= min_volume
+        median = vol.rolling(volume_window, min_periods=10).median()
+        ok &= median.isna() | (median >= min_volume)
     mcap = panel["CapMrktCurUSD"].reindex_like(px)
+    if "SplyCur" in panel:
+        mcap = mcap.fillna(px * panel["SplyCur"].reindex_like(px).ffill())
     rank = mcap.where(ok).rank(axis=1, ascending=False, method="first")
     return ok & (rank <= top_n)
