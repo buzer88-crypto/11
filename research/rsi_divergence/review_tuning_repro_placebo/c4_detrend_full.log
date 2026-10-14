@@ -1,0 +1,351 @@
+{
+ "yearly_return_pct_detrended": {
+  "2013": 0.2,
+  "2014": -0.0,
+  "2015": 0.0,
+  "2016": 0.0,
+  "2017": 0.1,
+  "2018": -0.1,
+  "2019": 0.0,
+  "2020": 0.2,
+  "2021": -0.0,
+  "2022": -0.1,
+  "2023": 0.0,
+  "2024": 0.0,
+  "2025": 0.0,
+  "2026": -0.0
+ },
+ "yearly_return_pct_raw": {
+  "2013": 5428.7,
+  "2014": -56.1,
+  "2015": 34.2,
+  "2016": 124.3,
+  "2017": 1336.4,
+  "2018": -73.4,
+  "2019": 94.1,
+  "2020": 304.9,
+  "2021": 59.4,
+  "2022": -64.2,
+  "2023": 155.6,
+  "2024": 121.0,
+  "2025": -6.3,
+  "2026": -4.8
+ },
+ "a_picks_on_detrended": {
+  "oos": {
+   "n": 60,
+   "avg_r": 0.083,
+   "t": 0.35,
+   "eq_pct_1pct": 4.0
+  },
+  "ex2017": {
+   "n": 54,
+   "avg_r": -0.069,
+   "t": -0.3,
+   "eq_pct_1pct": -4.4
+  },
+  "per_year": {
+   "2017": {
+    "n": 6,
+    "avg_r": 1.447,
+    "t": 1.3,
+    "eq_pct_1pct": 8.8
+   },
+   "2018": {
+    "n": 9,
+    "avg_r": -0.447,
+    "t": -0.81,
+    "eq_pct_1pct": -4.1
+   },
+   "2019": {
+    "n": 5,
+    "avg_r": 0.948,
+    "t": 0.77,
+    "eq_pct_1pct": 4.7
+   },
+   "2020": {
+    "n": 5,
+    "avg_r": 0.276,
+    "t": 0.28,
+    "eq_pct_1pct": 1.3
+   },
+   "2021": {
+    "n": 8,
+    "avg_r": 0.138,
+    "t": 0.37,
+    "eq_pct_1pct": 1.1
+   },
+   "2022": {
+    "n": 9,
+    "avg_r": 0.174,
+    "t": 0.3,
+    "eq_pct_1pct": 1.5
+   },
+   "2023": {
+    "n": 9,
+    "avg_r": -0.559,
+    "t": -1.02,
+    "eq_pct_1pct": -5.0
+   },
+   "2024": {
+    "n": 5,
+    "avg_r": 0.004,
+    "t": 0.0,
+    "eq_pct_1pct": -0.1
+   },
+   "2025": {
+    "n": 2,
+    "avg_r": -1.055,
+    "t": -152.11,
+    "eq_pct_1pct": -2.1
+   },
+   "2026": {
+    "n": 2,
+    "avg_r": -0.688,
+    "t": -1.56,
+    "eq_pct_1pct": -1.4
+   }
+  }
+ },
+ "config441_all_test_years": {
+  "raw": {
+   "n": 66,
+   "avg_r": 0.658,
+   "t": 2.76,
+   "eq_pct_1pct": 52.3
+  },
+  "detrended": {
+   "n": 60,
+   "avg_r": 0.173,
+   "t": 0.74,
+   "eq_pct_1pct": 9.8
+  },
+  "raw_2014_2016": {
+   "n": 17,
+   "avg_r": 1.35,
+   "t": 2.56,
+   "eq_pct_1pct": 25.1
+  },
+  "detrended_2014_2016": {
+   "n": 16,
+   "avg_r": 0.605,
+   "t": 1.14,
+   "eq_pct_1pct": 9.8
+  }
+ }
+}
+tuned in 520 s
+{
+ "b_full_retune_detrended_expanding_avg_r": {
+  "oos": {
+   "n": 39,
+   "avg_r": 0.322,
+   "t": 1.23,
+   "eq_pct_1pct": 12.8
+  },
+  "ex2017": {
+   "n": 32,
+   "avg_r": 0.141,
+   "t": 0.51,
+   "eq_pct_1pct": 4.2
+  },
+  "picks": {
+   "2017": {
+    "idx": 220,
+    "config": {
+     "kind": "hidden",
+     "rsi_len": 21,
+     "lb": 5,
+     "rr": 3.0,
+     "buffer_atr": 0.0,
+     "max_hold": 60,
+     "confirm": "macd_cross",
+     "trend": false,
+     "sides": "both",
+     "extreme": false
+    },
+    "n": 7,
+    "avg_r": 1.151,
+    "t": 1.66,
+    "eq_pct_1pct": 8.2
+   },
+   "2018": {
+    "idx": 1393,
+    "config": {
+     "kind": "hidden",
+     "rsi_len": 21,
+     "lb": 5,
+     "rr": 4.0,
+     "buffer_atr": 0.25,
+     "max_hold": 60,
+     "confirm": "macd_cross",
+     "trend": true,
+     "sides": "both",
+     "extreme": false
+    },
+    "n": 2,
+    "avg_r": 1.958,
+    "t": 1.06,
+    "eq_pct_1pct": 3.9
+   },
+   "2019": {
+    "idx": 1393,
+    "config": {
+     "kind": "hidden",
+     "rsi_len": 21,
+     "lb": 5,
+     "rr": 4.0,
+     "buffer_atr": 0.25,
+     "max_hold": 60,
+     "confirm": "macd_cross",
+     "trend": true,
+     "sides": "both",
+     "extreme": false
+    },
+    "n": 6,
+    "avg_r": -1.066,
+    "t": -54.08,
+    "eq_pct_1pct": -6.2
+   },
+   "2020": {
+    "idx": 1558,
+    "config": {
+     "kind": "regular",
+     "rsi_len": 7,
+     "lb": 8,
+     "rr": 4.0,
+     "buffer_atr": 0.25,
+     "max_hold": 60,
+     "confirm": "ema20_reclaim",
+     "trend": true,
+     "sides": "both",
+     "extreme": true
+    },
+    "n": 2,
+    "avg_r": 2.066,
+    "t": 2.2,
+    "eq_pct_1pct": 4.2
+   },
+   "2021": {
+    "idx": 1558,
+    "config": {
+     "kind": "regular",
+     "rsi_len": 7,
+     "lb": 8,
+     "rr": 4.0,
+     "buffer_atr": 0.25,
+     "max_hold": 60,
+     "confirm": "ema20_reclaim",
+     "trend": true,
+     "sides": "both",
+     "extreme": true
+    },
+    "n": 6,
+    "avg_r": 0.192,
+    "t": 0.48,
+    "eq_pct_1pct": 1.1
+   },
+   "2022": {
+    "idx": 2103,
+    "config": {
+     "kind": "regular",
+     "rsi_len": 7,
+     "lb": 8,
+     "rr": 3.0,
+     "buffer_atr": 0.25,
+     "max_hold": 60,
+     "confirm": "none",
+     "trend": true,
+     "sides": "both",
+     "extreme": false
+    },
+    "n": 7,
+    "avg_r": 0.327,
+    "t": 0.58,
+    "eq_pct_1pct": 2.2
+   },
+   "2023": {
+    "idx": 2103,
+    "config": {
+     "kind": "regular",
+     "rsi_len": 7,
+     "lb": 8,
+     "rr": 3.0,
+     "buffer_atr": 0.25,
+     "max_hold": 60,
+     "confirm": "none",
+     "trend": true,
+     "sides": "both",
+     "extreme": false
+    },
+    "n": 6,
+    "avg_r": 0.178,
+    "t": 0.2,
+    "eq_pct_1pct": 1.0
+   },
+   "2024": {
+    "idx": 965,
+    "config": {
+     "kind": "hidden",
+     "rsi_len": 14,
+     "lb": 3,
+     "rr": 4.0,
+     "buffer_atr": 0.25,
+     "max_hold": 60,
+     "confirm": "macd_cross",
+     "trend": true,
+     "sides": "long",
+     "extreme": false
+    },
+    "n": 2,
+    "avg_r": -0.495,
+    "t": -0.89,
+    "eq_pct_1pct": -1.0
+   },
+   "2025": {
+    "idx": 1545,
+    "config": {
+     "kind": "regular",
+     "rsi_len": 14,
+     "lb": 8,
+     "rr": 4.0,
+     "buffer_atr": 0.0,
+     "max_hold": 60,
+     "confirm": "ema_9_21",
+     "trend": true,
+     "sides": "both",
+     "extreme": false
+    },
+    "n": 0
+   },
+   "2026": {
+    "idx": 1545,
+    "config": {
+     "kind": "regular",
+     "rsi_len": 14,
+     "lb": 8,
+     "rr": 4.0,
+     "buffer_atr": 0.0,
+     "max_hold": 60,
+     "confirm": "ema_9_21",
+     "trend": true,
+     "sides": "both",
+     "extreme": false
+    },
+    "n": 1,
+    "avg_r": -0.662,
+    "t": 0.0,
+    "eq_pct_1pct": -0.7
+   }
+  },
+  "pct_random_picks_below": 96.9,
+  "pct_random_long_picks_below": 94.8,
+  "random_pick_median": -0.045,
+  "random_long_pick_median": -0.036
+ },
+ "b_all_configs_detrended_2017_2026": {
+  "n_with_100": 568,
+  "median_avg_r": -0.044,
+  "share_positive_pct": 31.5
+ }
+}

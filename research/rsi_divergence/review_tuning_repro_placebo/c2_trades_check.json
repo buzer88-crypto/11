@@ -1,0 +1,65 @@
+{
+ "check": {
+  "2017": {
+   "pick": 680,
+   "n_regen": 18,
+   "n_cache": 18,
+   "max_abs_diff": 0.0
+  },
+  "2018": {
+   "pick": 441,
+   "n_regen": 5,
+   "n_cache": 5,
+   "max_abs_diff": 0.0
+  },
+  "2019": {
+   "pick": 441,
+   "n_regen": 6,
+   "n_cache": 6,
+   "max_abs_diff": 0.0
+  },
+  "2020": {
+   "pick": 441,
+   "n_regen": 10,
+   "n_cache": 10,
+   "max_abs_diff": 0.0
+  },
+  "2021": {
+   "pick": 441,
+   "n_regen": 8,
+   "n_cache": 8,
+   "max_abs_diff": 0.0
+  },
+  "2022": {
+   "pick": 441,
+   "n_regen": 3,
+   "n_cache": 3,
+   "max_abs_diff": 0.0
+  },
+  "2023": {
+   "pick": 441,
+   "n_regen": 9,
+   "n_cache": 9,
+   "max_abs_diff": 0.0
+  },
+  "2024": {
+   "pick": 194,
+   "n_regen": 5,
+   "n_cache": 5,
+   "max_abs_diff": 0.0
+  },
+  "2025": {
+   "pick": 1566,
+   "n_regen": 2,
+   "n_cache": 2,
+   "max_abs_diff": 0.0
+  },
+  "2026": {
+   "pick": 441,
+   "n_regen": 1,
+   "n_cache": 1,
+   "max_abs_diff": 0.0
+  }
+ },
+ "vec_sim_max_abs_dR": 2.220446049250313e-16
+}

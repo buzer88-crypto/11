@@ -1,0 +1,68 @@
+{
+ "all": {
+  "n_configs": 2400,
+  "random_pick_median_2017_2026": -0.023,
+  "random_pick_p95_2017_2026": 0.295,
+  "pct_below_headline": 99.5,
+  "random_pick_median_2018_2026": -0.043,
+  "random_pick_p95_2018_2026": 0.266,
+  "pct_below_headline_ex2017": 93.7,
+  "configs_2018_2026_median_avg_r": -0.031,
+  "configs_2018_2026_share_positive_pct": 42.0
+ },
+ "long": {
+  "n_configs": 1195,
+  "random_pick_median_2017_2026": -0.006,
+  "random_pick_p95_2017_2026": 0.393,
+  "pct_below_headline": 98.7,
+  "random_pick_median_2018_2026": -0.034,
+  "random_pick_p95_2018_2026": 0.33,
+  "pct_below_headline_ex2017": 90.1,
+  "configs_2018_2026_median_avg_r": -0.021,
+  "configs_2018_2026_share_positive_pct": 45.0
+ },
+ "long_rr4": {
+  "n_configs": 243,
+  "random_pick_median_2017_2026": 0.069,
+  "random_pick_p95_2017_2026": 0.579,
+  "pct_below_headline": 95.1,
+  "random_pick_median_2018_2026": 0.007,
+  "random_pick_p95_2018_2026": 0.479,
+  "pct_below_headline_ex2017": 80.8,
+  "configs_2018_2026_median_avg_r": 0.003,
+  "configs_2018_2026_share_positive_pct": 50.5
+ },
+ "long_rr4_hold60": {
+  "n_configs": 92,
+  "random_pick_median_2017_2026": 0.127,
+  "random_pick_p95_2017_2026": 0.688,
+  "pct_below_headline": 90.6,
+  "random_pick_median_2018_2026": 0.051,
+  "random_pick_p95_2018_2026": 0.576,
+  "pct_below_headline_ex2017": 74.0,
+  "configs_2018_2026_median_avg_r": 0.078,
+  "configs_2018_2026_share_positive_pct": 57.5
+ },
+ "long_rr>=3_hold60": {
+  "n_configs": 167,
+  "random_pick_median_2017_2026": 0.117,
+  "random_pick_p95_2017_2026": 0.663,
+  "pct_below_headline": 92.5,
+  "random_pick_median_2018_2026": 0.044,
+  "random_pick_p95_2018_2026": 0.53,
+  "pct_below_headline_ex2017": 75.6,
+  "configs_2018_2026_median_avg_r": 0.038,
+  "configs_2018_2026_share_positive_pct": 60.9
+ },
+ "long_hidden_rr4_hold60": {
+  "n_configs": 46,
+  "random_pick_median_2017_2026": 0.227,
+  "random_pick_p95_2017_2026": 0.692,
+  "pct_below_headline": 89.9,
+  "random_pick_median_2018_2026": 0.102,
+  "random_pick_p95_2018_2026": 0.521,
+  "pct_below_headline_ex2017": 71.2,
+  "configs_2018_2026_median_avg_r": 0.152,
+  "configs_2018_2026_share_positive_pct": 76.0
+ }
+}

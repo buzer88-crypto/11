@@ -1,0 +1,476 @@
+{
+ "raw": {
+  "all": {
+   "stratified_year_x_dir": {
+    "real": 0.581,
+    "null_mean": 0.248,
+    "null_p05": -0.072,
+    "null_p95": 0.573,
+    "pct_null_below_real": 95.4,
+    "p_one_sided": 0.0461
+   },
+   "cells": {
+    "2017_up": {
+     "n_real": 12,
+     "real_avg_r": 2.697,
+     "placebo_avg_r": 1.429
+    },
+    "2017_down": {
+     "n_real": 6,
+     "real_avg_r": -0.843,
+     "placebo_avg_r": -0.84
+    },
+    "2018_up": {
+     "n_real": 1,
+     "real_avg_r": -1.113,
+     "placebo_avg_r": 0.728
+    },
+    "2018_down": {
+     "n_real": 4,
+     "real_avg_r": -1.036,
+     "placebo_avg_r": -0.825
+    },
+    "2019_up": {
+     "n_real": 3,
+     "real_avg_r": 2.293,
+     "placebo_avg_r": 1.103
+    },
+    "2019_down": {
+     "n_real": 3,
+     "real_avg_r": -0.799,
+     "placebo_avg_r": -0.875
+    },
+    "2020_up": {
+     "n_real": 7,
+     "real_avg_r": 1.653,
+     "placebo_avg_r": 1.277
+    },
+    "2020_down": {
+     "n_real": 3,
+     "real_avg_r": -1.034,
+     "placebo_avg_r": -0.91
+    },
+    "2021_up": {
+     "n_real": 6,
+     "real_avg_r": 0.884,
+     "placebo_avg_r": 0.829
+    },
+    "2021_down": {
+     "n_real": 2,
+     "real_avg_r": -1.043,
+     "placebo_avg_r": -0.847
+    },
+    "2022_up": {
+     "n_real": 1,
+     "real_avg_r": 0.79,
+     "placebo_avg_r": 0.355
+    },
+    "2022_down": {
+     "n_real": 2,
+     "real_avg_r": -1.145,
+     "placebo_avg_r": -0.821
+    },
+    "2023_up": {
+     "n_real": 5,
+     "real_avg_r": 1.421,
+     "placebo_avg_r": 1.049
+    },
+    "2023_down": {
+     "n_real": 4,
+     "real_avg_r": -0.841,
+     "placebo_avg_r": -0.898
+    },
+    "2024_up": {
+     "n_real": 2,
+     "real_avg_r": 1.998,
+     "placebo_avg_r": 1.039
+    },
+    "2024_down": {
+     "n_real": 3,
+     "real_avg_r": -1.041,
+     "placebo_avg_r": -0.931
+    },
+    "2025_down": {
+     "n_real": 2,
+     "real_avg_r": -1.055,
+     "placebo_avg_r": -0.971
+    },
+    "2026_down": {
+     "n_real": 1,
+     "real_avg_r": -0.284,
+     "placebo_avg_r": -0.835
+    }
+   },
+   "excess_over_hold60": {
+    "real": -0.583,
+    "null_mean": -0.554,
+    "null_p05": -1.171,
+    "null_p95": 0.063,
+    "pct_null_below_real": 47.2,
+    "p_one_sided": 0.5276
+   },
+   "real_hold60_avg_r": 1.164,
+   "placebo_hold60_avg_r": 0.886,
+   "timing_placebo": {
+    "real": 0.581,
+    "null_mean": 0.332,
+    "null_p05": -0.027,
+    "null_p95": 0.705,
+    "pct_null_below_real": 86.3,
+    "p_one_sided": 0.1368
+   }
+  },
+  "ex2017": {
+   "stratified_year_x_dir": {
+    "real": 0.237,
+    "null_mean": 0.091,
+    "null_p05": -0.246,
+    "null_p95": 0.449,
+    "pct_null_below_real": 76.4,
+    "p_one_sided": 0.2364
+   },
+   "cells": {
+    "2018_up": {
+     "n_real": 1,
+     "real_avg_r": -1.113,
+     "placebo_avg_r": 0.728
+    },
+    "2018_down": {
+     "n_real": 4,
+     "real_avg_r": -1.036,
+     "placebo_avg_r": -0.825
+    },
+    "2019_up": {
+     "n_real": 3,
+     "real_avg_r": 2.293,
+     "placebo_avg_r": 1.103
+    },
+    "2019_down": {
+     "n_real": 3,
+     "real_avg_r": -0.799,
+     "placebo_avg_r": -0.875
+    },
+    "2020_up": {
+     "n_real": 7,
+     "real_avg_r": 1.653,
+     "placebo_avg_r": 1.277
+    },
+    "2020_down": {
+     "n_real": 3,
+     "real_avg_r": -1.034,
+     "placebo_avg_r": -0.91
+    },
+    "2021_up": {
+     "n_real": 6,
+     "real_avg_r": 0.884,
+     "placebo_avg_r": 0.829
+    },
+    "2021_down": {
+     "n_real": 2,
+     "real_avg_r": -1.043,
+     "placebo_avg_r": -0.847
+    },
+    "2022_up": {
+     "n_real": 1,
+     "real_avg_r": 0.79,
+     "placebo_avg_r": 0.355
+    },
+    "2022_down": {
+     "n_real": 2,
+     "real_avg_r": -1.145,
+     "placebo_avg_r": -0.821
+    },
+    "2023_up": {
+     "n_real": 5,
+     "real_avg_r": 1.421,
+     "placebo_avg_r": 1.049
+    },
+    "2023_down": {
+     "n_real": 4,
+     "real_avg_r": -0.841,
+     "placebo_avg_r": -0.898
+    },
+    "2024_up": {
+     "n_real": 2,
+     "real_avg_r": 1.998,
+     "placebo_avg_r": 1.039
+    },
+    "2024_down": {
+     "n_real": 3,
+     "real_avg_r": -1.041,
+     "placebo_avg_r": -0.931
+    },
+    "2025_down": {
+     "n_real": 2,
+     "real_avg_r": -1.055,
+     "placebo_avg_r": -0.971
+    },
+    "2026_down": {
+     "n_real": 1,
+     "real_avg_r": -0.284,
+     "placebo_avg_r": -0.835
+    }
+   },
+   "excess_over_hold60": {
+    "real": -0.048,
+    "null_mean": -0.251,
+    "null_p05": -0.9,
+    "null_p95": 0.405,
+    "pct_null_below_real": 70.4,
+    "p_one_sided": 0.2963
+   },
+   "real_hold60_avg_r": 0.286,
+   "placebo_hold60_avg_r": 0.421,
+   "timing_placebo": {
+    "real": 0.237,
+    "null_mean": 0.17,
+    "null_p05": -0.211,
+    "null_p95": 0.573,
+    "pct_null_below_real": 62.2,
+    "p_one_sided": 0.3784
+   }
+  }
+ },
+ "detrended": {
+  "all": {
+   "stratified_year_x_dir": {
+    "real": 0.083,
+    "null_mean": -0.027,
+    "null_p05": -0.362,
+    "null_p95": 0.336,
+    "pct_null_below_real": 70.5,
+    "p_one_sided": 0.2955
+   },
+   "cells": {
+    "2017_up": {
+     "n_real": 4,
+     "real_avg_r": 2.691,
+     "placebo_avg_r": 1.226
+    },
+    "2017_down": {
+     "n_real": 2,
+     "real_avg_r": -1.042,
+     "placebo_avg_r": -0.896
+    },
+    "2018_up": {
+     "n_real": 2,
+     "real_avg_r": 1.433,
+     "placebo_avg_r": 0.873
+    },
+    "2018_down": {
+     "n_real": 7,
+     "real_avg_r": -0.984,
+     "placebo_avg_r": -0.865
+    },
+    "2019_up": {
+     "n_real": 3,
+     "real_avg_r": 2.291,
+     "placebo_avg_r": 1.141
+    },
+    "2019_down": {
+     "n_real": 2,
+     "real_avg_r": -1.067,
+     "placebo_avg_r": -0.902
+    },
+    "2020_up": {
+     "n_real": 3,
+     "real_avg_r": 1.172,
+     "placebo_avg_r": 1.213
+    },
+    "2020_down": {
+     "n_real": 2,
+     "real_avg_r": -1.067,
+     "placebo_avg_r": -0.943
+    },
+    "2021_up": {
+     "n_real": 6,
+     "real_avg_r": 0.533,
+     "placebo_avg_r": 0.759
+    },
+    "2021_down": {
+     "n_real": 2,
+     "real_avg_r": -1.047,
+     "placebo_avg_r": -0.852
+    },
+    "2022_up": {
+     "n_real": 6,
+     "real_avg_r": 0.797,
+     "placebo_avg_r": 0.539
+    },
+    "2022_down": {
+     "n_real": 3,
+     "real_avg_r": -1.073,
+     "placebo_avg_r": -0.761
+    },
+    "2023_up": {
+     "n_real": 3,
+     "real_avg_r": 0.554,
+     "placebo_avg_r": 0.97
+    },
+    "2023_down": {
+     "n_real": 6,
+     "real_avg_r": -1.115,
+     "placebo_avg_r": -0.947
+    },
+    "2024_up": {
+     "n_real": 1,
+     "real_avg_r": 3.282,
+     "placebo_avg_r": 0.868
+    },
+    "2024_down": {
+     "n_real": 4,
+     "real_avg_r": -0.816,
+     "placebo_avg_r": -0.923
+    },
+    "2025_down": {
+     "n_real": 2,
+     "real_avg_r": -1.055,
+     "placebo_avg_r": -0.965
+    },
+    "2026_up": {
+     "n_real": 1,
+     "real_avg_r": -1.13,
+     "placebo_avg_r": 0.76
+    },
+    "2026_down": {
+     "n_real": 1,
+     "real_avg_r": -0.246,
+     "placebo_avg_r": -0.865
+    }
+   },
+   "excess_over_hold60": {
+    "real": 0.325,
+    "null_mean": -0.144,
+    "null_p05": -0.92,
+    "null_p95": 0.617,
+    "pct_null_below_real": 84.6,
+    "p_one_sided": 0.1545
+   },
+   "real_hold60_avg_r": -0.243,
+   "placebo_hold60_avg_r": 0.147,
+   "timing_placebo": {
+    "real": 0.083,
+    "null_mean": 0.003,
+    "null_p05": -0.349,
+    "null_p95": 0.378,
+    "pct_null_below_real": 64.9,
+    "p_one_sided": 0.3506
+   }
+  },
+  "ex2017": {
+   "stratified_year_x_dir": {
+    "real": -0.069,
+    "null_mean": -0.087,
+    "null_p05": -0.424,
+    "null_p95": 0.281,
+    "pct_null_below_real": 55.2,
+    "p_one_sided": 0.4482
+   },
+   "cells": {
+    "2018_up": {
+     "n_real": 2,
+     "real_avg_r": 1.433,
+     "placebo_avg_r": 0.873
+    },
+    "2018_down": {
+     "n_real": 7,
+     "real_avg_r": -0.984,
+     "placebo_avg_r": -0.865
+    },
+    "2019_up": {
+     "n_real": 3,
+     "real_avg_r": 2.291,
+     "placebo_avg_r": 1.141
+    },
+    "2019_down": {
+     "n_real": 2,
+     "real_avg_r": -1.067,
+     "placebo_avg_r": -0.902
+    },
+    "2020_up": {
+     "n_real": 3,
+     "real_avg_r": 1.172,
+     "placebo_avg_r": 1.213
+    },
+    "2020_down": {
+     "n_real": 2,
+     "real_avg_r": -1.067,
+     "placebo_avg_r": -0.943
+    },
+    "2021_up": {
+     "n_real": 6,
+     "real_avg_r": 0.533,
+     "placebo_avg_r": 0.759
+    },
+    "2021_down": {
+     "n_real": 2,
+     "real_avg_r": -1.047,
+     "placebo_avg_r": -0.852
+    },
+    "2022_up": {
+     "n_real": 6,
+     "real_avg_r": 0.797,
+     "placebo_avg_r": 0.539
+    },
+    "2022_down": {
+     "n_real": 3,
+     "real_avg_r": -1.073,
+     "placebo_avg_r": -0.761
+    },
+    "2023_up": {
+     "n_real": 3,
+     "real_avg_r": 0.554,
+     "placebo_avg_r": 0.97
+    },
+    "2023_down": {
+     "n_real": 6,
+     "real_avg_r": -1.115,
+     "placebo_avg_r": -0.947
+    },
+    "2024_up": {
+     "n_real": 1,
+     "real_avg_r": 3.282,
+     "placebo_avg_r": 0.868
+    },
+    "2024_down": {
+     "n_real": 4,
+     "real_avg_r": -0.816,
+     "placebo_avg_r": -0.923
+    },
+    "2025_down": {
+     "n_real": 2,
+     "real_avg_r": -1.055,
+     "placebo_avg_r": -0.965
+    },
+    "2026_up": {
+     "n_real": 1,
+     "real_avg_r": -1.13,
+     "placebo_avg_r": 0.76
+    },
+    "2026_down": {
+     "n_real": 1,
+     "real_avg_r": -0.246,
+     "placebo_avg_r": -0.865
+    }
+   },
+   "excess_over_hold60": {
+    "real": 0.41,
+    "null_mean": -0.145,
+    "null_p05": -0.956,
+    "null_p95": 0.653,
+    "pct_null_below_real": 87.4,
+    "p_one_sided": 0.1257
+   },
+   "real_hold60_avg_r": -0.479,
+   "placebo_hold60_avg_r": 0.123,
+   "timing_placebo": {
+    "real": -0.069,
+    "null_mean": -0.023,
+    "null_p05": -0.385,
+    "null_p95": 0.365,
+    "pct_null_below_real": 43.0,
+    "p_one_sided": 0.57
+   }
+  }
+ }
+}

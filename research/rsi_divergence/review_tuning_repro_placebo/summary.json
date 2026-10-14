@@ -1,0 +1,16 @@
+{
+ "lens": "reproduction and timing placebo",
+ "c1_reproduction": {"expanding_avg_r": {"n": 67, "avg_r": 0.581, "t": 2.38, "eq_pct": 45.5, "ex2017": {"n": 49, "avg_r": 0.237, "t": 0.99, "eq_pct": 11.6},
+   "picks": {"2017": 680, "2018-2023": 441, "2024": 194, "2025": 1566, "2026": 441}, "2017_share_of_total_R": 0.70, "2017_pick_train_trades": 25},
+   "other_variants": {"w3_avg_r": 0.361, "w3_avg_r_ex2017": 0.030, "w3_t": 0.004, "exp_t": 0.220, "exp_t_ex2017": 0.183},
+   "regenerated_trades_match_cache": "all 67 R values identical (max diff 0.0)"},
+ "c2_timing_placebo_20000_draws": {"uniform": {"all_pct": 86.8, "all_p": 0.132, "null_mean": 0.333, "ex2017_pct": 61.8, "ex2017_p": 0.382, "ex2017_null_mean": 0.171},
+   "filtered_by_pick_filters": {"all_pct": 80.2, "null_mean": 0.388, "ex2017_pct": 53.9, "ex2017_null_mean": 0.221}},
+ "c3_exposure": {"btc_same_bars_R": {"all": 0.602, "ex2017": 0.229}, "strategy_R": {"all": 0.581, "ex2017": 0.237},
+   "btc_same_bars_unlevered_pct": 434.8, "strategy_unlevered_pct": 329.2, "random_same_length_bars": {"all_pct": 74.2, "null_mean": 0.406, "ex2017_pct": 49.8, "ex2017_null_mean": 0.244},
+   "drift_implied_R": {"all": 0.371, "ex2017": 0.226}, "time_in_market_pct": 10.2},
+ "c4_drift_free": {"picks_on_detrended": {"all": 0.083, "t": 0.35, "n": 60, "ex2017": -0.069, "placebo_pct_all": 64.9, "placebo_pct_ex2017": 43.0},
+   "full_retune_on_detrended_expanding_avg_r": {"n": 39, "avg_r": 0.322, "t": 1.23, "ex2017": 0.141, "ex2017_t": 0.51, "config_441_not_picked": true},
+   "fwd60_split": {"real_share_up": 0.552, "placebo_share_up": 0.597, "share_up_pct": 18.6, "stratified_year_x_dir_pct_all": 95.4, "stratified_pct_ex2017": 76.4}},
+ "c5_matched_random_pick_null_long_rr4_hold60": {"all_pct": 90.4, "ex2017_pct": 73.6}
+}

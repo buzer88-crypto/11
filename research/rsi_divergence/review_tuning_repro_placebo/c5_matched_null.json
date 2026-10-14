@@ -1,0 +1,94 @@
+{
+ "long_only": {
+  "pool_size": 1195,
+  "random_pick_all": {
+   "median": 0.011,
+   "pct_below_real": 98.6
+  },
+  "random_pick_ex2017": {
+   "median": -0.026,
+   "pct_below_real": 88.8
+  },
+  "fixed_config_2017_2026": {
+   "n_configs": 478,
+   "median_avg_r": 0.03,
+   "share_positive": 0.565,
+   "pct_below_real": 99.8
+  },
+  "fixed_config_ex2017": {
+   "n_configs": 464,
+   "median_avg_r": -0.031,
+   "share_positive": 0.427,
+   "pct_below_real": 94.6
+  }
+ },
+ "long_rr4": {
+  "pool_size": 243,
+  "random_pick_all": {
+   "median": 0.075,
+   "pct_below_real": 94.6
+  },
+  "random_pick_ex2017": {
+   "median": 0.009,
+   "pct_below_real": 80.6
+  },
+  "fixed_config_2017_2026": {
+   "n_configs": 96,
+   "median_avg_r": 0.119,
+   "share_positive": 0.688,
+   "pct_below_real": 99.0
+  },
+  "fixed_config_ex2017": {
+   "n_configs": 94,
+   "median_avg_r": -0.004,
+   "share_positive": 0.489,
+   "pct_below_real": 91.5
+  }
+ },
+ "long_rr4_hold60": {
+  "pool_size": 92,
+  "random_pick_all": {
+   "median": 0.124,
+   "pct_below_real": 90.4
+  },
+  "random_pick_ex2017": {
+   "median": 0.043,
+   "pct_below_real": 73.6
+  },
+  "fixed_config_2017_2026": {
+   "n_configs": 34,
+   "median_avg_r": 0.204,
+   "share_positive": 0.676,
+   "pct_below_real": 97.1
+  },
+  "fixed_config_ex2017": {
+   "n_configs": 33,
+   "median_avg_r": 0.029,
+   "share_positive": 0.545,
+   "pct_below_real": 87.9
+  }
+ },
+ "long_rr4_hold60_hidden": {
+  "pool_size": 46,
+  "random_pick_all": {
+   "median": 0.23,
+   "pct_below_real": 89.8
+  },
+  "random_pick_ex2017": {
+   "median": 0.107,
+   "pct_below_real": 71.1
+  },
+  "fixed_config_2017_2026": {
+   "n_configs": 25,
+   "median_avg_r": 0.25,
+   "share_positive": 0.92,
+   "pct_below_real": 96.0
+  },
+  "fixed_config_ex2017": {
+   "n_configs": 24,
+   "median_avg_r": 0.138,
+   "share_positive": 0.75,
+   "pct_below_real": 83.3
+  }
+ }
+}
