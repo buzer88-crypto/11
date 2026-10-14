@@ -6,6 +6,7 @@
 - **Nijedna nije prošla strogi test**: bolja od BTC kupi-i-drži na razdoblju koje nije vidjela, bolja od nasumičnih verzija same sebe, otporna na troškove i stabilna kroz godine i parametre.
 - Najdosljedniji rezultat je **trend filter na samom BTC-u** (drži BTC dok je iznad SMA50, inače gotovina, veličina prema volatilnosti). On pouzdano **smanjuje najveći pad**, ali tri neovisne recenzije pokazuju da to uglavnom dolazi od manje prosječne izloženosti, a ne od tajminga. Prednost tajminga vidi se samo u 2014–2017.
 - Obrazac koji se stalno ponavlja: **što je strategija bolja na 2018–2021, to je češće lošija na 2022–2026.**
+- RSI divergencija na BTC 4H (2013–2026, Bitstamp): sama, s MACD/EMA potvrdom i nakon walk-forward podešavanja 2400 kombinacija nema prednost; šest recenzija to potvrđuje, a "zarada" je long izloženost BTC-u.
 - SMC obrasci (sweep, FVG, order block) na EURUSD 1H: sweep i FVG gube, a order block je na malom uzorku promijenio predznak između razdoblja. Za zaključak trebaju godine unutardnevnih podataka.
 
 ## Rezultati po obitelji
@@ -104,6 +105,50 @@ Kripto unutardnevni podaci nisu bili dostupni, pa su "Smart Money Concepts" test
 - **Order block** je na zadnjem dijelu jako pozitivan (placebo 99–100%), ali je na prvom dijelu u **7 od 9 postavki bio negativan**, a zadnji dio ima samo 9–33 trejda po postavki. Takav preokret između razdoblja na malom uzorku najčešće je slučajnost.
 - **Za pravi test** trebaju godine podataka na 1m–1h, za više tržišta (Binance povijest), s istim protokolom.
 
+## RSI divergencija na BTC 4H (`rsi_divergence/`)
+
+**Podaci:**
+- BTC/USD s Bitstampa, minutni podaci složeni u 1H, 4H i 1D svijeće, 2013-01 → 2026-10-14 (`build_data.py`, izvor [ff137/bitstamp-btcusd-minute-data](https://github.com/ff137/bitstamp-btcusd-minute-data)).
+- Provjera prema Coin Metricsu: korelacija dnevnih povrata **0.99**, medijan razlike cijena 0.12%, 0 nedostajućih 4H svijeća.
+
+**Definicija:** kao TradingViewov "RSI Divergence Indicator" (`pinetest/divergence.py`):
+- signal na svijeći potvrde pivota, ulaz na sljedećem otvaranju;
+- SL iza pivota, cilj u R;
+- trošak 0.1% po strani;
+- razdoblja 2014–17 / 2018–21 (odabir) / 2022-01 → 2026-10.
+
+| Studija | Varijanti | Odabrana na 2018–21 | 2014–17 | 2018–21 | 2022–26 | Medijan mreže 2022–26 |
+|---|---|---|---|---|---|---|
+| Divergencija (`run.py`) | 36 | skrivena, pivoti 3/3, 1:3, EMA200 | +0.22R | +0.20R | **−0.37R** (124) | −0.24R |
+| + MACD/EMA potvrda (`combo.py`) | 168 | skrivena, pivoti 3/3, 1:3, EMA9>21 | +0.25R | +0.37R | **−0.31R** (128) | −0.15R |
+
+- **Osnovna:** svih pet godina 2022–26 je u minusu, a nasumično vrijeme ulaza bilo je bolje u ~90% slučajeva. BTC kupi-i-drži u istom razdoblju: +80%.
+- **EMA potvrde** (EMA50, EMA9>21, EMA20 reclaim) gube manje od same divergencije u 17–24 od 24 usporedbe, ali je medijan i dalje negativan (−0.04 do −0.13R). Utjecaj MACD-a nije dosljedan.
+- **10 od 168 postavki** je u plusu u sva tri razdoblja, a slučajno bi se očekivalo ~15.
+
+**Walk-forward podešavanje (`tune.py`):** 2400 od 76.800 kombinacija parametara. Za svaku godinu 2017–2026 parametri se biraju samo na prošlim godinama.
+
+| Način odabira | 2017–2026 | Bez 2017. |
+|---|---|---|
+| prošireni prozor, prosjek R | +0.58R (67 trejdova, t 2.38) | +0.24R (49) |
+| 3 godine, prosjek R | +0.36R (81) | +0.03R |
+| 3 godine, t-statistika | +0.00R (137) | −0.03R |
+| prošireni prozor, t-statistika | +0.22R (74) | +0.18R |
+
+TradingViewove zadane postavke u istom razdoblju: −0.21R (258 trejdova).
+
+**Šest neovisnih recenzija** (`review_*`):
+- **Osnovna studija je fer.** Implementacija se slaže s TradingViewom (97–100% signala). Minutni podaci mijenjaju ishod 1 od 360 trejdova.
+- **Pravila koja trgovci koriste** (660 pravila: izlazi na RSI 50/70, trailing stop, svijeća potvrde, samo bikovski long) dođu do ~0R, ali jednako se popravljaju i nasumični ulazi s istim upravljanjem. Filtar RSI < 30 rezultat pogoršava.
+- **Podešavanje je srušeno:**
+  - nasumični long ulazi s istim rizikom, ciljem i trajanjem daju u prosjeku +0.33R, pa je stvarnih +0.58R tek na 86. percentilu (bez 2017. na 62.);
+  - držanje BTC-a točno u istim svijećama daje +0.60R, dakle divergencija ne dodaje ništa;
+  - kad se ukloni godišnji trend, ostaje −0.07R (bez 2017.);
+  - +0.58R je 2. od 100 razumnih načina odabira (medijan +0.05R);
+  - bez 2017. bi trebalo ~200 trejdova (oko 30 godina) da se +0.2R razlikuje od nule.
+
+**Zaključak:** RSI divergencija na BTC 4H nema prednost ni sama, ni s MACD/EMA potvrdom, ni nakon walk-forward podešavanja. Ono što izgleda kao zarada je long izloženost BTC-u koji je od 2017. narastao ~85 puta.
+
 ## Ispravci alata nakon prvog kruga
 
 Agenti i recenzenti prijavili su slabosti koje su ispravljene (commit `2eabf84`), nakon čega su sve skripte ponovno pokrenute:
@@ -137,5 +182,7 @@ git clone --depth 1 https://github.com/coinmetrics/data /home/user/coinmetrics/d
 cd /home/user/11
 python -m pytest
 PYTHONPATH=. python3 research/<obitelj>/run.py
+python3 research/rsi_divergence/build_data.py   # BTC 1h/4h/1d iz Bitstamp minuta (klon u /home/user/ff137/...)
+PYTHONPATH=. python3 research/rsi_divergence/{run,combo,tune}.py
 python3 research/check_summary.py    # provjerava svaki broj iz ovog README-a prema results.json
 ```

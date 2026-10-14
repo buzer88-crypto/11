@@ -1,0 +1,54 @@
+{
+ "i_raw_signals_detrended_outcomes": {
+  "all": {
+   "n": 67,
+   "real": 0.295,
+   "null_mean": 0.059,
+   "null_p05": -0.275,
+   "null_p95": 0.41,
+   "pct_null_below": 86.8,
+   "p_one_sided": 0.1316
+  },
+  "ex2017": {
+   "n": 49,
+   "real": -0.027,
+   "null_mean": -0.005,
+   "null_p05": -0.368,
+   "null_p95": 0.388,
+   "pct_null_below": 47.3,
+   "p_one_sided": 0.5269
+  },
+  "per_year_avg_r": {
+   "2017": 1.172,
+   "2018": -0.956,
+   "2019": 0.711,
+   "2020": 0.289,
+   "2021": 0.128,
+   "2022": -0.331,
+   "2023": -0.143,
+   "2024": -0.017,
+   "2025": -1.055,
+   "2026": -0.248
+  }
+ },
+ "ii_detrended_signals": {
+  "all": {
+   "n": 60,
+   "real": 0.083,
+   "null_mean": 0.001,
+   "null_p05": -0.347,
+   "null_p95": 0.375,
+   "pct_null_below": 65.8,
+   "p_one_sided": 0.3421
+  },
+  "ex2017": {
+   "n": 54,
+   "real": -0.069,
+   "null_mean": -0.025,
+   "null_p05": -0.384,
+   "null_p95": 0.362,
+   "pct_null_below": 43.3,
+   "p_one_sided": 0.567
+  }
+ }
+}

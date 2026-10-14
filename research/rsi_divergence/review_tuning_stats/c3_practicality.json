@@ -1,0 +1,200 @@
+{
+ "span": [
+  "2014-01-01 00:00:00",
+  "2026-10-14 00:00:00"
+ ],
+ "span_years": 12.78,
+ "strategy": {
+  "config": {
+   "kind": "hidden",
+   "rsi_len": 21,
+   "lb": 8,
+   "rr": 4.0,
+   "buffer_atr": 0.0,
+   "max_hold": 60,
+   "confirm": "ema_9_21",
+   "trend": false,
+   "sides": "long",
+   "extreme": false
+  },
+  "n_trades": 83,
+  "trades_per_year": 6.5,
+  "trades_per_year_min_max": [
+   1,
+   10
+  ],
+  "win_rate_pct": 51.8,
+  "hit_4R_target_pct": 20.5,
+  "avg_r": 0.799,
+  "median_r": 0.519,
+  "t": 3.65,
+  "avg_r_2014_2016": 1.35,
+  "n_2014_2016": 17,
+  "avg_r_2017_2026": 0.658,
+  "n_2017_2026": 66,
+  "avg_r_2018_2026": 0.456,
+  "n_2018_2026": 56,
+  "longest_losing_streak": 7,
+  "total_return_pct_1pct_risk": 90.6,
+  "cagr_pct_1pct_risk": 5.17,
+  "max_dd_closed_trade_pct": -6.4,
+  "max_dd_mark_to_market_pct": -7.0,
+  "max_dd_mtm_peak_to_trough": [
+   "2017-12-11 16:00:00",
+   "2019-05-07 20:00:00"
+  ],
+  "time_in_market_pct": 10.2,
+  "avg_bars_held": 34.5,
+  "notional_pct_of_equity": {
+   "median": 23.0,
+   "mean": 31.0,
+   "max": 140.0,
+   "share_trades_over_100pct": 0.036
+  },
+  "risk_pct_of_price": {
+   "median": 4.31,
+   "p10": 1.65,
+   "p90": 8.56
+  },
+  "avg_exposure_pct_of_equity_over_span": 2.6,
+  "per_year": {
+   "2014": {
+    "n": 1,
+    "avg_r": 0.519,
+    "return_pct_1pct_risk": 0.5,
+    "btc_pct": -56.1
+   },
+   "2015": {
+    "n": 8,
+    "avg_r": 1.727,
+    "return_pct_1pct_risk": 14.5,
+    "btc_pct": 34.2
+   },
+   "2016": {
+    "n": 8,
+    "avg_r": 1.077,
+    "return_pct_1pct_risk": 8.7,
+    "btc_pct": 124.3
+   },
+   "2017": {
+    "n": 10,
+    "avg_r": 1.788,
+    "return_pct_1pct_risk": 19.1,
+    "btc_pct": 1336.4
+   },
+   "2018": {
+    "n": 5,
+    "avg_r": -1.051,
+    "return_pct_1pct_risk": -5.1,
+    "btc_pct": -73.4
+   },
+   "2019": {
+    "n": 6,
+    "avg_r": 0.747,
+    "return_pct_1pct_risk": 4.4,
+    "btc_pct": 94.1
+   },
+   "2020": {
+    "n": 10,
+    "avg_r": 0.847,
+    "return_pct_1pct_risk": 8.6,
+    "btc_pct": 304.9
+   },
+   "2021": {
+    "n": 8,
+    "avg_r": 0.402,
+    "return_pct_1pct_risk": 3.2,
+    "btc_pct": 59.4
+   },
+   "2022": {
+    "n": 3,
+    "avg_r": -0.5,
+    "return_pct_1pct_risk": -1.5,
+    "btc_pct": -64.2
+   },
+   "2023": {
+    "n": 9,
+    "avg_r": 0.415,
+    "return_pct_1pct_risk": 3.7,
+    "btc_pct": 155.6
+   },
+   "2024": {
+    "n": 8,
+    "avg_r": 0.345,
+    "return_pct_1pct_risk": 2.6,
+    "btc_pct": 121.0
+   },
+   "2025": {
+    "n": 6,
+    "avg_r": 1.648,
+    "return_pct_1pct_risk": 10.2,
+    "btc_pct": -6.3
+   },
+   "2026": {
+    "n": 1,
+    "avg_r": -0.284,
+    "return_pct_1pct_risk": -0.3,
+    "btc_pct": -4.8
+   }
+  },
+  "other_risk_levels": {
+   "2pct": {
+    "total_return_pct": 250.5,
+    "max_dd_closed_trade_pct": -12.4,
+    "median_notional_pct": 46.0
+   },
+   "3pct": {
+    "total_return_pct": 523.0,
+    "max_dd_closed_trade_pct": -18.1,
+    "median_notional_pct": 70.0
+   },
+   "5pct": {
+    "total_return_pct": 1691.4,
+    "max_dd_closed_trade_pct": -28.6,
+    "median_notional_pct": 116.0
+   }
+  },
+  "random_timing_placebo": {
+   "note": "independent trades (overlap allowed), 5000 draws",
+   "placebo_avg_r_2014_2026_mean": 0.269,
+   "P_placebo_ge_real_2014_2026": 0.0046,
+   "placebo_avg_r_2017_2026_mean": 0.236,
+   "P_placebo_ge_real_2017_2026": 0.0268,
+   "placebo_avg_r_2018_2026_mean": 0.15,
+   "P_placebo_ge_real_2018_2026": 0.0918
+  }
+ },
+ "benchmarks": {
+  "btc_buy_hold": {
+   "total_return_pct": 11275.5,
+   "cagr_pct": 44.8,
+   "max_dd_pct": -83.4,
+   "time_in_market_pct": 100.0
+  },
+  "btc_sma50_long_flat": {
+   "total_return_pct": 49473.8,
+   "cagr_pct": 62.5,
+   "max_dd_pct": -61.1,
+   "time_in_market_pct": 54.9,
+   "switches_per_year": 18.4
+  },
+  "btc_static_sleeve_same_dd": {
+   "btc_fraction_pct": 0.1,
+   "total_return_pct": 10.0,
+   "cagr_pct": 0.75,
+   "max_dd_pct": -7.0
+  },
+  "btc_rebalanced_fraction_same_dd": {
+   "btc_fraction_pct": 5.0,
+   "total_return_pct": 45.8,
+   "cagr_pct": 3.0,
+   "max_dd_pct": -7.0
+  },
+  "sma50_fraction_same_dd": {
+   "fraction_pct": 8.5,
+   "total_return_pct": 89.2,
+   "cagr_pct": 5.12,
+   "max_dd_pct": -7.0
+  }
+ }
+}

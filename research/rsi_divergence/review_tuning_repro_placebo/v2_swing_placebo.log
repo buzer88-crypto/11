@@ -1,0 +1,96 @@
+{
+ "all": {
+  "real": 0.581,
+  "null_mean": 0.375,
+  "pct_null_below": 81.7,
+  "p_one_sided": 0.1831
+ },
+ "ex2017": {
+  "real": 0.237,
+  "null_mean": 0.17,
+  "pct_null_below": 60.2,
+  "p_one_sided": 0.3985
+ },
+ "per_year": {
+  "2017": {
+   "n": 18,
+   "real": 1.517,
+   "null_mean": 0.935,
+   "pct_null_below": 87.5,
+   "placebo_median_risk_pct": 0.0581,
+   "real_median_risk_pct": 0.0432
+  },
+  "2018": {
+   "n": 5,
+   "real": -1.051,
+   "null_mean": -0.219,
+   "pct_null_below": 6.4,
+   "placebo_median_risk_pct": 0.0529,
+   "real_median_risk_pct": 0.0384
+  },
+  "2019": {
+   "n": 6,
+   "real": 0.747,
+   "null_mean": 0.22,
+   "pct_null_below": 76.0,
+   "placebo_median_risk_pct": 0.0536,
+   "real_median_risk_pct": 0.0508
+  },
+  "2020": {
+   "n": 10,
+   "real": 0.847,
+   "null_mean": 0.57,
+   "pct_null_below": 64.8,
+   "placebo_median_risk_pct": 0.0497,
+   "real_median_risk_pct": 0.0439
+  },
+  "2021": {
+   "n": 8,
+   "real": 0.402,
+   "null_mean": 0.036,
+   "pct_null_below": 76.5,
+   "placebo_median_risk_pct": 0.0733,
+   "real_median_risk_pct": 0.0793
+  },
+  "2022": {
+   "n": 3,
+   "real": -0.5,
+   "null_mean": -0.314,
+   "pct_null_below": 50.7,
+   "placebo_median_risk_pct": 0.0513,
+   "real_median_risk_pct": 0.0327
+  },
+  "2023": {
+   "n": 9,
+   "real": 0.415,
+   "null_mean": 0.355,
+   "pct_null_below": 56.0,
+   "placebo_median_risk_pct": 0.0329,
+   "real_median_risk_pct": 0.0288
+  },
+  "2024": {
+   "n": 5,
+   "real": 0.175,
+   "null_mean": 0.122,
+   "pct_null_below": 56.3,
+   "placebo_median_risk_pct": 0.0433,
+   "real_median_risk_pct": 0.0455
+  },
+  "2025": {
+   "n": 2,
+   "real": -1.055,
+   "null_mean": -0.244,
+   "pct_null_below": 29.2,
+   "placebo_median_risk_pct": 0.034,
+   "real_median_risk_pct": 0.0363
+  },
+  "2026": {
+   "n": 1,
+   "real": -0.284,
+   "null_mean": -0.275,
+   "pct_null_below": 57.3,
+   "placebo_median_risk_pct": 0.0346,
+   "real_median_risk_pct": 0.0462
+  }
+ }
+}

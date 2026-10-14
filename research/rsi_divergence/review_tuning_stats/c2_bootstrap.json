@@ -1,0 +1,143 @@
+{
+ "B": 20000,
+ "per_year": {
+  "2017": {
+   "n": 18,
+   "avg_r": 1.517,
+   "total_r": 27.3
+  },
+  "2018": {
+   "n": 5,
+   "avg_r": -1.051,
+   "total_r": -5.26
+  },
+  "2019": {
+   "n": 6,
+   "avg_r": 0.747,
+   "total_r": 4.48
+  },
+  "2020": {
+   "n": 10,
+   "avg_r": 0.847,
+   "total_r": 8.47
+  },
+  "2021": {
+   "n": 8,
+   "avg_r": 0.402,
+   "total_r": 3.22
+  },
+  "2022": {
+   "n": 3,
+   "avg_r": -0.5,
+   "total_r": -1.5
+  },
+  "2023": {
+   "n": 9,
+   "avg_r": 0.415,
+   "total_r": 3.74
+  },
+  "2024": {
+   "n": 5,
+   "avg_r": 0.175,
+   "total_r": 0.87
+  },
+  "2025": {
+   "n": 2,
+   "avg_r": -1.055,
+   "total_r": -2.11
+  },
+  "2026": {
+   "n": 1,
+   "avg_r": -0.284,
+   "total_r": -0.28
+  }
+ },
+ "all_2017_2026": {
+  "n": 67,
+  "n_years": 10,
+  "avg_r": 0.581,
+  "t": 2.38,
+  "median_r": -0.284,
+  "win_rate_pct": 44.8,
+  "by_trade": {
+   "ci90": [
+    0.187,
+    0.984
+   ],
+   "ci80": [
+    0.271,
+    0.889
+   ],
+   "P_boot_mean_le_0": 0.0076
+  },
+  "by_year": {
+   "ci90": [
+    -0.008,
+    0.982
+   ],
+   "ci80": [
+    0.114,
+    0.902
+   ],
+   "P_boot_mean_le_0": 0.0525
+  },
+  "equal_weight_years": {
+   "avg_of_year_avgs": 0.121,
+   "n_years_positive": 6,
+   "ci90": [
+    -0.293,
+    0.53
+   ]
+  }
+ },
+ "ex2017": {
+  "n": 49,
+  "n_years": 9,
+  "avg_r": 0.237,
+  "t": 0.99,
+  "median_r": -1.018,
+  "win_rate_pct": 42.9,
+  "by_trade": {
+   "ci90": [
+    -0.145,
+    0.635
+   ],
+   "ci80": [
+    -0.066,
+    0.54
+   ],
+   "P_boot_mean_le_0": 0.1624
+  },
+  "by_year": {
+   "ci90": [
+    -0.189,
+    0.523
+   ],
+   "ci80": [
+    -0.077,
+    0.471
+   ],
+   "P_boot_mean_le_0": 0.1606
+  },
+  "equal_weight_years": {
+   "avg_of_year_avgs": -0.034,
+   "n_years_positive": 5,
+   "ci90": [
+    -0.41,
+    0.332
+   ]
+  }
+ },
+ "concentration": {
+  "total_r": 38.93,
+  "share_of_total_from_2017": 0.701,
+  "total_r_without_best_5_trades": 19.12,
+  "avg_r_without_best_5_trades": 0.308,
+  "n_trades_hit_4R_target": 15
+ },
+ "power": {
+  "ex2017_sd_r": 1.686,
+  "trades_needed_for_t2_at_ex2017_mean": 202,
+  "years_needed_at_~6_trades_per_year": 33.6
+ }
+}

@@ -1,0 +1,30 @@
+{
+ "all": {
+  "pool": 2400,
+  "all_median": -0.026,
+  "all_pct_below_real": 99.5,
+  "ex2017_median": -0.046,
+  "ex2017_pct_below_real": 93.3
+ },
+ "long": {
+  "pool": 1195,
+  "all_median": 0.013,
+  "all_pct_below_real": 99.0,
+  "ex2017_median": -0.024,
+  "ex2017_pct_below_real": 89.5
+ },
+ "long_rr4_hold60": {
+  "pool": 92,
+  "all_median": 0.127,
+  "all_pct_below_real": 90.7,
+  "ex2017_median": 0.054,
+  "ex2017_pct_below_real": 73.1
+ },
+ "long_rr4_hold60_hidden": {
+  "pool": 46,
+  "all_median": 0.225,
+  "all_pct_below_real": 90.4,
+  "ex2017_median": 0.1,
+  "ex2017_pct_below_real": 70.9
+ }
+}

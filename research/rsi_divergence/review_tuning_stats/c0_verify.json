@@ -1,0 +1,10 @@
+{
+ "n_configs": 2400,
+ "n_trades": 203884,
+ "configs_with_R_by_year_mismatch_vs_cache": 0,
+ "overlapping_trades_within_config": 0,
+ "fill_not_signal_plus_1": 0,
+ "sim_max_abs_R_diff": 1.2295719997723609e-13,
+ "sim_n_R_diff_gt_1e-6": 0,
+ "sim_n_exit_bar_diff": 0
+}

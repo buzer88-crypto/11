@@ -46,7 +46,7 @@ def grid_rows(d):
 
 
 def num(s):
-    return float(s.replace("−", "-").replace("+", "").replace("%", "").replace("*", "").strip())
+    return float(s.replace("−", "-").replace("+", "").replace("%", "").replace("*", "").replace("R", "").strip())
 
 
 # 1) Total number of variants.
@@ -136,6 +136,77 @@ check("SMC order block min test trades", 9, min(ns), 0)
 check("SMC order block max test trades", 33, max(ns), 0)
 check("SMC order block placebo (same bars)", 100, ob["placebo_same_bars_random_side_pct_below_real"], 0.6)
 check("SMC order block placebo (random bars)", 99, ob["placebo_random_bars_pct_below_real"], 1.4)
+
+# 7) RSI divergence section.
+div = HERE / "rsi_divergence"
+base = json.loads((div / "results.json").read_text())
+combo = json.loads((div / "combo_results.json").read_text())
+tune = json.loads((div / "tune_results.json").read_text())
+sec = README.split("## RSI divergencija")[1].split("## Ispravci")[0]
+check("divergence data corr", 0.99, base["data_check"]["daily_return_corr_vs_coinmetrics"], 0.006)
+check("divergence median close diff %", 0.12, base["data_check"]["median_abs_close_diff_pct"], 0.006)
+check("divergence missing 4h bars", 0, base["data_check"]["missing_4h_bars"], 0)
+drows = re.findall(r"^\| [^|]+\(`(run|combo)\.py`\) \| (\d+) \| [^|]+ \| ([^|]+) \| ([^|]+) \| \*\*([^*]+)\*\* \((\d+)\) \| ([^|]+) \|$", sec, re.M)
+assert len(drows) == 2, drows
+for name, n, pre, train, test, ntest, med in drows:
+    d = base if name == "run" else combo
+    c = d["chosen"]["cost_0.1"]
+    check(f"{name} configs", int(n), len(d["grid_rows"]), 0)
+    check(f"{name} pre avg R", num(pre), c["pre"]["avg_r"], 0.006)
+    check(f"{name} train avg R", num(train), c["train"]["avg_r"], 0.006)
+    check(f"{name} test avg R", num(test), c["test"]["avg_r"], 0.006)
+    check(f"{name} test n", int(ntest), c["test"]["n"], 0)
+    check(f"{name} grid median test", num(med), d["grid_summary"]["test"]["median_avg_r"], 0.006)
+check("base: all test years negative", 5, sum(v["avg_r"] < 0 for v in base["chosen"]["test_years"].values()), 0)
+check("base: random timing better (~90%)", 90, 100 - base["chosen"]["placebo_test"]["random_bars_same_side"]["pct_below_real"], 1.0)
+check("BTC buy-hold 2022-26 %", 80, base["btc_buy_hold_test_pct"], 0.6)
+rules = combo["by_confirmation"]
+ema = [rules[k] for k in ("ema50", "ema_9_21", "ema20_reclaim")]
+better = [int(e[p]["better_than_plain"].split("/")[0]) for e in ema for p in ("pre", "train", "test")]
+check("EMA confirmations better pairs min", 17, min(better), 0)
+check("EMA confirmations better pairs max", 24, max(better), 0)
+check("EMA confirmations median test min", -0.13, min(e["test"]["median_avg_r"] for e in ema), 0.006)
+check("EMA confirmations median test max", -0.04, max(e["test"]["median_avg_r"] for e in ema), 0.006)
+check("combo positive in all three", 10, len(combo["positive_in_all_three_periods"]), 0)
+gs = combo["grid_summary"]
+check("combo expected by chance", 15, combo["n_configs"] * np.prod([gs[k]["n_positive"] / combo["n_configs"] for k in ("pre", "train", "test")]), 0.6)
+check("tune space", 76800, tune["space_size"], 0)
+check("tune sampled", 2400, tune["n_sampled"], 0)
+wrows = re.findall(r"^\| (prošireni prozor|3 godine), (prosjek R|t-statistika) \| ([+−\d.]+)R \((\d+)[^)]*\) \| ([+−\d.]+)R", sec, re.M)
+keymap = {("prošireni prozor", "prosjek R"): "window_expanding_avg_r", ("3 godine", "prosjek R"): "window_3_avg_r",
+          ("3 godine", "t-statistika"): "window_3_t", ("prošireni prozor", "t-statistika"): "window_expanding_t"}
+assert len(wrows) == 4, wrows
+for win, metric, allr, n, ex in wrows:
+    w = tune["walk_forward"][keymap[(win, metric)]]
+    check(f"tune {win}/{metric} OOS avg R", num(allr), w["oos"]["avg_r"], 0.006)
+    check(f"tune {win}/{metric} OOS n", int(n), w["oos"]["n"], 0)
+    check(f"tune {win}/{metric} without 2017", num(ex), w["excluding_2017"]["avg_r"], 0.006)
+check("tune headline t", 2.38, tune["walk_forward"]["window_expanding_avg_r"]["oos"]["t"], 0.006)
+check("tune headline n without 2017", 49, tune["walk_forward"]["window_expanding_avg_r"]["excluding_2017"]["n"], 0)
+check("TradingView default avg R", -0.21, tune["tradingview_default"]["oos"]["avg_r"], 0.006)
+check("TradingView default n", 258, tune["tradingview_default"]["oos"]["n"], 0)
+# Numbers quoted from the reviews.
+sig = json.loads((div / "review_implementation" / "check1_signals.json").read_text())["signals"]
+jac = [v["jaccard_pct"] for k, v in sig.items() if k.startswith("lb5")]
+check("review: TradingView signal agreement min %", 97, min(jac), 0.6)
+check("review: TradingView signal agreement max %", 100, max(jac), 0.6)
+top = json.loads((div / "review_intrabar" / "results_intrabar.json").read_text())["top_configs"]["hidden_lb3_rr3_trend"]
+check("review: 1-minute replay trades", 360, sum(top[p]["4h"]["n"] for p in ("pre", "train", "test")), 0)
+check("review: 1-minute replay changed outcomes", 1, sum(len(top[p]["changed"]) for p in ("pre", "train", "test")), 0)
+rp = json.loads((div / "review_tuning_repro_placebo" / "v2_placebo.json").read_text())
+check("review: random long entries avg R", 0.33, rp["P1_uniform"]["pooled_all"]["null_mean"], 0.006)
+check("review: real vs random entries percentile", 86, rp["P1_uniform"]["pooled_all"]["pct_null_below"], 0.6)
+check("review: percentile without 2017", 62, rp["P1_uniform"]["pooled_ex2017"]["pct_null_below"], 0.6)
+check("review: BTC held on the same bars avg R", 0.60, rp["exposure"]["btc_same_bars_R"]["all"], 0.006)
+dt = json.loads((div / "review_tuning_repro_placebo" / "v2_detrend.json").read_text())
+check("review: detrended picks without 2017", -0.07, dt["a_picks_on_detrended"]["ex2017"]["avg_r"], 0.006)
+sel = json.loads((div / "review_tuning_robustness" / "check1_selection.json").read_text())["summary"]
+check("review: headline rank among 100 variants", 2, sel["rank_of_headline_among_variants"], 0)
+check("review: variants checked", 100, sel["n_variants"], 0)
+check("review: median of variants", 0.05, sel["variants_avg_r"]["median"], 0.006)
+power = json.loads((div / "review_tuning_stats" / "c2_bootstrap.json").read_text())["power"]
+check("review: trades needed for t=2 without 2017 (~200)", 200, power["trades_needed_for_t2_at_ex2017_mean"], 3)
+check("review: years needed (~30)", 30, power["years_needed_at_~6_trades_per_year"], 4)
 
 print(f"\n{len(failures)} mismatches" + (": " + ", ".join(failures) if failures else ""))
 sys.exit(1 if failures else 0)

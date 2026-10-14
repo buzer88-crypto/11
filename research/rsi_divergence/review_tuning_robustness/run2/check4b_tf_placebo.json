@@ -1,0 +1,65 @@
+[
+ {
+  "tf": "4h",
+  "variant": "reference",
+  "n_real_2018_2026": 56,
+  "real_avg_r_2018_2026": 0.456,
+  "placebo_median": 0.131,
+  "placebo_p95": 0.542,
+  "pct_placebo_below_real": 92.0
+ },
+ {
+  "tf": "1h",
+  "variant": "keep_bars",
+  "n_real_2018_2026": 196,
+  "real_avg_r_2018_2026": -0.027,
+  "placebo_median": -0.115,
+  "placebo_p95": 0.076,
+  "pct_placebo_below_real": 78.5
+ },
+ {
+  "tf": "1h",
+  "variant": "same_hours",
+  "n_real_2018_2026": 178,
+  "real_avg_r_2018_2026": 0.131,
+  "placebo_median": -0.095,
+  "placebo_p95": 0.199,
+  "pct_placebo_below_real": 91.5
+ },
+ {
+  "tf": "1h",
+  "variant": "scaled_time",
+  "n_real_2018_2026": 70,
+  "real_avg_r_2018_2026": 0.153,
+  "placebo_median": 0.128,
+  "placebo_p95": 0.433,
+  "pct_placebo_below_real": 55.5
+ },
+ {
+  "tf": "1d",
+  "variant": "keep_bars",
+  "n_real_2018_2026": 12,
+  "real_avg_r_2018_2026": 1.04,
+  "placebo_median": 0.484,
+  "placebo_p95": 1.42,
+  "pct_placebo_below_real": 83.5
+ },
+ {
+  "tf": "1d",
+  "variant": "same_hours",
+  "n_real_2018_2026": 18,
+  "real_avg_r_2018_2026": 0.251,
+  "placebo_median": 0.084,
+  "placebo_p95": 0.418,
+  "pct_placebo_below_real": 79.0
+ },
+ {
+  "tf": "1d",
+  "variant": "scaled_time",
+  "n_real_2018_2026": 50,
+  "real_avg_r_2018_2026": -0.175,
+  "placebo_median": 0.096,
+  "placebo_p95": 0.487,
+  "pct_placebo_below_real": 11.5
+ }
+]
