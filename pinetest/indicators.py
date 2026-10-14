@@ -24,6 +24,15 @@ def ema(src: pd.Series, length: int) -> pd.Series:
     return _seeded_ma(src, length, 2 / (length + 1))
 
 
+def macd(src: pd.Series, fast: int = 12, slow: int = 26, signal: int = 9):
+    """ta.macd: (macd line, signal line, histogram). The signal EMA starts once the MACD line
+    exists, as in Pine (its SMA seed uses the first `signal` MACD values)."""
+    line = ema(src, fast) - ema(src, slow)
+    valid = line.dropna()
+    sig = ema(valid, signal).reindex(src.index) if len(valid) else line * np.nan
+    return line, sig, line - sig
+
+
 def rma(src: pd.Series, length: int) -> pd.Series:
     """ta.rma (Wilder's smoothing): alpha = 1 / length, SMA-seeded."""
     return _seeded_ma(src, length, 1 / length)

@@ -119,3 +119,34 @@ def test_regular_bullish_divergence_signals_after_confirmation():
     # No lookahead: the same setups appear when later bars are cut off.
     cut = rsi_divergences(df.iloc[: s.bar + 2], kind="regular", left=3, right=3, sides=(1,))
     assert [x.bar for x in cut] == [x.bar for x in setups if x.bar <= s.bar]
+
+
+def test_macd_matches_its_definition():
+    from pinetest.indicators import ema, macd
+    rng = np.random.default_rng(1)
+    c = pd.Series(100 + np.cumsum(rng.normal(0, 1, 120)))
+    line, sig, hist = macd(c)
+    assert np.allclose(line.dropna(), (ema(c, 12) - ema(c, 26)).dropna())
+    assert line.first_valid_index() == 25 and sig.first_valid_index() == 25 + 8
+    assert np.allclose(hist.dropna(), (line - sig).dropna())
+
+
+def test_confirmations_filter_or_delay_the_base_setups():
+    from pinetest.divergence import CONFIRM, rsi_divergences
+    rng = np.random.default_rng(7)
+    c = 100 * np.exp(np.cumsum(rng.normal(0, 0.02, 1500)))
+    o = np.r_[c[0], c[:-1]]
+    df = pd.DataFrame({"open": o, "high": np.maximum(o, c) * 1.005, "low": np.minimum(o, c) * 0.995, "close": c})
+    for kind in ("regular", "hidden"):
+        base = {(s.bar, s.side, s.stop) for s in rsi_divergences(df, kind=kind)}
+        assert base
+        for rule in CONFIRM[1:-1]:
+            sub = {(s.bar, s.side, s.stop) for s in rsi_divergences(df, kind=kind, confirm=rule)}
+            assert sub <= base, rule
+        delayed = rsi_divergences(df, kind=kind, confirm="ema20_reclaim", wait=6)
+        stops = {(side, stop): bar for bar, side, stop in base}
+        for s in delayed:
+            b = stops[(s.side, s.stop)]
+            assert b <= s.bar <= b + 6
+    with pytest.raises(ValueError):
+        rsi_divergences(df, confirm="magic")
