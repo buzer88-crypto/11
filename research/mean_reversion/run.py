@@ -297,14 +297,26 @@ def make_placebo(kind, weights, members, px, rng):
     raise ValueError(kind)
 
 
-def run_placebo(kind, weights, members, px, n, rng, real):
-    tr, te = [], []
+# permute_* placebos re-draw the coins on EVERY non-NaN row. Strategies here emit a row every day
+# while holding for H days, so a permuted placebo trades far more than the real strategy and pays
+# more costs, which flatters the real percentile. For these kinds we also compare gross of costs
+# (cost_bps=0 for both real and placebo) and the official percentile takes the minimum.
+GROSS_KINDS = {"permute_assets", "permute_alts_keep_btc"}
+
+
+def run_placebo(kind, weights, members, px, n, rng, real, real_gross=None):
+    tr, te, te0, tr0 = [], [], [], []
     for _ in range(n):
-        m = backtest(make_placebo(kind, weights, members, px, rng), px).split_metrics()
+        pw = make_placebo(kind, weights, members, px, rng)
+        m = backtest(pw, px).split_metrics()
         tr.append(m["train"].get("sharpe", 0.0))
         te.append(m["test"].get("sharpe", 0.0))
+        if kind in GROSS_KINDS:
+            m0 = backtest(pw, px, cost_bps=0).split_metrics()
+            tr0.append(m0["train"].get("sharpe", 0.0))
+            te0.append(m0["test"].get("sharpe", 0.0))
     tr, te = np.array(tr), np.array(te)
-    return {
+    out = {
         "n": n,
         "test_percentile": float(100 * np.mean(te < real["test"]["sharpe"])),
         "train_percentile": float(100 * np.mean(tr < real["train"]["sharpe"])),
@@ -312,6 +324,25 @@ def run_placebo(kind, weights, members, px, n, rng, real):
         "test_placebo_p95": float(np.quantile(te, 0.95)),
         "train_placebo_median": float(np.median(tr)),
     }
+    if kind in GROSS_KINDS:
+        te0, tr0 = np.array(te0), np.array(tr0)
+        out.update({
+            "gross_test_percentile": float(100 * np.mean(te0 < real_gross["test"]["sharpe"])),
+            "gross_train_percentile": float(100 * np.mean(tr0 < real_gross["train"]["sharpe"])),
+            "gross_test_placebo_median": float(np.median(te0)),
+            "gross_test_placebo_p95": float(np.quantile(te0, 0.95)),
+            "real_gross_test_sharpe": float(real_gross["test"]["sharpe"]),
+        })
+    return out
+
+
+def official_percentile(plc, kinds):
+    vals = []
+    for k in kinds:
+        vals.append(plc[k]["test_percentile"])
+        if "gross_test_percentile" in plc[k]:
+            vals.append(plc[k]["gross_test_percentile"])
+    return float(min(vals))
 
 
 # ---- helpers ------------------------------------------------------------------------------------
@@ -439,12 +470,15 @@ def deep_dive(c, panel, members, px, rng, n_placebo, grid_df, btc_rets):
     out = {"config": c, "train": clean(sm["train"]), "test": clean(sm["test"]),
            "full": clean(sm["full"])}
     t0 = time.time()
+    sm_gross = backtest(w, px, cost_bps=0).split_metrics()
     plc = {}
     for kind in PLACEBOS[c["hyp"]] + SUPPLEMENTARY_PLACEBOS.get(c["hyp"], ()):
-        plc[kind] = run_placebo(kind, w, mem, px, n_placebo, rng, sm)
+        plc[kind] = run_placebo(kind, w, mem, px, n_placebo, rng, sm, sm_gross)
     out["placebos"] = plc
-    official = min(plc[k]["test_percentile"] for k in PLACEBOS[c["hyp"]])
+    official = official_percentile(plc, PLACEBOS[c["hyp"]])
     out["placebo_official_kinds"] = list(PLACEBOS[c["hyp"]])
+    out["placebo_official_rule"] = ("min over the listed kinds of the net TEST percentile and, "
+                                    "for permute kinds, the gross (cost 0 vs cost 0) percentile")
     out["placebo_test_percentile_official_min"] = official
     out["placebo_seconds"] = round(time.time() - t0, 1)
     out["test_sharpe_cost0"] = float(backtest(w, px, cost_bps=0).metrics(*TEST)["sharpe"])
