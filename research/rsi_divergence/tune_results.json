@@ -1,0 +1,1038 @@
+{
+ "space": {
+  "kind": [
+   "regular",
+   "hidden"
+  ],
+  "rsi_len": [
+   7,
+   9,
+   14,
+   21
+  ],
+  "lb": [
+   2,
+   3,
+   5,
+   8
+  ],
+  "rr": [
+   1.0,
+   1.5,
+   2.0,
+   3.0,
+   4.0
+  ],
+  "buffer_atr": [
+   0.0,
+   0.25,
+   0.5,
+   1.0
+  ],
+  "max_hold": [
+   12,
+   30,
+   60
+  ],
+  "confirm": [
+   "none",
+   "macd_cross",
+   "ema50",
+   "ema_9_21",
+   "ema20_reclaim"
+  ],
+  "trend": [
+   false,
+   true
+  ],
+  "sides": [
+   "both",
+   "long"
+  ],
+  "extreme": [
+   false,
+   true
+  ]
+ },
+ "space_size": 76800,
+ "n_sampled": 2400,
+ "cost_pct_per_side": 0.1,
+ "test_years": [
+  2017,
+  2018,
+  2019,
+  2020,
+  2021,
+  2022,
+  2023,
+  2024,
+  2025,
+  2026
+ ],
+ "btc_buy_hold_pct_by_year": {
+  "2017": 1341.6,
+  "2018": -72.6,
+  "2019": 94.7,
+  "2020": 302.8,
+  "2021": 57.5,
+  "2022": -64.7,
+  "2023": 155.8,
+  "2024": 120.6,
+  "2025": -6.6,
+  "2026": -5.0
+ },
+ "btc_buy_hold_pct_total": 8548.3,
+ "walk_forward": {
+  "window_3_avg_r": {
+   "oos": {
+    "n": 81,
+    "avg_r": 0.361,
+    "total_r": 29.2,
+    "t": 1.59
+   },
+   "oos_equity_pct_1pct_risk": 31.7,
+   "per_year": {
+    "2017": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 14,
+      "lb": 5,
+      "rr": 4.0,
+      "buffer_atr": 0.25,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": true,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 18,
+     "avg_r": 1.517,
+     "total_r": 27.3,
+     "t": 2.57,
+     "equity_pct_1pct_risk": 30.4
+    },
+    "2018": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 5,
+     "avg_r": -1.051,
+     "total_r": -5.26,
+     "t": -62.37,
+     "equity_pct_1pct_risk": -5.1
+    },
+    "2019": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 6,
+     "avg_r": 0.747,
+     "total_r": 4.48,
+     "t": 0.73,
+     "equity_pct_1pct_risk": 4.4
+    },
+    "2020": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 3,
+      "rr": 4.0,
+      "buffer_atr": 0.25,
+      "max_hold": 60,
+      "confirm": "ema50",
+      "trend": true,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 19,
+     "avg_r": 0.426,
+     "total_r": 8.1,
+     "t": 0.82,
+     "equity_pct_1pct_risk": 7.9
+    },
+    "2021": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 7,
+      "lb": 2,
+      "rr": 4.0,
+      "buffer_atr": 0.5,
+      "max_hold": 60,
+      "confirm": "macd_cross",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 11,
+     "avg_r": -0.248,
+     "total_r": -2.73,
+     "t": -0.51,
+     "equity_pct_1pct_risk": -2.8
+    },
+    "2022": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 7,
+      "lb": 2,
+      "rr": 4.0,
+      "buffer_atr": 0.5,
+      "max_hold": 60,
+      "confirm": "macd_cross",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 7,
+     "avg_r": -0.898,
+     "total_r": -6.28,
+     "t": -4.25,
+     "equity_pct_1pct_risk": -6.1
+    },
+    "2023": {
+     "config": {
+      "kind": "regular",
+      "rsi_len": 7,
+      "lb": 3,
+      "rr": 3.0,
+      "buffer_atr": 0.0,
+      "max_hold": 30,
+      "confirm": "ema20_reclaim",
+      "trend": true,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 4,
+     "avg_r": -0.771,
+     "total_r": -3.08,
+     "t": -3.97,
+     "equity_pct_1pct_risk": -3.1
+    },
+    "2024": {
+     "config": {
+      "kind": "regular",
+      "rsi_len": 9,
+      "lb": 5,
+      "rr": 4.0,
+      "buffer_atr": 0.5,
+      "max_hold": 60,
+      "confirm": "ema20_reclaim",
+      "trend": true,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 3,
+     "avg_r": 0.615,
+     "total_r": 1.84,
+     "t": 0.6,
+     "equity_pct_1pct_risk": 1.8
+    },
+    "2025": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 2,
+      "rr": 4.0,
+      "buffer_atr": 1.0,
+      "max_hold": 60,
+      "confirm": "none",
+      "trend": true,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 5,
+     "avg_r": 0.154,
+     "total_r": 0.77,
+     "t": 0.22,
+     "equity_pct_1pct_risk": 0.7
+    },
+    "2026": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 2,
+      "rr": 4.0,
+      "buffer_atr": 1.0,
+      "max_hold": 60,
+      "confirm": "none",
+      "trend": true,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 3,
+     "avg_r": 1.354,
+     "total_r": 4.06,
+     "t": 4.72,
+     "equity_pct_1pct_risk": 4.1
+    }
+   },
+   "random_pick_median_avg_r": -0.023,
+   "pct_random_picks_below": 97.0,
+   "random_long_pick_median_avg_r": 0.006,
+   "pct_random_long_picks_below": 94.1,
+   "excluding_2017": {
+    "n": 63,
+    "avg_r": 0.03,
+    "total_r": 1.9,
+    "t": 0.13,
+    "equity_pct_1pct_risk": 0.9
+   },
+   "picked_long_only_share": 0.8,
+   "n_distinct_configs_picked": 7
+  },
+  "window_3_t": {
+   "oos": {
+    "n": 137,
+    "avg_r": 0.004,
+    "total_r": 0.54,
+    "t": 0.03
+   },
+   "oos_equity_pct_1pct_risk": -0.7,
+   "per_year": {
+    "2017": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 9,
+      "lb": 5,
+      "rr": 1.5,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "macd_cross",
+      "trend": false,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 7,
+     "avg_r": 0.567,
+     "total_r": 3.97,
+     "t": 1.32,
+     "equity_pct_1pct_risk": 4.0
+    },
+    "2018": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 14,
+      "lb": 8,
+      "rr": 2.0,
+      "buffer_atr": 0.5,
+      "max_hold": 60,
+      "confirm": "macd_cross",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 3,
+     "avg_r": -1.032,
+     "total_r": -3.1,
+     "t": -118.36,
+     "equity_pct_1pct_risk": -3.1
+    },
+    "2019": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 9,
+      "lb": 3,
+      "rr": 3.0,
+      "buffer_atr": 1.0,
+      "max_hold": 30,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 17,
+     "avg_r": 0.328,
+     "total_r": 5.57,
+     "t": 0.74,
+     "equity_pct_1pct_risk": 5.4
+    },
+    "2020": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 14,
+      "lb": 5,
+      "rr": 1.5,
+      "buffer_atr": 0.0,
+      "max_hold": 30,
+      "confirm": "ema20_reclaim",
+      "trend": true,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 29,
+     "avg_r": 0.014,
+     "total_r": 0.4,
+     "t": 0.06,
+     "equity_pct_1pct_risk": 0.2
+    },
+    "2021": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 14,
+      "lb": 2,
+      "rr": 3.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": true,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 20,
+     "avg_r": 0.202,
+     "total_r": 4.04,
+     "t": 0.47,
+     "equity_pct_1pct_risk": 3.8
+    },
+    "2022": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 3,
+      "rr": 2.0,
+      "buffer_atr": 1.0,
+      "max_hold": 60,
+      "confirm": "ema50",
+      "trend": false,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 25,
+     "avg_r": -0.217,
+     "total_r": -5.42,
+     "t": -0.86,
+     "equity_pct_1pct_risk": -5.5
+    },
+    "2023": {
+     "config": {
+      "kind": "regular",
+      "rsi_len": 7,
+      "lb": 3,
+      "rr": 1.5,
+      "buffer_atr": 0.5,
+      "max_hold": 30,
+      "confirm": "none",
+      "trend": true,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 9,
+     "avg_r": -0.646,
+     "total_r": -5.82,
+     "t": -2.31,
+     "equity_pct_1pct_risk": -5.7
+    },
+    "2024": {
+     "config": {
+      "kind": "regular",
+      "rsi_len": 7,
+      "lb": 8,
+      "rr": 1.5,
+      "buffer_atr": 0.25,
+      "max_hold": 60,
+      "confirm": "ema50",
+      "trend": false,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 5,
+     "avg_r": 0.847,
+     "total_r": 4.24,
+     "t": 1.76,
+     "equity_pct_1pct_risk": 4.3
+    },
+    "2025": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 1.0,
+      "buffer_atr": 1.0,
+      "max_hold": 60,
+      "confirm": "ema50",
+      "trend": false,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 14,
+     "avg_r": -0.028,
+     "total_r": -0.39,
+     "t": -0.11,
+     "equity_pct_1pct_risk": -0.4
+    },
+    "2026": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 2,
+      "rr": 1.5,
+      "buffer_atr": 1.0,
+      "max_hold": 30,
+      "confirm": "ema50",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 8,
+     "avg_r": -0.369,
+     "total_r": -2.95,
+     "t": -0.91,
+     "equity_pct_1pct_risk": -3.0
+    }
+   },
+   "random_pick_median_avg_r": -0.016,
+   "pct_random_picks_below": 55.1,
+   "random_long_pick_median_avg_r": 0.002,
+   "pct_random_long_picks_below": 50.5,
+   "excluding_2017": {
+    "n": 130,
+    "avg_r": -0.026,
+    "total_r": -3.43,
+    "t": -0.22,
+    "equity_pct_1pct_risk": -4.6
+   },
+   "picked_long_only_share": 0.3,
+   "n_distinct_configs_picked": 10
+  },
+  "window_expanding_avg_r": {
+   "oos": {
+    "n": 67,
+    "avg_r": 0.581,
+    "total_r": 38.93,
+    "t": 2.38
+   },
+   "oos_equity_pct_1pct_risk": 45.5,
+   "per_year": {
+    "2017": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 14,
+      "lb": 5,
+      "rr": 4.0,
+      "buffer_atr": 0.25,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": true,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 18,
+     "avg_r": 1.517,
+     "total_r": 27.3,
+     "t": 2.57,
+     "equity_pct_1pct_risk": 30.4
+    },
+    "2018": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 5,
+     "avg_r": -1.051,
+     "total_r": -5.26,
+     "t": -62.37,
+     "equity_pct_1pct_risk": -5.1
+    },
+    "2019": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 6,
+     "avg_r": 0.747,
+     "total_r": 4.48,
+     "t": 0.73,
+     "equity_pct_1pct_risk": 4.4
+    },
+    "2020": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 10,
+     "avg_r": 0.847,
+     "total_r": 8.47,
+     "t": 1.37,
+     "equity_pct_1pct_risk": 8.6
+    },
+    "2021": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 8,
+     "avg_r": 0.402,
+     "total_r": 3.22,
+     "t": 1.12,
+     "equity_pct_1pct_risk": 3.2
+    },
+    "2022": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 3,
+     "avg_r": -0.5,
+     "total_r": -1.5,
+     "t": -0.77,
+     "equity_pct_1pct_risk": -1.5
+    },
+    "2023": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 9,
+     "avg_r": 0.415,
+     "total_r": 3.74,
+     "t": 0.7,
+     "equity_pct_1pct_risk": 3.7
+    },
+    "2024": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 5,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "macd_cross",
+      "trend": true,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 5,
+     "avg_r": 0.175,
+     "total_r": 0.87,
+     "t": 0.19,
+     "equity_pct_1pct_risk": 0.8
+    },
+    "2025": {
+     "config": {
+      "kind": "regular",
+      "rsi_len": 9,
+      "lb": 5,
+      "rr": 4.0,
+      "buffer_atr": 0.25,
+      "max_hold": 60,
+      "confirm": "macd_cross",
+      "trend": true,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 2,
+     "avg_r": -1.055,
+     "total_r": -2.11,
+     "t": -150.7,
+     "equity_pct_1pct_risk": -2.1
+    },
+    "2026": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 1,
+     "avg_r": -0.284,
+     "total_r": -0.28,
+     "t": 0.0,
+     "equity_pct_1pct_risk": -0.3
+    }
+   },
+   "random_pick_median_avg_r": -0.031,
+   "pct_random_picks_below": 99.7,
+   "random_long_pick_median_avg_r": 0.002,
+   "pct_random_long_picks_below": 98.6,
+   "excluding_2017": {
+    "n": 49,
+    "avg_r": 0.237,
+    "total_r": 11.63,
+    "t": 0.99,
+    "equity_pct_1pct_risk": 11.6
+   },
+   "picked_long_only_share": 1.0,
+   "n_distinct_configs_picked": 4
+  },
+  "window_expanding_t": {
+   "oos": {
+    "n": 74,
+    "avg_r": 0.22,
+    "total_r": 16.25,
+    "t": 1.23
+   },
+   "oos_equity_pct_1pct_risk": 16.6,
+   "per_year": {
+    "2017": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 9,
+      "lb": 5,
+      "rr": 1.5,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "macd_cross",
+      "trend": false,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 7,
+     "avg_r": 0.567,
+     "total_r": 3.97,
+     "t": 1.32,
+     "equity_pct_1pct_risk": 4.0
+    },
+    "2018": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 9,
+      "lb": 5,
+      "rr": 1.5,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "macd_cross",
+      "trend": false,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 6,
+     "avg_r": 0.167,
+     "total_r": 1.0,
+     "t": 0.28,
+     "equity_pct_1pct_risk": 1.0
+    },
+    "2019": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 9,
+      "lb": 5,
+      "rr": 1.5,
+      "buffer_atr": 0.5,
+      "max_hold": 30,
+      "confirm": "macd_cross",
+      "trend": false,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 8,
+     "avg_r": -0.287,
+     "total_r": -2.3,
+     "t": -0.71,
+     "equity_pct_1pct_risk": -2.3
+    },
+    "2020": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 9,
+      "lb": 5,
+      "rr": 1.5,
+      "buffer_atr": 0.5,
+      "max_hold": 30,
+      "confirm": "macd_cross",
+      "trend": false,
+      "sides": "both",
+      "extreme": false
+     },
+     "n": 12,
+     "avg_r": 0.058,
+     "total_r": 0.69,
+     "t": 0.17,
+     "equity_pct_1pct_risk": 0.6
+    },
+    "2021": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 9,
+      "lb": 3,
+      "rr": 3.0,
+      "buffer_atr": 1.0,
+      "max_hold": 30,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 14,
+     "avg_r": -0.123,
+     "total_r": -1.72,
+     "t": -0.31,
+     "equity_pct_1pct_risk": -1.8
+    },
+    "2022": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 3,
+     "avg_r": -0.5,
+     "total_r": -1.5,
+     "t": -0.77,
+     "equity_pct_1pct_risk": -1.5
+    },
+    "2023": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 9,
+     "avg_r": 0.415,
+     "total_r": 3.74,
+     "t": 0.7,
+     "equity_pct_1pct_risk": 3.7
+    },
+    "2024": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 8,
+     "avg_r": 0.345,
+     "total_r": 2.76,
+     "t": 0.47,
+     "equity_pct_1pct_risk": 2.6
+    },
+    "2025": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 6,
+     "avg_r": 1.648,
+     "total_r": 9.89,
+     "t": 1.79,
+     "equity_pct_1pct_risk": 10.2
+    },
+    "2026": {
+     "config": {
+      "kind": "hidden",
+      "rsi_len": 21,
+      "lb": 8,
+      "rr": 4.0,
+      "buffer_atr": 0.0,
+      "max_hold": 60,
+      "confirm": "ema_9_21",
+      "trend": false,
+      "sides": "long",
+      "extreme": false
+     },
+     "n": 1,
+     "avg_r": -0.284,
+     "total_r": -0.28,
+     "t": 0.0,
+     "equity_pct_1pct_risk": -0.3
+    }
+   },
+   "random_pick_median_avg_r": -0.025,
+   "pct_random_picks_below": 91.0,
+   "random_long_pick_median_avg_r": -0.001,
+   "pct_random_long_picks_below": 83.0,
+   "excluding_2017": {
+    "n": 67,
+    "avg_r": 0.183,
+    "total_r": 12.28,
+    "t": 0.95,
+    "equity_pct_1pct_risk": 12.1
+   },
+   "picked_long_only_share": 0.6,
+   "n_distinct_configs_picked": 4
+  }
+ },
+ "tradingview_default": {
+  "oos": {
+   "n": 258,
+   "avg_r": -0.21,
+   "total_r": -54.22,
+   "t": -2.61
+  },
+  "equity_pct_1pct_risk": -43.1,
+  "per_year": {
+   "2017": {
+    "n": 23,
+    "avg_r": -0.409,
+    "total_r": -9.4,
+    "t": -1.54
+   },
+   "2018": {
+    "n": 30,
+    "avg_r": 0.25,
+    "total_r": 7.51,
+    "t": 1.0
+   },
+   "2019": {
+    "n": 25,
+    "avg_r": -0.107,
+    "total_r": -2.68,
+    "t": -0.42
+   },
+   "2020": {
+    "n": 22,
+    "avg_r": -0.734,
+    "total_r": -16.14,
+    "t": -3.17
+   },
+   "2021": {
+    "n": 27,
+    "avg_r": -0.057,
+    "total_r": -1.53,
+    "t": -0.22
+   },
+   "2022": {
+    "n": 22,
+    "avg_r": -0.46,
+    "total_r": -10.12,
+    "t": -2.0
+   },
+   "2023": {
+    "n": 28,
+    "avg_r": -0.161,
+    "total_r": -4.5,
+    "t": -0.64
+   },
+   "2024": {
+    "n": 32,
+    "avg_r": -0.226,
+    "total_r": -7.25,
+    "t": -0.96
+   },
+   "2025": {
+    "n": 27,
+    "avg_r": -0.196,
+    "total_r": -5.3,
+    "t": -0.72
+   },
+   "2026": {
+    "n": 22,
+    "avg_r": -0.219,
+    "total_r": -4.82,
+    "t": -0.8
+   }
+  }
+ },
+ "hindsight_best": {
+  "config": {
+   "kind": "hidden",
+   "rsi_len": 9,
+   "lb": 3,
+   "rr": 4.0,
+   "buffer_atr": 0.0,
+   "max_hold": 60,
+   "confirm": "ema50",
+   "trend": false,
+   "sides": "long",
+   "extreme": false
+  },
+  "n": 167,
+  "avg_r": 0.377,
+  "total_r": 62.97,
+  "t": 2.16,
+  "equity_pct_1pct_risk": 79.9
+ },
+ "all_configs_2017_2026": {
+  "n_with_100_trades": 603,
+  "median_avg_r": -0.012,
+  "share_positive_pct": 45.1
+ }
+}

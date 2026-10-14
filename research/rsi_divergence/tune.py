@@ -10,8 +10,8 @@ Baselines: the same walk-forward picking a random configuration each year (2000 
 TradingView default (regular, RSI 14, pivots 5/5) traded every year, and BTC buy and hold.
 Costs 0.1% per side; results in R and as equity risking 1% per trade.
 """
-import itertools
 import json
+import pickle
 import sys
 from concurrent.futures import ProcessPoolExecutor
 from pathlib import Path
@@ -26,6 +26,7 @@ from pinetest.divergence import rsi_divergences  # noqa: E402
 from pinetest.events import simulate  # noqa: E402
 
 OUT = Path(__file__).parent
+CACHE = Path(__file__).resolve().parents[2] / "data" / "tune_cache.pkl"   # configs + R per year
 SPACE = {
     "kind": ["regular", "hidden"], "rsi_len": [7, 9, 14, 21], "lb": [2, 3, 5, 8],
     "rr": [1.0, 1.5, 2.0, 3.0, 4.0], "buffer_atr": [0.0, 0.25, 0.5, 1.0], "max_hold": [12, 30, 60],
@@ -111,6 +112,7 @@ def main():
     configs = sample_space()
     with ProcessPoolExecutor(3, initializer=_init) as ex:
         results = list(ex.map(evaluate, configs, chunksize=20))
+    CACHE.write_bytes(pickle.dumps({"configs": configs, "results": results, "years": YEARS}))
 
     df = load("4h")
     close = df["close"]
@@ -131,19 +133,28 @@ def main():
                 rs = results[i][y] if i is not None else []
                 per_year[str(y)] = {"config": configs[i] if i is not None else None, **stats(rs),
                                     "equity_pct_1pct_risk": equity_pct(rs)}
-            # Null: pick a random configuration with enough trades in the window each year.
-            null = []
-            for _ in range(2000):
-                rs_all = []
-                for y in TEST_YEARS:
-                    i = int(rng.integers(len(results)))
-                    rs_all.extend(results[i][y])
-                null.append(np.mean(rs_all) if rs_all else 0.0)
+            # Nulls: pick a random configuration each year, from all configurations and from the
+            # long-only ones (the picks are long-only, and BTC rose ~85x over 2017-2026).
+            long_idx = [i for i, c in enumerate(configs) if c["sides"] == "long"]
+            nulls = {}
+            for name, pool in (("all", list(range(len(results)))), ("long_only", long_idx)):
+                null = []
+                for _ in range(2000):
+                    rs_all = []
+                    for y in TEST_YEARS:
+                        rs_all.extend(results[pool[int(rng.integers(len(pool)))]][y])
+                    null.append(np.mean(rs_all) if rs_all else 0.0)
+                nulls[name] = np.array(null)
             real = stats(oos)
+            ex2017 = [r for y in TEST_YEARS if y != 2017 for r in (results[picks[y]][y] if picks[y] is not None else [])]
             out["walk_forward"][f"window_{window or 'expanding'}_{metric}"] = {
                 "oos": real, "oos_equity_pct_1pct_risk": equity_pct(oos), "per_year": per_year,
-                "random_pick_median_avg_r": round(float(np.median(null)), 3),
-                "pct_random_picks_below": round(100 * float(np.mean(np.array(null) < real["avg_r"])), 1),
+                "random_pick_median_avg_r": round(float(np.median(nulls["all"])), 3),
+                "pct_random_picks_below": round(100 * float(np.mean(nulls["all"] < real["avg_r"])), 1),
+                "random_long_pick_median_avg_r": round(float(np.median(nulls["long_only"])), 3),
+                "pct_random_long_picks_below": round(100 * float(np.mean(nulls["long_only"] < real["avg_r"])), 1),
+                "excluding_2017": {**stats(ex2017), "equity_pct_1pct_risk": equity_pct(ex2017)},
+                "picked_long_only_share": round(float(np.mean([configs[picks[y]]["sides"] == "long" for y in TEST_YEARS if picks[y] is not None])), 2),
                 "n_distinct_configs_picked": len({picks[y] for y in TEST_YEARS}),
             }
 
