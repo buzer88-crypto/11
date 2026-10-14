@@ -12,6 +12,7 @@
 pip install -r requirements.txt
 python -m pytest              # testovi
 python -m pinetest ema_cross podaci.csv   # backtest na CSV-u (stupci open, high, low, close)
+python -m pinetest.optimize podaci.csv     # grid search EMA duljina, 70% train / 30% test
 ```
 
 CSV možeš izvesti iz TradingViewa (*Export chart data*). Rezultati bi trebali biti blizu onih u
@@ -19,3 +20,9 @@ Strategy Testeru, ali ne identični (TV računa količinu po closeu signalne svi
 
 Pine kod se ne može izvršiti izvan TradingViewa, pa `tests/test_pine_sync.py` provjerava da su
 zadani parametri u `.pine` datotekama isti kao u Python verziji.
+
+## Optimizacija
+
+`pinetest.optimize` bira parametre samo na prvih 70% podataka i zatim ih mjeri na zadnjih 30%.
+Gledaj `test_pct`, ne `train_pct`: ako najbolji parametri na train dijelu nisu dobri i na testu
+(ili je korelacija train/test blizu 0), to je prenaučenost, a ne pravi edge.
