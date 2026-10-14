@@ -1,0 +1,235 @@
+{
+ "pre": {
+  "strategy": {
+   "sharpe": 1.826,
+   "total_pct": 824.715,
+   "max_dd_pct": -28.352,
+   "vol_pct": 33.522
+  },
+  "const_exposure_matched": {
+   "weight": 0.412,
+   "sharpe": 1.364,
+   "total_pct": 333.408,
+   "max_dd_pct": -45.375,
+   "vol_pct": 30.22
+  },
+  "const_vol_matched": {
+   "weight": 0.457,
+   "sharpe": 1.364,
+   "total_pct": 397.951,
+   "max_dd_pct": -49.186,
+   "vol_pct": 33.521
+  }
+ },
+ "train": {
+  "strategy": {
+   "sharpe": 1.458,
+   "total_pct": 396.825,
+   "max_dd_pct": -36.397,
+   "vol_pct": 30.642
+  },
+  "const_exposure_matched": {
+   "weight": 0.308,
+   "sharpe": 0.773,
+   "total_pct": 85.806,
+   "max_dd_pct": -36.363,
+   "vol_pct": 23.645
+  },
+  "const_vol_matched": {
+   "weight": 0.399,
+   "sharpe": 0.774,
+   "total_pct": 113.997,
+   "max_dd_pct": -44.928,
+   "vol_pct": 30.631
+  }
+ },
+ "test": {
+  "strategy": {
+   "sharpe": 0.735,
+   "total_pct": 108.502,
+   "max_dd_pct": -39.972,
+   "vol_pct": 28.054
+  },
+  "const_exposure_matched": {
+   "weight": 0.43,
+   "sharpe": 0.472,
+   "total_pct": 41.955,
+   "max_dd_pct": -35.635,
+   "vol_pct": 22.05
+  },
+  "const_vol_matched": {
+   "weight": 0.547,
+   "sharpe": 0.473,
+   "total_pct": 50.766,
+   "max_dd_pct": -43.396,
+   "vol_pct": 28.049
+  }
+ },
+ "yearly_vs_const43": {
+  "2014": {
+   "strategy_pct": -10.0,
+   "const43_pct": -25.2,
+   "strategy_sharpe": -0.66,
+   "const43_sharpe": -0.77,
+   "mean_exposure": 0.16
+  },
+  "2015": {
+   "strategy_pct": 58.2,
+   "const43_pct": 20.2,
+   "strategy_sharpe": 1.58,
+   "const43_sharpe": 0.77,
+   "mean_exposure": 0.39
+  },
+  "2016": {
+   "strategy_pct": 126.4,
+   "const43_pct": 46.1,
+   "strategy_sharpe": 2.51,
+   "const43_sharpe": 1.88,
+   "mean_exposure": 0.66
+  },
+  "2017": {
+   "strategy_pct": 186.7,
+   "const43_pct": 249.0,
+   "strategy_sharpe": 2.58,
+   "const43_sharpe": 3.31,
+   "mean_exposure": 0.43
+  },
+  "2018": {
+   "strategy_pct": -26.7,
+   "const43_pct": -38.6,
+   "strategy_sharpe": -1.76,
+   "const43_sharpe": -1.19,
+   "mean_exposure": 0.12
+  },
+  "2019": {
+   "strategy_pct": 63.0,
+   "const43_pct": 41.0,
+   "strategy_sharpe": 1.58,
+   "const43_sharpe": 1.28,
+   "mean_exposure": 0.32
+  },
+  "2020": {
+   "strategy_pct": 159.8,
+   "const43_pct": 96.2,
+   "strategy_sharpe": 2.81,
+   "const43_sharpe": 2.29,
+   "mean_exposure": 0.47
+  },
+  "2021": {
+   "strategy_pct": 60.0,
+   "const43_pct": 31.6,
+   "strategy_sharpe": 1.68,
+   "const43_sharpe": 0.98,
+   "mean_exposure": 0.31
+  },
+  "2022": {
+   "strategy_pct": -39.8,
+   "const43_pct": -32.6,
+   "strategy_sharpe": -2.37,
+   "const43_sharpe": -1.3,
+   "mean_exposure": 0.14
+  },
+  "2023": {
+   "strategy_pct": 107.6,
+   "const43_pct": 53.0,
+   "strategy_sharpe": 2.4,
+   "const43_sharpe": 2.36,
+   "mean_exposure": 0.61
+  },
+  "2024": {
+   "strategy_pct": 63.9,
+   "const43_pct": 45.3,
+   "strategy_sharpe": 1.57,
+   "const43_sharpe": 1.75,
+   "mean_exposure": 0.54
+  },
+  "2025": {
+   "strategy_pct": 2.0,
+   "const43_pct": -0.8,
+   "strategy_sharpe": 0.2,
+   "const43_sharpe": 0.05,
+   "mean_exposure": 0.43
+  },
+  "2026": {
+   "strategy_pct": -0.3,
+   "const43_pct": -4.5,
+   "strategy_sharpe": 0.09,
+   "const43_sharpe": -0.44,
+   "mean_exposure": 0.46
+  }
+ },
+ "years_strategy_return_beats_const43": 11.0,
+ "2022_spells": [
+  {
+   "start": "2022-02-09",
+   "days": 4,
+   "pnl_pct": -3.13,
+   "avg_w": 0.67
+  },
+  {
+   "start": "2022-02-15",
+   "days": 4,
+   "pnl_pct": -4.31,
+   "avg_w": 0.71
+  },
+  {
+   "start": "2022-03-02",
+   "days": 4,
+   "pnl_pct": -6.54,
+   "avg_w": 0.57
+  },
+  {
+   "start": "2022-03-11",
+   "days": 1,
+   "pnl_pct": -0.95,
+   "avg_w": 0.54
+  },
+  {
+   "start": "2022-03-18",
+   "days": 26,
+   "pnl_pct": -1.44,
+   "avg_w": 0.55
+  },
+  {
+   "start": "2022-07-21",
+   "days": 4,
+   "pnl_pct": -1.43,
+   "avg_w": 0.51
+  },
+  {
+   "start": "2022-07-26",
+   "days": 1,
+   "pnl_pct": -0.84,
+   "avg_w": 0.52
+  },
+  {
+   "start": "2022-07-29",
+   "days": 23,
+   "pnl_pct": -8.38,
+   "avg_w": 0.57
+  },
+  {
+   "start": "2022-09-14",
+   "days": 1,
+   "pnl_pct": 0.2,
+   "avg_w": 0.68
+  },
+  {
+   "start": "2022-10-06",
+   "days": 1,
+   "pnl_pct": -0.76,
+   "avg_w": 0.68
+  },
+  {
+   "start": "2022-10-27",
+   "days": 14,
+   "pnl_pct": -19.48,
+   "avg_w": 0.79
+  }
+ ],
+ "2022_n_spells": 11,
+ "2022_n_losing_spells": 10.0,
+ "2022_mean_exposure": 0.139,
+ "test_logret_from_spells_le5d": -0.51,
+ "test_logret_from_spells_gt5d": 1.28
+}

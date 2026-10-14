@@ -1,0 +1,112 @@
+{
+ "bh": {
+  "train": {
+   "sharpe": 0.782,
+   "max_dd": -81.4
+  },
+  "test": {
+   "sharpe": 0.48,
+   "max_dd": -66.9
+  },
+  "pre": {
+   "sharpe": 1.371,
+   "max_dd": -80.8
+  },
+  "test_ex22": {
+   "sharpe": 1.197,
+   "max_dd": -49.1
+  }
+ },
+ "train_beats_bh_share": 0.793,
+ "train_sharpe_quantiles": [
+  0.662,
+  0.799,
+  1.131,
+  1.315,
+  1.41
+ ],
+ "test_beats_bh_share": 0.832,
+ "test_sharpe_quantiles": [
+  0.439,
+  0.62,
+  0.774,
+  0.818,
+  0.857
+ ],
+ "pre_beats_bh_share": 1.0,
+ "pre_sharpe_quantiles": [
+  1.606,
+  1.647,
+  1.701,
+  1.777,
+  1.831
+ ],
+ "test_ex22_beats_bh_share": 0.098,
+ "test_ex22_sharpe_quantiles": [
+  0.83,
+  0.897,
+  1.002,
+  1.112,
+  1.19
+ ],
+ "chosen_train_rank": "12/184",
+ "chosen_test_rank": "114/184",
+ "chosen_pre_rank": "23/184",
+ "local_nbhd_test_sh": {
+  "min": 0.366,
+  "median": 0.596,
+  "max": 0.771
+ },
+ "train_best_big_grid": {
+  "n": 40.0,
+  "vt": 40,
+  "train_sh": 1.679,
+  "test_sh": 0.737,
+  "pre_sh": 1.729,
+  "test_dd": -44.255,
+  "pre_dd": -31.023
+ },
+ "test_sh_by_n_median_over_vt": {
+  "30": 0.341,
+  "40": 0.611,
+  "50": 0.639,
+  "60": 0.507,
+  "70": 0.479,
+  "80": 0.377,
+  "90": 0.341,
+  "100": 0.811,
+  "110": 0.808,
+  "120": 0.863,
+  "130": 0.838,
+  "140": 0.779,
+  "150": 0.8,
+  "160": 0.896,
+  "170": 0.856,
+  "180": 0.813,
+  "190": 0.774,
+  "200": 0.724,
+  "210": 0.709,
+  "220": 0.761,
+  "230": 0.79,
+  "240": 0.812,
+  "250": 0.848
+ },
+ "test_sh_by_vt_median_over_n": {
+  "20": 0.762,
+  "30": 0.767,
+  "40": 0.775,
+  "50": 0.785,
+  "60": 0.791,
+  "70": 0.78,
+  "80": 0.779,
+  "full": 0.779
+ },
+ "test_dd_better_than_bh_share": 1.0,
+ "test_dd_better_than_static_same_exposure_share": 0.696,
+ "test_sharpe_better_than_static_same_exposure_share": 0.826,
+ "test_median_dd_minus_static_dd": 6.39,
+ "pre_dd_better_than_bh_share": 1.0,
+ "pre_dd_better_than_static_same_exposure_share": 0.978,
+ "pre_sharpe_better_than_static_same_exposure_share": 1.0,
+ "pre_median_dd_minus_static_dd": 9.59
+}

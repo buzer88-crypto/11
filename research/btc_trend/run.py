@@ -36,8 +36,10 @@ def weights(asset, signal, n, sizing, rebal):
     return rebalance_on(w, "W-SUN") if rebal == "W" else w
 
 
-def m(res, period):
-    x = res.metrics(*period)
+def m(res, period, asset="btc"):
+    # Start at the asset's listing so pre-listing zero-return days do not dilute the metrics.
+    start = max(pd.Timestamp(period[0]), px[asset].first_valid_index())
+    x = res.metrics(start, period[1])
     return {k: round(x[k], 3) for k in ("sharpe", "cagr_pct", "total_pct", "max_dd_pct", "exposure")}
 
 
@@ -52,7 +54,7 @@ for combo in itertools.product(*GRID.values()):
     row = dict(cfg)
     for a in ("btc", "eth"):
         r = backtest(weights(a, **cfg), px)
-        row[a] = {"train": m(r, TRAIN), "test": m(r, TEST), "pre": m(r, PRE)}
+        row[a] = {"train": m(r, TRAIN, a), "test": m(r, TEST, a), "pre": m(r, PRE, a)}
     rows.append(row)
 
 best = max(rows, key=lambda r: r["btc"]["train"]["sharpe"])
@@ -80,7 +82,7 @@ summary = {
         "test_sharpe_lag0": round(backtest(w, px, lag=0).metrics(*TEST)["sharpe"], 3),
         "test_sharpe_lag2": round(backtest(w, px, lag=2).metrics(*TEST)["sharpe"], 3),
     },
-    "benchmarks": {a: {"train": m(b, TRAIN), "test": m(b, TEST), "pre": m(b, PRE),
+    "benchmarks": {a: {"train": m(b, TRAIN, a), "test": m(b, TEST, a), "pre": m(b, PRE, a),
                        "test_years": yearly(b, range(2022, 2027))} for a, b in bench.items()},
     "grid_btc": {
         "median_sharpe": {p: float(np.median([r["btc"][p]["sharpe"] for r in rows])) for p in ("train", "test", "pre")},
@@ -91,7 +93,7 @@ summary = {
     },
     "grid_eth": {
         "median_sharpe": {p: float(np.median([r["eth"][p]["sharpe"] for r in rows])) for p in ("train", "test", "pre")},
-        "n_beat_bh_sharpe": {p: int(sum(r["eth"][p]["sharpe"] > bench["eth"].metrics(*P)["sharpe"] for r in rows))
+        "n_beat_bh_sharpe": {p: int(sum(r["eth"][p]["sharpe"] > m(bench["eth"], P, "eth")["sharpe"] for r in rows))
                              for p, P in (("train", TRAIN), ("test", TEST), ("pre", PRE))},
     },
     "rows": rows,
